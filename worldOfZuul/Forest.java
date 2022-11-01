@@ -35,6 +35,7 @@ public class Forest {
         if (amount <= this.treePop) {
             this.treePop = this.treePop - amount;
         } else {
+            amount = this.treePop;
             this.treePop = 0;
         }
 
@@ -49,7 +50,7 @@ public class Forest {
         if (this.saplingAge != 0) {
             return "Wait " + this.saplingAge + " turns before planting new saplings";
         }
-        this.saplingPop = (amount + this.treePop > maxPop) ? maxPop - this.treePop : amount;
+        this.saplingPop = (amount + this.treePop >= maxPop) ? maxPop - this.treePop : amount;
         this.saplingAge = maxAge;
         return "Planted " + this.saplingPop + " saplings.";
     }
@@ -59,6 +60,7 @@ public class Forest {
         this.saplingAge -= 1;
         if (this.saplingAge == 0) {
             this.treePop += this.saplingPop;
+            this.saplingPop = 0;
             this.saplingAge = 0;
         }
     }
