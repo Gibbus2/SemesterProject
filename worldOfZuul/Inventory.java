@@ -15,14 +15,14 @@ public class Inventory {
         moneyScore += woodInput;
     }
 
-    public void calcEco(Room[][] rooms) {
+    public double calcEco(Room[][] rooms) {
         double ecoScoreInterim = 0;
         for (int i = 0; i < rooms.length; i++) {
             for (int j = 0; j < rooms.length; j++) {
                 ecoScoreInterim += rooms[i][j].getForest().getTreePop();
             }
         }
-        ecoScore = ecoScoreInterim / 1600;
+        return ecoScore = ecoScoreInterim / 1600;
         //Will give a number from 0.0 to 1.0
     }
 
