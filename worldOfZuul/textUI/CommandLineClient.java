@@ -100,8 +100,6 @@ public class CommandLineClient {
                 break;
             
             case CHOP:
-                // String msg = command.getCommandValue();
-                // System.out.println();
                 System.out.println(game.getCurrentRoom().getForest().chop(Integer.parseInt(command.getCommandValue())));
                 break;
             case SHOWSCORE:
@@ -113,28 +111,6 @@ public class CommandLineClient {
             default:
                 break;
         }
-
-
-        // if (commandWord == Commands.HELP) {
-        //     System.out.println("You are lost. You are alone. You wander");
-        //     System.out.println("around at the university.");
-        //     System.out.println();
-        //     System.out.println("Your command words are:");
-        //     printHelp();
-        // } else if (commandWord == Commands.GO) {
-        //     if (game.goRoom(command)) {
-        //         System.out.println(game.getRoomDescription());
-        //     } else {
-        //         System.out.println("Can't walk in that direction.");
-        //     }
-        // } else if (commandWord == Commands.QUIT) {
-        //     if (game.quit(command)) {
-        //         wantToQuit = true;
-        //     } else {
-        //         System.out.println("Quit what?");
-        //     }
-
-        // }
         return wantToQuit;
     }
 }
