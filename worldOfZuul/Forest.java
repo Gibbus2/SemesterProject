@@ -5,6 +5,8 @@ import java.lang.Math;
 public class Forest {
     private static int maxPop = 100;
     private static int maxAge = 4;
+    private static int treePrice = 10;
+    private static int saplingPrice = 1;
     private int treePop, saplingPop, saplingAge;
 
     public Forest() {
@@ -27,11 +29,10 @@ public class Forest {
     }
 
 
-    //TODO: interact with inventory
     //Chops down given amount of trees, or all if amount is too high.
     //Adds money to inventory
     //returns massage to user
-    public String chop(int amount) {
+    public String chop(int amount, Inventory inventory) {
         if (amount <= this.treePop) {
             this.treePop = this.treePop - amount;
         } else {
@@ -39,19 +40,21 @@ public class Forest {
             this.treePop = 0;
         }
 
+        inventory.calcMoney(amount * treePrice);        
         return amount + " trees chopped.\nTrees remaining: " + this.treePop;
     }
 
-    //TODO: interact with inventory
     //Plants the given amount of trees, or max allowed.
     //Subtracts money from inventory
     //returns message to user
-    public String plant(int amount) {
+    public String plant(int amount, Inventory inventory) {
         if (this.saplingAge != 0) {
             return "Wait " + this.saplingAge + " turns before planting new saplings";
         }
         this.saplingPop = (amount + this.treePop >= maxPop) ? maxPop - this.treePop : amount;
         this.saplingAge = maxAge;
+
+        inventory.calcMoney(-amount * saplingPrice);
         return "Planted " + this.saplingPop + " saplings.";
     }
 

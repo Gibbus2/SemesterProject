@@ -100,7 +100,7 @@ public class CommandLineClient {
                     System.out.println("Please insert a number after 'plant'");
                 }else{
                     try {
-                        System.out.println(game.getCurrentRoom().getForest().plant(Integer.parseInt(command.getCommandValue())));
+                        System.out.println(game.getCurrentRoom().getForest().plant(Integer.parseInt(command.getCommandValue()), game.getInventory()));
                     } catch (NumberFormatException nfe) {
                         System.out.println("Please insert a valid number");
                     }
@@ -113,7 +113,7 @@ public class CommandLineClient {
                     System.out.println("Please insert a number after 'chop'");
                 }else{
                     try {
-                        System.out.println(game.getCurrentRoom().getForest().chop(Integer.parseInt(command.getCommandValue())));
+                        System.out.println(game.getCurrentRoom().getForest().chop(Integer.parseInt(command.getCommandValue()), game.getInventory()));
                     } catch (NumberFormatException nfe) {
                         System.out.println("Please insert a valid number");
                     }
