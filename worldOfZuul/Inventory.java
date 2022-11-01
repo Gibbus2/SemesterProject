@@ -13,7 +13,7 @@ public class Inventory {
     public void calcEco(Room[] rooms) {
         double ecoScoreInterim = 0;
         for (int i = 0; i < rooms.length; i++) {
-            //ecoScoreInterim += rooms[i].getForest().getTreePop();
+            ecoScoreInterim += rooms[i].getForest().getTreePop();
         }
         ecoScore = ecoScoreInterim / 1600;
         //Will give a number from 0.0 to 1.0

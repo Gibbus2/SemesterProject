@@ -7,6 +7,7 @@ import java.util.Iterator;
 
 public class Room 
 {
+    private Forest forest;
     private String description;
     private HashMap<String, Room> exits;
 
@@ -14,6 +15,7 @@ public class Room
     {
         this.description = description;
         exits = new HashMap<String, Room>();
+        this.forest = new Forest();
     }
 
     public void setExit(String direction, Room neighbor) 
@@ -40,6 +42,11 @@ public class Room
         }
         return returnString;
     }
+
+    public Forest getForest() {
+        return this.forest;
+    }
+
 
     public Room getExit(String direction) 
     {
