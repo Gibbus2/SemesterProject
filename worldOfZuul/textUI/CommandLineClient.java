@@ -105,8 +105,10 @@ public class CommandLineClient {
                 System.out.println(game.getCurrentRoom().getForest().chop(Integer.parseInt(command.getCommandValue())));
                 break;
             case SHOWSCORE:
-                System.out.println("You currently have " + game.getInventory().getMoneyScore() + " EuroDollars");
-                System.out.println("Current ecoScore is " + game.getInventory().calcEco(game.getRooms()));
+                System.out.println();
+                System.out.println("You currently have: " + game.getInventory().getMoneyScore() + " Euro-Dollars");
+                System.out.println("Current eco-Score is: " + game.getInventory().calcEco(game.getRooms()));
+                System.out.println();
                 break;
             default:
                 break;
