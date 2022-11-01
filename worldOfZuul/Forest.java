@@ -39,7 +39,7 @@ public class Forest {
             this.treePop = 0;
         }
 
-        return amount + " trees chopped.\nTrees ramaining: " + this.treePop;
+        return amount + " trees chopped.\nTrees remaining: " + this.treePop;
     }
 
     //TODO: interact with inventory
