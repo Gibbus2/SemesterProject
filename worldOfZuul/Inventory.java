@@ -19,7 +19,7 @@ public class Inventory {
         //Will give a number from 0.0 to 1.0
     }
 
-    //Sustainability score is based upon how much money you've earned, times how many trees are left (ecoscore)
+    //Sustainability (bæredygtighed) score is based upon how much money you've earned, times how many trees are left (ecoscore)
     public double calcSustain() {
         return this.moneyScore * sustainRating;
     }
