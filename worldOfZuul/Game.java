@@ -7,34 +7,43 @@ public class Game {
     private Room currentRoom;
     private CommandWords commands;
 
+    public Room[][] rooms = new Room[4][4];
+
     public Game() {
         createRooms();
         commands = new CommandWordsImplementation();
+        currentRoom = rooms[0][0];
     }
 
     private void createRooms() {
-        Room outside, theatre, pub, lab, office;
 
-        outside = new Room("outside the main entrance of the university");
-        theatre = new Room("in a lecture theatre");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        for (int i = 0; i < rooms.length; i++) {
+            for (int j = 0; j < rooms.length; j++) {
+                rooms[i][j] = new Room("tile " + i + "." + j);
+            }
+        }
 
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        for (int i = 0; i < rooms.length; i++) {
+            for (int j = 0; j < rooms.length; j++) {
 
-        theatre.setExit("west", outside);
+                if (i > 0) {
+                    rooms[i][j].setExit("west", rooms[i-1][j]);
+                }
 
-        pub.setExit("east", outside);
+                if (i < rooms.length - 1) {
+                    rooms[i][j].setExit("east", rooms[i+1][j]);
+                }
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
+                if (j > 0) {
+                    rooms[i][j].setExit("north", rooms[i][j-1]);
+                }
 
-        office.setExit("west", lab);
+                if (j < rooms.length-1) {
+                    rooms[i][j].setExit("south", rooms[i][j+1]);
+                }
+            }
+        }
 
-        currentRoom = outside;
     }
 
     public boolean goRoom(Command command) {
@@ -80,5 +89,4 @@ public class Game {
     public Command getCommand(String word1, String word2) {
         return new CommandImplementation(commands.getCommand(word1), word2);
     }
-
 }
