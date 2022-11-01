@@ -6,8 +6,8 @@ public class Inventory {
     private int sustainRating = 0;
     private double ecoScore = 0;
 
-    public void calcMoney(int x) {
-        moneyScore += x;
+    public void calcMoney(int woodInput) {
+        moneyScore += woodInput;
     }
 
     public void calcEco(Room[] rooms) {
@@ -15,18 +15,24 @@ public class Inventory {
         for (int i = 0; i < rooms.length; i++) {
             ecoScoreInterim += rooms[i].getForest().getTreePop();
         }
-        ecoScore = ecoScoreInterim / 16;
+        ecoScore = ecoScoreInterim / 1600;
+        //Will give a number from 0.0 to 1.0
     }
 
+    //Sustainability score is based upon how much money you've earned, times how many trees are left (ecoscore)
     public double calcSustain() {
         return this.moneyScore * sustainRating;
     }
 
-    //Skal der være parameter?
+
+    //Getters
+    public double getEcoScore() {
+        return this.ecoScore;
+    }
+
     public int getMoneyScore() {
         return this.moneyScore;
     }
 
-    // fjffjfj
 
 }
