@@ -132,7 +132,7 @@ public class Game {
     }
 
     public int getTick(){
-        return this.tick = tick;
+        return this.tick;
     }
 
 }
