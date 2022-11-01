@@ -60,8 +60,9 @@ public class Forest {
 
     //Increase sapling age and converts them to trees
     public void saplingGrow() {
-        this.saplingAge -= 1;
-        if (this.saplingAge == 0) {
+        if(this.saplingAge > 0){
+            this.saplingAge -= 1;
+        }else{
             this.treePop += this.saplingPop;
             this.saplingPop = 0;
             this.saplingAge = 0;
