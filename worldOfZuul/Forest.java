@@ -1,71 +1,65 @@
 package worldOfZuul;
 
-public class Forest {
+import java.lang.Math;
 
-    private static int maxPop = 100; // Every Forest is maximum 100 trees+saplings for now. - Aura
-    private static int maxSaplingAge = 4; // Saplings will grow when their age exceeds 4 for now - Aura.
+public class Forest{
+    private static int maxPop = 100;
+    private static int maxAge = 4;
     private int treePop, saplingPop, saplingAge;
 
-    /** I set every Forest to be fully filled out with
-     * trees at construction for now.
-     * - Aura
-     */
-    public Forest () {
-        this.treePop = maxPop;
+    public Forest(){
+        this.treePop = (int)(maxPop * Math.random() + 1);
         this.saplingPop = 0;
         this.saplingAge = 0;
     }
 
-    /** chop() method. For now, chopping trees
-     * doesn't net any money, nor decrease sustainability.
-     * - Aura
-     */
-    public void chop (int trees) {
-        if (trees > treePop) {
-            trees = treePop; // If inputted number is too high, all trees are just chopped.
+    //getters
+    public int getTreePop(){
+        return this.treePop;
+    }
+
+    public int getSaplingPop(){
+        return this.saplingPop;
+    }
+
+    public int getSaplingAge(){
+        return this.saplingAge;
+    }
+
+
+    //TODO: interact with inventory
+    //Chops down given amount of trees, or all if amount is too high.
+    //Adds money to inventory
+    //returns massage to user
+    public String chop(int amount){
+        if(amount <= this.treePop){
+            this.treePop = this.treePop - amount;
+        }else{
+            this.treePop = 0;
         }
-        treePop = treePop - trees;
+
+        return amount + " trees chopped.\nTrees ramaining: " + this.treePop; 
     }
 
-    /** plant() method. For now, planting saplings
-     * doesn't cost any money, nor increase sustainability.
-     * For now, planting new saplings will reset the age of already planted saplings.
-     * - Aura
-     */
-    public void plant (int saplings) {
-        if (treePop + saplingPop + saplings > maxPop) {
-            /** If inputted number is too high, all empty spots in the Forest are filled.**/
-            saplings = maxPop - treePop - saplingPop;
+    //TODO: interact with inventory
+    //Plants the given amount of trees, or max allowed.
+    //Subtracts money from inventory
+    //returns message to user
+    public String plant(int amount){
+        if(this.saplingAge != 0){
+            return "Wait " + this.saplingAge + " turns before planting new saplings";
         }
-        saplingPop = saplingPop + saplings;
-        saplingAge = 0;
+        this.saplingPop = (amount + this.treePop > maxPop) ? maxPop - this.treePop : amount; 
+        this.saplingAge = maxAge;
+        return "Planted " + this.saplingPop + " saplings.";
     }
 
-    /** saplingGrow() method. Grows saplings by some number of ticks.
-     * Turns them into trees if saplingAge exceed maxSaplingAge.
-     * - Aura
-     */
-    public void saplingGrow (int ticks) {
-        saplingAge = saplingAge + ticks;
-        if (saplingAge > maxSaplingAge) {
-            saplingAge = 0;
-            treePop = treePop + saplingPop;
-            saplingPop = 0;
+    //Incress saping age and converts them to trees
+    public void saplingGrow(){
+        this.saplingAge -= 1;
+        if(this.saplingAge == 0){
+            this.treePop += this.saplingPop;
+            this.saplingAge = 0;
         }
-    }
-
-    /** Getters.
-     * - Aura
-     */
-    public int getTreePop() {
-        return treePop;
-    }
-
-    public int getSaplingPop() {
-        return saplingPop;
-    }
-
-    public int getSaplingAge() {
-        return saplingAge;
     }
 }
