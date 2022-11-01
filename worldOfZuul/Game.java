@@ -110,23 +110,21 @@ public class Game {
     public void tickCounter() {
         tick++;
 
-        /*
+       /*
         if (tick == 10) {
-            System.out.println("Ding! Ding! Round 10, your money-score is: "+inventory.getEcoScore+" and your eco-score is: "+getMoneyScore);
+            System.out.println("Ding! Ding! Round 10, your money-score is: "+ this.inventory.getEcoScore()+" and your eco-score is: "+this.igetMoneyScore);
         }
         if (tick == 20) {
             System.out.println();
         }
 
-         */
-
-
-
+        */
 
         if (tick != 30) {
 
         } else {
             System.out.println("Tick count: " + tick);
+            //TODO: INSERT QUIT
 
         }
     }
