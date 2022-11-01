@@ -2,6 +2,11 @@ package worldOfZuul;
 
 public class Inventory {
 
+    public Inventory() {
+        this.moneyScore = 100; //Starting with 100 Euro-dollars
+    }
+
+
     private int moneyScore = 0;
     private int sustainRating = 0;
     private double ecoScore = 0;

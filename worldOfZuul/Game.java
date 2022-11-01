@@ -5,6 +5,7 @@ import java.util.List;
 public class Game {
 
     private Room currentRoom;
+    private int tick = 0;
     private CommandWords commands;
 
     public Room[][] rooms = new Room[4][4];
@@ -13,6 +14,7 @@ public class Game {
         createRooms();
         commands = new CommandWordsImplementation();
         currentRoom = rooms[0][0];
+        Inventory inventory = new Inventory();
     }
 
     private void createRooms() {
@@ -27,19 +29,19 @@ public class Game {
             for (int j = 0; j < rooms.length; j++) {
 
                 if (i > 0) {
-                    rooms[i][j].setExit("west", rooms[i-1][j]);
+                    rooms[i][j].setExit("west", rooms[i - 1][j]);
                 }
 
                 if (i < rooms.length - 1) {
-                    rooms[i][j].setExit("east", rooms[i+1][j]);
+                    rooms[i][j].setExit("east", rooms[i + 1][j]);
                 }
 
                 if (j > 0) {
-                    rooms[i][j].setExit("north", rooms[i][j-1]);
+                    rooms[i][j].setExit("north", rooms[i][j - 1]);
                 }
 
-                if (j < rooms.length-1) {
-                    rooms[i][j].setExit("south", rooms[i][j+1]);
+                if (j < rooms.length - 1) {
+                    rooms[i][j].setExit("south", rooms[i][j + 1]);
                 }
             }
         }
@@ -62,6 +64,7 @@ public class Game {
             return false;
         } else {
             currentRoom = nextRoom;
+            tickCounter();
             return true;
         }
     }
@@ -93,4 +96,15 @@ public class Game {
     public Room getCurrentRoom(){
         return this.currentRoom;
     }
+
+    public void tickCounter() {
+
+        if (tick != 30) {
+            tick++;
+        } else {
+            System.out.println("Tick count: " + tick);
+
+        }
+    }
+
 }
