@@ -96,11 +96,28 @@ public class CommandLineClient {
                 break;
 
             case PLANT:
-                System.out.println(game.getCurrentRoom().getForest().plant(Integer.parseInt(command.getCommandValue())));
+                if(command.getCommandValue() == null){
+                    System.out.println("Please insert a number after 'plant'");
+                }else{
+                    try {
+                        System.out.println(game.getCurrentRoom().getForest().plant(Integer.parseInt(command.getCommandValue())));
+                    } catch (NumberFormatException nfe) {
+                        System.out.println("Please insert a valid number");
+                    }
+
+                }
                 break;
             
             case CHOP:
-                System.out.println(game.getCurrentRoom().getForest().chop(Integer.parseInt(command.getCommandValue())));
+                if(command.getCommandValue() == null){
+                    System.out.println("Please insert a number after 'chop'");
+                }else{
+                    try {
+                        System.out.println(game.getCurrentRoom().getForest().chop(Integer.parseInt(command.getCommandValue())));
+                    } catch (NumberFormatException nfe) {
+                        System.out.println("Please insert a valid number");
+                    }
+                }
                 break;
             case SHOWSCORE:
                 System.out.println();
