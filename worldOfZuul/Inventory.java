@@ -14,7 +14,6 @@ public class Inventory {
         double ecoScoreInterim = 0;
         for (int i = 0; i < rooms.length; i++) {
             ecoScoreInterim += rooms[i].getForest().getTreePop();
-            //Mangler der noget for at komme ned til getTreePop()? Skal den metode flyttes til room?
         }
         ecoScore = ecoScoreInterim / 16;
     }
@@ -28,17 +27,6 @@ public class Inventory {
         return this.moneyScore;
     }
 
-
-    /*
-    - moneyScore : int
-    - ecoScore : double
-    - sustainRating : int
-
-    + calcMoney(int) : void
-    + calcEco(Room[]) : void
-    + calcSustain() : double
-    + getMoneyScore: int
-     */
 
 
 }
