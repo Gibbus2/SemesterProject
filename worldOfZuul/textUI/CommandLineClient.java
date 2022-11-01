@@ -36,8 +36,10 @@ public class CommandLineClient {
 
     private void printWelcome() {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
+        System.out.println("Welcome to (Sustainable)ChopMaster3000");
+        System.out.println("Your objective is to get as much money by chopping wood in a sustainable way in 30 moves!");
+        System.out.println("Money is earned by cutting woods, and spent on planting new saplings that will grow into new trees.");
+        System.out.println("You final Sustainability rating is based on how much money you have times how many trees are left in the beginning.");
         System.out.println("Type '" + Commands.HELP + "' if you need help.");
         System.out.println();
         System.out.println(game.getRoomDescription());
