@@ -7,6 +7,7 @@ public class Game {
     private Room currentRoom;
     private int tick = 0;
     private CommandWords commands;
+    private Inventory inventory;
 
     public Room[][] rooms = new Room[4][4];
 
@@ -14,7 +15,7 @@ public class Game {
         createRooms();
         commands = new CommandWordsImplementation();
         currentRoom = rooms[0][0];
-        Inventory inventory = new Inventory();
+        this.inventory = new Inventory();
     }
 
     private void createRooms() {
@@ -96,6 +97,15 @@ public class Game {
     public Room getCurrentRoom(){
         return this.currentRoom;
     }
+
+    public Inventory getInventory(){
+        return this.inventory;
+    }
+
+    public Room[][] getRooms(){
+        return this.rooms;
+    }
+
 
     public void tickCounter() {
         tick++;
