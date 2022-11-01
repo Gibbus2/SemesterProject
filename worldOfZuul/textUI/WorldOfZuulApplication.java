@@ -6,7 +6,6 @@
 package worldOfZuul.textUI;
 
 /**
- *
  * @author ancla
  */
 public class WorldOfZuulApplication {
@@ -19,9 +18,5 @@ public class WorldOfZuulApplication {
         client.play();
 
     }
-    
-//test 2 Toby
-    /*
-        TEST :)
-    */
+
 }
