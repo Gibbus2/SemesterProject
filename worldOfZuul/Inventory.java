@@ -10,10 +10,12 @@ public class Inventory {
         moneyScore += woodInput;
     }
 
-    public void calcEco(Room[] rooms) {
+    public void calcEco(Room[][] rooms) {
         double ecoScoreInterim = 0;
         for (int i = 0; i < rooms.length; i++) {
-            ecoScoreInterim += rooms[i].getForest().getTreePop();
+            for (int j = 0; j < rooms.length; j++) {
+                ecoScoreInterim += rooms[i][j].getForest().getTreePop();
+            }
         }
         ecoScore = ecoScoreInterim / 1600;
         //Will give a number from 0.0 to 1.0
