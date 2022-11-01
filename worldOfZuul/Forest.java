@@ -31,7 +31,7 @@ public class Forest {
 
     //Chops down given amount of trees, or all if amount is too high.
     //Adds money to inventory
-    //returns massage to user
+    //returns message to user
     public String chop(int amount, Inventory inventory) {
         if (amount <= this.treePop) {
             this.treePop = this.treePop - amount;
