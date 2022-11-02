@@ -6,7 +6,7 @@ public class Forest {
     private static int maxPop = 100;
     private static int maxAge = 4;
     private static int treePrice = 10;
-    private static int saplingPrice = 1;
+    private static int saplingPrice = 6;
     private int treePop, saplingPop, saplingAge;
 
     public Forest() {
@@ -51,9 +51,16 @@ public class Forest {
         if (this.saplingAge != 0) {
             return "Wait " + this.saplingAge + " turns before planting new saplings";
         }
-        this.saplingPop = (amount + this.treePop >= maxPop) ? maxPop - this.treePop : amount;
-        this.saplingAge = maxAge;
+        if(amount + this.treePop >= maxPop){
+            amount = maxPop - this.treePop;
+        }        
+        if(amount * saplingPrice > inventory.getMoneyScore()){
+            amount = (int)(inventory.getMoneyScore() / saplingPrice);
+        }
+        
 
+        this.saplingPop = amount;
+        this.saplingAge = maxAge;
         inventory.calcMoney(-this.saplingPop * saplingPrice);
         return "Planted " + this.saplingPop + " saplings.";
     }
