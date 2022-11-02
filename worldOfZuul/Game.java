@@ -94,20 +94,23 @@ public class Game {
         return new CommandImplementation(commands.getCommand(word1), word2);
     }
 
-    public Room getCurrentRoom(){
+    public Room getCurrentRoom() {
         return this.currentRoom;
     }
 
-    public Inventory getInventory(){
+    public Inventory getInventory() {
         return this.inventory;
     }
 
-    public Room[][] getRooms(){
+    public Room[][] getRooms() {
         return this.rooms;
     }
 
 
     public void tickCounter() {
+
+        inventory.calcEco(rooms);
+        tick++;
 
         for (int i = 0; i < rooms.length; i++) {
             for (int j = 0; j < rooms.length; j++) {
@@ -118,8 +121,7 @@ public class Game {
             System.out.println("Sustain rating: " + inventory.calcSustain());
         }
 
-        inventory.calcEco(rooms);
-        tick++;
+
 
 
        /*
@@ -145,8 +147,8 @@ public class Game {
 
          */
     }
-    
-    public int getTick(){
+
+    public int getTick() {
         return this.tick;
     }
 

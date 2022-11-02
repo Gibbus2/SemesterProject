@@ -5,8 +5,6 @@
  */
 package worldOfZuul.textUI;
 
-import java.rmi.StubNotFoundException;
-
 import worldOfZuul.Command;
 import worldOfZuul.Commands;
 import worldOfZuul.Game;
