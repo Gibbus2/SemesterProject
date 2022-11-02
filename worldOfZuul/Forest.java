@@ -54,7 +54,7 @@ public class Forest {
         this.saplingPop = (amount + this.treePop >= maxPop) ? maxPop - this.treePop : amount;
         this.saplingAge = maxAge;
 
-        inventory.calcMoney(-amount * saplingPrice);
+        inventory.calcMoney(-this.saplingPop * saplingPrice);
         return "Planted " + this.saplingPop + " saplings.";
     }
 
