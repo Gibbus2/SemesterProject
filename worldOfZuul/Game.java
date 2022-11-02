@@ -110,6 +110,18 @@ public class Game {
     public void tickCounter() {
         tick++;
 
+        for (int i = 0; i < rooms.length; i++) {
+            for (int j = 0; j < rooms.length; j++) {
+                rooms[i][j].getForest().saplingGrow();
+            }
+        }
+        if (tick == 2) {
+            System.out.println("Sustain rating: " + inventory.calcSustain());
+        }
+        if (tick == 3) {
+            System.out.println("Sustain rating: " + inventory.calcSustain());
+        }
+
        /*
         if (tick == 10) {
             System.out.println("Ding! Ding! Round 10, your money-score is: "+ this.inventory.getEcoScore()+" and your eco-score is: "+this.igetMoneyScore);
