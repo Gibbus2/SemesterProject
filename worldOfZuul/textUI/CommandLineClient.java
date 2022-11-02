@@ -99,12 +99,7 @@ public class CommandLineClient {
                 if(command.getCommandValue() == null){
                     System.out.println("Please insert a number after 'plant'");
                 }else{
-                    try {
-                        System.out.println(game.getCurrentRoom().getForest().plant(Integer.parseInt(command.getCommandValue()), game.getInventory()));
-                    } catch (NumberFormatException nfe) {
-                        System.out.println("Please insert a valid number");
-                    }
-
+                    System.out.println(game.getCurrentRoom().getForest().plant(command.getCommandValue(), game.getInventory()));
                 }
                 break;
             
@@ -112,11 +107,7 @@ public class CommandLineClient {
                 if(command.getCommandValue() == null){
                     System.out.println("Please insert a number after 'chop'");
                 }else{
-                    try {
-                        System.out.println(game.getCurrentRoom().getForest().chop(Integer.parseInt(command.getCommandValue()), game.getInventory()));
-                    } catch (NumberFormatException nfe) {
-                        System.out.println("Please insert a valid number");
-                    }
+                    System.out.println(game.getCurrentRoom().getForest().chop(command.getCommandValue(), game.getInventory()));
                 }
                 break;
             case SHOWSCORE:

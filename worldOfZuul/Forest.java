@@ -32,37 +32,54 @@ public class Forest {
     //Chops down given amount of trees, or all if amount is too high.
     //Adds money to inventory
     //returns message to user
-    public String chop(int amount, Inventory inventory) {
-        if (amount <= this.treePop) {
-            this.treePop = this.treePop - amount;
-        } else {
-            amount = this.treePop;
-            this.treePop = 0;
+    public String chop(String userInput, Inventory inventory) {
+        int amount = this.parseNumber(userInput);
+        String msg;
+        if(this.isValidNumber(amount)){
+            if (amount <= this.treePop) {
+                this.treePop = this.treePop - amount;
+            } else {
+                amount = this.treePop;
+                this.treePop = 0;
+            }
+            inventory.calcMoney(amount * treePrice);        
+            msg = amount + " trees chopped.\nTrees remaining: " + this.treePop;
+        }else{
+            msg = "Invalid number";
         }
-
-        inventory.calcMoney(amount * treePrice);        
-        return amount + " trees chopped.\nTrees remaining: " + this.treePop;
+        return msg;
     }
 
     //Plants the given amount of trees, or max allowed.
     //Subtracts money from inventory
     //returns message to user
-    public String plant(int amount, Inventory inventory) {
-        if (this.saplingAge != 0) {
-            return "Wait " + this.saplingAge + " turns before planting new saplings";
-        }
-        if(amount + this.treePop >= maxPop){
-            amount = maxPop - this.treePop;
-        }        
-        if(amount * saplingPrice > inventory.getMoneyScore()){
-            amount = (int)(inventory.getMoneyScore() / saplingPrice);
-        }
-        
+    public String plant(String userInput, Inventory inventory) {
+        int amount = this.parseNumber(userInput);
+        String msg;
+        if(this.isValidNumber(amount)){ 
+            if(this.saplingAge == 0){
+                if(amount + this.treePop >= maxPop){
+                    amount = maxPop - this.treePop;
+                }        
+                if(amount * saplingPrice > inventory.getMoneyScore()){
+                    amount = (int)(inventory.getMoneyScore() / saplingPrice);
+                }
+    
+                this.saplingPop = amount;
+                this.saplingAge = maxAge;
+                inventory.calcMoney(-this.saplingPop * saplingPrice);
 
-        this.saplingPop = amount;
-        this.saplingAge = maxAge;
-        inventory.calcMoney(-this.saplingPop * saplingPrice);
-        return "Planted " + this.saplingPop + " saplings.";
+                msg =  "Planted " + this.saplingPop + " saplings.";
+
+            }else{
+                msg = "Wait " + this.saplingAge + " turns before planting new saplings";
+            }
+          
+        }else{
+            msg = "Invalid number";
+        }
+
+        return msg;
     }
 
     //Increase sapling age and converts them to trees
@@ -74,5 +91,17 @@ public class Forest {
             this.saplingPop = 0;
             this.saplingAge = 0;
         }
+    }
+
+
+    private int parseNumber(String s){
+        try {
+            return Integer.parseInt(s);
+        } catch (NumberFormatException nfe) {
+            return -1;
+        }
+    }
+    private boolean isValidNumber(int i){
+        return i > 0;
     }
 }
