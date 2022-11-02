@@ -8,7 +8,7 @@ public class Inventory {
 
 
     private int moneyScore = 0;
-    private int sustainRating = 0;
+    private double sustainRating;
     private double ecoScore = 0;
 
     public void calcMoney(int woodInput) {
@@ -28,7 +28,8 @@ public class Inventory {
 
     //Sustainability (bæredygtighed) score is based upon how much money you've earned, times how many trees are left (ecoscore)
     public double calcSustain() {
-        return this.moneyScore * sustainRating;
+        this.sustainRating = (moneyScore * ecoScore);
+        return sustainRating;
     }
 
 
