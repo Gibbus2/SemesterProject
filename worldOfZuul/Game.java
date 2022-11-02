@@ -79,7 +79,7 @@ public class Game {
     }
 
     public String getRoomDescription() {
-        return currentRoom.getLongDescription();
+        return currentRoom.getLongDescription(" And you have " + (30 - this.getTick())+" moves left");
     }
 
     public CommandWords getCommands() {

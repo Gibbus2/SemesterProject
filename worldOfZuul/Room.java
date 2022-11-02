@@ -28,9 +28,9 @@ public class Room
         return description;
     }
 
-    public String getLongDescription()
+    public String getLongDescription(String setDescription)
     {
-        return "You are in " + description + ".\n" + getExitString();
+        return "You are in " + description + setDescription + ".\n" + getExitString();
     }
 
     private String getExitString()
