@@ -31,7 +31,9 @@ public class CommandLineClient {
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
-        System.out.println("Thank you for playing.  Good bye.");
+        System.out.println();
+        System.out.println("Thank you for playing ChopMaster3000!");
+        System.out.println("Your final highscore & sustainability rating is: "+ game.getInventory().calcSustain());
     }
 
     private void printWelcome() {
