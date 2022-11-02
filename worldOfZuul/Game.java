@@ -108,19 +108,19 @@ public class Game {
 
 
     public void tickCounter() {
-        tick++;
 
         for (int i = 0; i < rooms.length; i++) {
             for (int j = 0; j < rooms.length; j++) {
                 rooms[i][j].getForest().saplingGrow();
             }
         }
-        if (tick == 2) {
+        if (tick > 0) {
             System.out.println("Sustain rating: " + inventory.calcSustain());
         }
-        if (tick == 3) {
-            System.out.println("Sustain rating: " + inventory.calcSustain());
-        }
+
+        inventory.calcEco(rooms);
+        tick++;
+
 
        /*
         if (tick == 10) {
@@ -132,13 +132,18 @@ public class Game {
 
         */
 
+        /*
         if (tick != 30) {
 
         } else {
             System.out.println("Tick count: " + tick);
             //TODO: INSERT QUIT
 
+
+
         }
+
+         */
     }
 
     public int getTick(){
