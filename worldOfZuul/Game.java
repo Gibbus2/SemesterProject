@@ -4,6 +4,8 @@ import java.util.List;
 
 public class Game {
 
+    private final int maxTicks = 30;
+
     private Room currentRoom;
     private int tick = 0;
     private CommandWords commands;
@@ -79,7 +81,7 @@ public class Game {
     }
 
     public String getRoomDescription() {
-        return currentRoom.getLongDescription(" And you have " + (30 - this.getTick())+" moves left");
+        return currentRoom.getLongDescription(" And you have " + (maxTicks - this.getTick())+" moves left");
     }
 
     public CommandWords getCommands() {
@@ -104,6 +106,10 @@ public class Game {
 
     public Room[][] getRooms() {
         return this.rooms;
+    }
+
+    public Boolean isGameFinished() {
+        return this.tick == maxTicks;
     }
 
 

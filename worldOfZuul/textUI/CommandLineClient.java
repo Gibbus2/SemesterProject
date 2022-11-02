@@ -30,6 +30,7 @@ public class CommandLineClient {
         while (!finished) {
             Command command = parser.getCommand();
             finished = processCommand(command);
+            finished = game.isGameFinished();
         }
         System.out.println();
         System.out.println("Thank you for playing ChopMaster3000!");
