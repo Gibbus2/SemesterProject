@@ -128,7 +128,7 @@ public class Game {
 
         }
     }
-
+    
     public int getTick(){
         return this.tick;
     }
