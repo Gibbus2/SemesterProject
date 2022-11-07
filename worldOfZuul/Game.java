@@ -4,37 +4,50 @@ import java.util.List;
 
 public class Game {
 
+    public static final int maxTicks = 30;
+
     private Room currentRoom;
+    private int tick = 0;
     private CommandWords commands;
+    private Inventory inventory;
+    private Room[][] rooms = new Room[4][4];
 
     public Game() {
         createRooms();
         commands = new CommandWordsImplementation();
+        currentRoom = rooms[0][0];
+        this.inventory = new Inventory();
     }
 
     private void createRooms() {
-        Room outside, theatre, pub, lab, office;
 
-        outside = new Room("outside the main entrance of the university");
-        theatre = new Room("in a lecture theatre");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        for (int i = 0; i < rooms.length; i++) {
+            for (int j = 0; j < rooms.length; j++) {
+                rooms[i][j] = new Room("tile " + i + "." + j);
+            }
+        }
 
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        for (int i = 0; i < rooms.length; i++) {
+            for (int j = 0; j < rooms.length; j++) {
 
-        theatre.setExit("west", outside);
+                if (i > 0) {
+                    rooms[i][j].setExit("west", rooms[i - 1][j]);
+                }
 
-        pub.setExit("east", outside);
+                if (i < rooms.length - 1) {
+                    rooms[i][j].setExit("east", rooms[i + 1][j]);
+                }
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
+                if (j > 0) {
+                    rooms[i][j].setExit("north", rooms[i][j - 1]);
+                }
 
-        office.setExit("west", lab);
+                if (j < rooms.length - 1) {
+                    rooms[i][j].setExit("south", rooms[i][j + 1]);
+                }
+            }
+        }
 
-        currentRoom = outside;
     }
 
     public boolean goRoom(Command command) {
@@ -53,6 +66,7 @@ public class Game {
             return false;
         } else {
             currentRoom = nextRoom;
+            tickCounter();
             return true;
         }
     }
@@ -66,7 +80,7 @@ public class Game {
     }
 
     public String getRoomDescription() {
-        return currentRoom.getLongDescription();
+        return currentRoom.getLongDescription(" and you have " + (maxTicks - this.getTick())+" moves left");
     }
 
     public CommandWords getCommands() {
@@ -79,6 +93,43 @@ public class Game {
 
     public Command getCommand(String word1, String word2) {
         return new CommandImplementation(commands.getCommand(word1), word2);
+    }
+
+    public Room getCurrentRoom() {
+        return this.currentRoom;
+    }
+
+    public Inventory getInventory() {
+        return this.inventory;
+    }
+
+    public Room[][] getRooms() {
+        return this.rooms;
+    }
+
+    public Boolean isGameFinished() {
+        return this.tick == maxTicks;
+    }
+
+
+    public void tickCounter() {
+
+        inventory.calcEco(rooms);
+        tick++;
+
+        for (int i = 0; i < rooms.length; i++) {
+            for (int j = 0; j < rooms.length; j++) {
+                rooms[i][j].getForest().saplingGrow();
+            }
+        }
+        if (tick > 0) {
+            System.out.printf("Sustain rating: "+"%.2f"+"\n"+"🌲", inventory.calcSustain());
+        }
+
+    }
+
+    public int getTick() {
+        return this.tick;
     }
 
 }

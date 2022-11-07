@@ -2,11 +2,11 @@ package worldOfZuul;
 
 import java.util.Set;
 import java.util.HashMap;
-import java.util.Iterator;
 
 
 public class Room 
 {
+    private Forest forest;
     private String description;
     private HashMap<String, Room> exits;
 
@@ -14,6 +14,7 @@ public class Room
     {
         this.description = description;
         exits = new HashMap<String, Room>();
+        this.forest = new Forest();
     }
 
     public void setExit(String direction, Room neighbor) 
@@ -26,9 +27,9 @@ public class Room
         return description;
     }
 
-    public String getLongDescription()
+    public String getLongDescription(String setDescription)
     {
-        return "You are " + description + ".\n" + getExitString();
+        return "You are in " + description + setDescription + ".\n" + getExitString();
     }
 
     private String getExitString()
@@ -40,6 +41,11 @@ public class Room
         }
         return returnString;
     }
+
+    public Forest getForest() {
+        return this.forest;
+    }
+
 
     public Room getExit(String direction) 
     {

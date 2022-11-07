@@ -33,6 +33,7 @@ public class Parser
             }
         }
 
+        tokenizer.close();
         return game.getCommand(word1,word2);
     }
 }
