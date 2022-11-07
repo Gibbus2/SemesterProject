@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Game {
 
-    public final int maxTicks = 3;
+    public static final int maxTicks = 30;
 
     private Room currentRoom;
     private int tick = 0;
