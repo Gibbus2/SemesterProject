@@ -81,7 +81,7 @@ public class Game {
     }
 
     public String getRoomDescription() {
-        return currentRoom.getLongDescription(" And you have " + (maxTicks - this.getTick())+" moves left");
+        return currentRoom.getLongDescription(" and you have " + (maxTicks - this.getTick())+" moves left");
     }
 
     public CommandWords getCommands() {
@@ -124,7 +124,7 @@ public class Game {
             }
         }
         if (tick > 0) {
-            System.out.println("Sustain rating: " + inventory.calcSustain());
+            System.out.printf("Sustain rating: "+"%.2f"+"\n"+"🌲", inventory.calcSustain());
         }
 
     }
