@@ -127,31 +127,6 @@ public class Game {
             System.out.println("Sustain rating: " + inventory.calcSustain());
         }
 
-
-
-
-       /*
-        if (tick == 10) {
-            System.out.println("Ding! Ding! Round 10, your money-score is: "+ this.inventory.getEcoScore()+" and your eco-score is: "+this.igetMoneyScore);
-        }
-        if (tick == 20) {
-            System.out.println();
-        }
-
-        */
-
-        /*
-        if (tick != 30) {
-
-        } else {
-            System.out.println("Tick count: " + tick);
-            //TODO: INSERT QUIT
-
-
-
-        }
-
-         */
     }
 
     public int getTick() {
