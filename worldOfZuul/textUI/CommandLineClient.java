@@ -56,8 +56,13 @@ public class CommandLineClient {
     }
 
     private void roomInfo(){
-        System.out.println(game.getRoomDescription());
-        System.out.println("There are " + game.getCurrentRoom().getForest().getTreePop() + " trees and " + game.getCurrentRoom().getForest().getSaplingPop() + " saplings.");
+        if(!game.isGameFinished()){
+            System.out.println(game.getRoomDescription());
+            System.out.println("There are " + game.getCurrentRoom().getForest().getTreePop() + " trees and " + game.getCurrentRoom().getForest().getSaplingPop() + " saplings.");                
+            if(game.getTick() == game.maxTicks - 1){
+                System.out.println("This is your last move");
+            }
+        }
     }
 
     //Controller
