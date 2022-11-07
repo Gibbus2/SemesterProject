@@ -25,7 +25,6 @@ public class CommandLineClient {
 
     public void play() {
         printWelcome();
-
         boolean finished = false;
         while (!finished) {
             Command command = parser.getCommand();
@@ -62,7 +61,25 @@ public class CommandLineClient {
             if(game.getTick() == Game.maxTicks - 1){
                 System.out.println("This is your last move");
             }
+            location();
         }
+    }
+
+    private void location(){
+        for (int i = 0; i < game.getRooms().length; i++) {
+            System.out.println("+-----+-----+-----+-----+");
+            for (int j = 0; j < game.getRooms().length; j++) {
+                if(game.getRooms()[j][i].equals(game.getCurrentRoom())){
+                    System.out.printf("|  x  ");
+                }else{
+                    System.out.printf("| %03d ", game.getRooms()[j][i].getForest().getTreePop());
+                }
+            }
+            System.out.printf("|\n");
+        }
+
+        System.out.println("+-----+-----+-----+-----+");
+        System.out.println();
     }
 
     //Controller

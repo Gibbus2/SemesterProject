@@ -10,8 +10,7 @@ public class Game {
     private int tick = 0;
     private CommandWords commands;
     private Inventory inventory;
-
-    public Room[][] rooms = new Room[4][4];
+    private Room[][] rooms = new Room[4][4];
 
     public Game() {
         createRooms();
