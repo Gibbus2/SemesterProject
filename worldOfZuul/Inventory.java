@@ -38,7 +38,7 @@ public class Inventory {
 
     private double CalcAverageEcoScore(){
         double average=0;
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < index; i++) {
             average+=ecoArray[i];
         }
         return average/index;
