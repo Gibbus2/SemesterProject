@@ -14,7 +14,7 @@ public class Inventory {
     }
 
     public void calcMoney(int woodInput) {
-        moneyScore += woodInput;
+        this.moneyScore += woodInput;
     }
 
     public double calcEco(Room[][] rooms) {
@@ -24,24 +24,24 @@ public class Inventory {
                 ecoScoreInterim += rooms[i][j].getForest().getTreePop();
             }
         }
-        ecoArray[index]=ecoScore = ecoScoreInterim / 1600;
-        return ecoArray[index];
+        this.ecoArray[this.index]=this.ecoScore = ecoScoreInterim / 1600;
+        return this.ecoArray[this.index];
         //Will give a number from 0.0 to 1.0
     }
 
     //Sustainability (bæredygtighed) score is based upon how much money you've earned, times how many trees are left (ecoscore)
     public double calcSustain() {
-        this.sustainRating = (moneyScore * CalcAverageEcoScore());
-        return sustainRating;
+        this.sustainRating = (this.moneyScore * CalcAverageEcoScore());
+        return this.sustainRating;
     }
 
     private double CalcAverageEcoScore(){
         double average=0;
-        for (int i = 0; i < index; i++) {
-            average+=ecoArray[i];
+        for (int i = 0; i < this.index; i++) {
+            average+=this.ecoArray[i];
         }
-        index++;
-        return average/index;
+        this.index++;
+        return average/this.index;
     }
 
     //Getters
