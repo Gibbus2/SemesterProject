@@ -40,9 +40,7 @@ public class Inventory {
         for (int i = 0; i < index; i++) {
             average+=ecoArray[i];
         }
-       System.out.println(ecoArray[index]);
         index++;
-        System.out.println(index);
         return average/index;
     }
 
