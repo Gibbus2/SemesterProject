@@ -5,7 +5,7 @@ public class Inventory {
     private int moneyScore = 0;
     private double sustainRating;
     private double ecoScore = 0;
-    private double[] ecoArray= new double[30];
+    private double[] ecoArray= new double[Game.maxTicks+1];
     private int index =0;
 
 
@@ -25,8 +25,7 @@ public class Inventory {
             }
         }
         ecoArray[index]=ecoScore = ecoScoreInterim / 1600;
-        index++;
-        return ecoArray[index-1];
+        return ecoArray[index];
         //Will give a number from 0.0 to 1.0
     }
 
@@ -41,6 +40,7 @@ public class Inventory {
         for (int i = 0; i < index; i++) {
             average+=ecoArray[i];
         }
+        index++;
         return average/index;
     }
 

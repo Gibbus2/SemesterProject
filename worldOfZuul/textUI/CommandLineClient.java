@@ -33,7 +33,7 @@ public class CommandLineClient {
         }
         System.out.println();
         System.out.println("Thank you for playing ChopMaster3000!");
-        System.out.println("Your final highscore & sustainability rating is: "+ game.getInventory().calcSustain());
+        System.out.printf("\n"+"Your final highscore & sustainability rating is: "+"%.2f", game.getInventory().calcSustain());
     }
 
     private void printWelcome() {
