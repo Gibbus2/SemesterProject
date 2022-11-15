@@ -17,11 +17,11 @@ public class Inventory {
         this.moneyScore += woodInput;
     }
 
-    public double calcEco(Room[][] rooms) {
+    public double calcEco(Tile[][] tiles) {
         double ecoScoreInterim = 0;
-        for (int i = 0; i < rooms.length; i++) {
-            for (int j = 0; j < rooms.length; j++) {
-                ecoScoreInterim += rooms[i][j].getForest().getTreePop();
+        for (int i = 0; i < tiles.length; i++) {
+            for (int j = 0; j < tiles.length; j++) {
+                ecoScoreInterim += tiles[i][j].getForest().getTreePop();
             }
         }
         this.ecoArray[this.index]=this.ecoScore = ecoScoreInterim / 1600;
