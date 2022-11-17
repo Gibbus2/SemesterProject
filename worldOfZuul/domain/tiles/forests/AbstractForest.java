@@ -1,15 +1,18 @@
-package worldOfZuul;
+package worldOfZuul.domain.tiles.forests;
+
+import worldOfZuul.domain.commands.Inventory;
 
 import java.lang.Math;
 
-public class Forest {
-    private static int maxPop = 100;
-    private static int maxAge = 4;
-    private static int treePrice = 10;
-    private static int saplingPrice = 6;
+public class AbstractForest {
+    private static int maxPop;
+    private static int maxAge;
+    private static int treePrice;
+    private static int saplingPrice;
+    private static int treeEcoValue;
     private int treePop, saplingPop, saplingAge;
 
-    public Forest() {
+    public AbstractForest(int treePop, int saplingPop, int saplingAge) {
         this.treePop = (int) (maxPop * Math.random() + 1);
         this.saplingPop = 0;
         this.saplingAge = 0;

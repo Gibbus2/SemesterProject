@@ -5,9 +5,9 @@
  */
 package worldOfZuul.textUI;
 
-import worldOfZuul.Command;
-import worldOfZuul.Commands;
-import worldOfZuul.Game;
+import worldOfZuul.domain.commands.Command;
+import worldOfZuul.domain.commands.Commands;
+import worldOfZuul.domain.commands.Game;
 
 /**
  *

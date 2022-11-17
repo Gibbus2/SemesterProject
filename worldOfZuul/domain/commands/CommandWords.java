@@ -1,5 +1,5 @@
 
-package worldOfZuul;
+package worldOfZuul.domain.commands;
 
 import java.util.List;
 
