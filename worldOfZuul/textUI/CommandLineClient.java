@@ -7,7 +7,7 @@ package worldOfZuul.textUI;
 
 import worldOfZuul.domain.commands.Command;
 import worldOfZuul.domain.commands.Commands;
-import worldOfZuul.domain.commands.Game;
+import worldOfZuul.domain.game.Game;
 
 /**
  *
@@ -57,7 +57,7 @@ public class CommandLineClient {
     private void roomInfo(){
         if(!game.isGameFinished()){
             System.out.println(game.getRoomDescription());
-            System.out.println("There are " + game.getCurrentRoom().getForest().getTreePop() + " trees and " + game.getCurrentRoom().getForest().getSaplingPop() + " saplings.");                
+            System.out.println("There are " + game.getCurrentRoom().getForest().getTreePop() + " trees and " + game.getCurrentRoom().getForest().getSaplingPop() + " saplings.");
             if(game.getTick() == Game.maxTicks - 1){
                 System.out.println("This is your last move");
             }

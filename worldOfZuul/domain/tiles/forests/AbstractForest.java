@@ -1,40 +1,67 @@
 package worldOfZuul.domain.tiles.forests;
 
-import worldOfZuul.domain.commands.Inventory;
+import worldOfZuul.domain.inventory.Inventory;
 
 import java.lang.Math;
 
 public class AbstractForest {
-    private static int maxPop;
-    private static int maxAge;
-    private static int treePrice;
-    private static int saplingPrice;
-    private static int treeEcoValue;
-    private int treePop, saplingPop, saplingAge;
 
-    public AbstractForest(int treePop, int saplingPop, int saplingAge) {
-        this.treePop = (int) (maxPop * Math.random() + 1);
+    // final attributes
+
+    // maxPop describes the max amount of seeds and trees.
+    // saplingTurnsToGrow describes the number of turns it takes for a sapling to grow.
+    // treePrice describes how much money a tree gives when chopped.
+    // saplingPrice describes how much money it costs to plant a sapling.
+    // treeEcoValue describes how much a single tree contributes to your total ecoValue.
+    private final int maxPop, saplingTurnsToGrow, treePrice, saplingPrice, treeEcoValue;
+
+    // minStartingTreePop describes the minimum starting population.
+    // maxStartingTreePop describes the maximum starting population.
+    private final int minStartingTreePop, maxStartingTreePop;
+
+    // attributes
+
+    // treePop describes the current tree population of a given instance of AbstractForest.
+    // sapPop describes the current sapling population of a given instance of AbstractForest.
+    // sapTurnsLeft describes the current number of turns left until saplings grow of a given instance of AbstractForest.
+    private int treePop, saplingPop, saplingTurnsLeft;
+
+    // constructor
+    // Constructs an AbstractForest, and automatically fills it with some amount of trees,
+    // determined by minStartingTreePopDouble and maxStartingTreePopDouble;
+
+    protected AbstractForest(int maxPop,int saplingTurnsToGrow,int treePrice,int saplingPrice,int treeEcoValue,
+                             int minStartingTreePop, int maxStartingTreePop) {
+
+        this.maxPop = maxPop;
+        this.saplingTurnsToGrow = saplingTurnsToGrow;
+        this.treePrice = treePrice;
+        this.saplingPrice = saplingPrice;
+        this.treeEcoValue = treeEcoValue;
+
+        this.minStartingTreePop = minStartingTreePop;
+        this.maxStartingTreePop = maxStartingTreePop;
+
+        this.treePop = getRandomTreePop();
         this.saplingPop = 0;
-        this.saplingAge = 0;
+        this.saplingTurnsLeft = 0;
     }
 
-    //getters
-    public int getTreePop() {
-        return this.treePop;
+    // static methods
+
+    // getRandomTreePop() method. Returns a random tree population between
+    // minStartingTreePop and maxStartingTreePop.
+    public int getRandomTreePop() {
+        int range = (maxStartingTreePop - minStartingTreePop);
+        return (int)(Math.random() * range + minStartingTreePop) + 1;
     }
 
-    public int getSaplingPop() {
-        return this.saplingPop;
-    }
+    // dynamic methods
 
-    public int getSaplingAge() {
-        return this.saplingAge;
-    }
-
-
-    //Chops down given amount of trees, or all if amount is too high.
-    //Adds money to inventory
-    //returns message to user
+    // chop() method.
+    // Chops down given amount of trees, or all if amount is too high.
+    // Adds money to inventory.
+    // Returns message to user.
     public String chop(String userInput, Inventory inventory) {
         int amount = this.parseNumber(userInput);
         String msg;
@@ -53,14 +80,15 @@ public class AbstractForest {
         return msg;
     }
 
-    //Plants the given amount of trees, or max allowed.
-    //Subtracts money from inventory
-    //returns message to user
+    // plant() method.
+    // Plants the given amount of trees, or max allowed.
+    // Subtracts money from inventory.
+    // Returns message to user.
     public String plant(String userInput, Inventory inventory) {
         int amount = this.parseNumber(userInput);
         String msg;
         if(this.isValidNumber(amount)){ 
-            if(this.saplingAge == 0){
+            if(this.saplingTurnsLeft == 0){
                 if(amount + this.treePop >= maxPop){
                     amount = maxPop - this.treePop;
                 }        
@@ -69,13 +97,13 @@ public class AbstractForest {
                 }
     
                 this.saplingPop = amount;
-                this.saplingAge = maxAge;
+                this.saplingTurnsLeft = saplingTurnsToGrow;
                 inventory.calcMoney(-this.saplingPop * saplingPrice);
 
                 msg =  "Planted " + this.saplingPop + " saplings.";
 
             }else{
-                msg = "Wait " + this.saplingAge + " turns before planting new saplings";
+                msg = "Wait " + this.saplingTurnsLeft + " turns before planting new saplings";
             }
           
         }else{
@@ -85,14 +113,17 @@ public class AbstractForest {
         return msg;
     }
 
-    //Increase sapling age and converts them to trees
+    // saplingGrow() method.
+    // Increase sapling age and converts them to trees
     public void saplingGrow() {
-        if(this.saplingAge > 0){
-            this.saplingAge -= 1;
+        if(this.saplingTurnsLeft > 0){
+            // If the saplings have any turns left, subtract 1 turn.
+            this.saplingTurnsLeft -= 1;
         }else{
+            // Else grow the saplings.
             this.treePop += this.saplingPop;
             this.saplingPop = 0;
-            this.saplingAge = 0;
+            this.saplingTurnsLeft = 0;
         }
     }
 
@@ -106,5 +137,47 @@ public class AbstractForest {
     }
     private boolean isValidNumber(int i){
         return i > 0;
+    }
+
+    // getters
+
+    public int getMaxPop() {
+        return maxPop;
+    }
+
+    public int getSaplingTurnsToGrow() {
+        return saplingTurnsToGrow;
+    }
+
+    public int getTreePrice() {
+        return treePrice;
+    }
+
+    public int getSaplingPrice() {
+        return saplingPrice;
+    }
+
+    public int getTreeEcoValue() {
+        return treeEcoValue;
+    }
+
+    public int getMinStartingTreePop() {
+        return minStartingTreePop;
+    }
+
+    public int getMaxStartingTreePop() {
+        return maxStartingTreePop;
+    }
+
+    public int getTreePop() {
+        return treePop;
+    }
+
+    public int getSaplingPop() {
+        return saplingPop;
+    }
+
+    public int getSaplingTurnsLeft() {
+        return saplingTurnsLeft;
     }
 }

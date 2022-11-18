@@ -1,8 +1,15 @@
-package worldOfZuul.domain.commands;
+package worldOfZuul.domain.game;
 
+import worldOfZuul.domain.commands.Command;
+import worldOfZuul.domain.commands.CommandImplementation;
+import worldOfZuul.domain.commands.CommandWords;
+import worldOfZuul.domain.commands.CommandWordsImplementation;
+import worldOfZuul.domain.inventory.Inventory;
 import worldOfZuul.domain.tiles.Tile;
+import worldOfZuul.domain.tiles.forests.*;
 
 import java.util.List;
+import java.lang.Math;
 
 public class Game {
 
@@ -25,7 +32,17 @@ public class Game {
 
         for (int i = 0; i < tiles.length; i++) {
             for (int j = 0; j < tiles.length; j++) {
-                tiles[i][j] = new Tile("tile " + i + "." + j);
+                double spawnDouble = Math.random(); // Determine random Forest type.
+                if (spawnDouble < ForestSpawnChances.getRainForestSpawnChances()) {
+                    tiles[i][j] = new Tile ("Rainforest at ["+i+","+j+"]", new RainForest());
+                } else {
+                    spawnDouble -= ForestSpawnChances.getRainForestSpawnChances();
+                    if (spawnDouble < ForestSpawnChances.getOakForestSpawnChance()) {
+                        tiles[i][j] = new Tile ("Oak forest at ["+i+","+j+"]", new OakForest());
+                    } else {
+                        tiles[i][j] = new Tile ("Pine forest at ["+i+","+j+"]", new PineForest());
+                    }
+                }
             }
         }
 
@@ -49,7 +66,6 @@ public class Game {
                 }
             }
         }
-
     }
 
     public boolean goRoom(Command command) {
