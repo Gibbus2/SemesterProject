@@ -141,7 +141,7 @@ public class Game {
             }
         }
         if (tick > 0) {
-            System.out.printf("Sustain rating: "+"%.2f"+"\n", inventory.calcSustain());
+            System.out.printf("Sustain rating: "+"%.2f"+"\n");
         }
 
     }
