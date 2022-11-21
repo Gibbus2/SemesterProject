@@ -126,6 +126,15 @@ public class Game {
     }
 
     public Boolean isGameFinished() {
+        if ((getInventory().getWoodChopped() < 150) && (tick == 10)){
+            return true;
+        }
+        if ((getInventory().getWoodChopped() < 400) && (tick == 20)) {
+            return true;
+        }
+        if ((getInventory().getWoodChopped() < 1000) && (tick == 30)) {
+            return true;
+        }
         return this.tick == maxTicks;
     }
 

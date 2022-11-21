@@ -62,6 +62,7 @@ public class CommandLineClient {
             if(game.getTick() == Game.maxTicks - 1){
                 System.out.println("This is your last move");
             }
+
             location();
         }
     }
