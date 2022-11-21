@@ -2,7 +2,7 @@ package worldOfZuul.textUI;
 
 import java.util.Scanner;
 import worldOfZuul.domain.commands.Command;
-import worldOfZuul.domain.commands.Game;
+import worldOfZuul.domain.game.Game;
 
 public class Parser 
 {
