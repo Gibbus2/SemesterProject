@@ -33,7 +33,7 @@ public class CommandLineClient {
         }
         System.out.println();
         System.out.println("Thank you for playing ChopMaster3000!");
-        System.out.printf("\n"+"Your final highscore & sustainability rating is: "+"%.2f");
+        //System.out.printf("\n"+"Your final highscore & sustainability rating is: "+"%.2f");
     }
 
     private void printWelcome() {
@@ -58,6 +58,7 @@ public class CommandLineClient {
         if(!game.isGameFinished()){
             System.out.println(game.getRoomDescription());
             System.out.println("There are " + game.getCurrentRoom().getForest().getTreePop() + " trees and " + game.getCurrentRoom().getForest().getSaplingPop() + " saplings.");
+            System.out.println("Wood chopped: " + game.getInventory().getWoodChopped());
             if(game.getTick() == Game.maxTicks - 1){
                 System.out.println("This is your last move");
             }
@@ -132,6 +133,7 @@ public class CommandLineClient {
                 }else{
                     System.out.println(game.getCurrentRoom().getForest().chop(command.getCommandValue(), game.getInventory()));
                 }
+
                 break;
             case SHOWSCORE:
                 System.out.println();

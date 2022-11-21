@@ -7,6 +7,8 @@ public class Inventory {
 
     private int moneyScore;
 
+    private int woodChopped = 0;
+
     public Inventory() {
         this.moneyScore = 100; //Starting with 100 Euro-dollars
     }
@@ -14,6 +16,8 @@ public class Inventory {
     public void calcMoney(int woodInput) {
         this.moneyScore += woodInput;
     }
+
+
 
     public double calcEco(Tile[][] tiles) {
         double finalEcoScore = 0;
@@ -31,4 +35,11 @@ public class Inventory {
     }
 
 
+    public int getWoodChopped() {
+        return woodChopped;
+    }
+
+    public void setWoodChopped(int woodChopped) {
+        this.woodChopped += woodChopped;
+    }
 }

@@ -68,9 +68,11 @@ public class AbstractForest {
         if(this.isValidNumber(amount)){
             if (amount <= this.treePop) {
                 this.treePop = this.treePop - amount;
+                inventory.setWoodChopped(amount);
             } else {
                 amount = this.treePop;
                 this.treePop = 0;
+                inventory.setWoodChopped(amount);
             }
             inventory.calcMoney(amount * treePrice);        
             msg = amount + " trees chopped.\nTrees remaining: " + this.treePop;
