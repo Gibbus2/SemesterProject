@@ -28,8 +28,7 @@ public class CommandLineClient {
         boolean finished = false;
         while (!finished) {
             Command command = parser.getCommand();
-            finished = processCommand(command);
-            finished = game.isGameFinished();
+            finished = (processCommand(command) || game.isGameFinished());
         }
         System.out.println();
         System.out.println("Thank you for playing ChopMaster3000!");
