@@ -9,12 +9,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.7015050167224081" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldOfZuul.GUI.FXMLDocumentController">
+<SplitPane dividerPositions="0.7015050167224081" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" fx:controller="worldOfZuul.GUI.FXMLDocumentController"  xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="250.0" />
       <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="208.0" prefWidth="160.0">
         <items>
-            <GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.33" prefHeight="174.0" prefWidth="176.0">
+            <GridPane id="map" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.33" prefHeight="174.0" prefWidth="176.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
