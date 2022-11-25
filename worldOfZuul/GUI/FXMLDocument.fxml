@@ -14,7 +14,7 @@
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="250.0" />
       <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="208.0" prefWidth="160.0">
         <items>
-            <GridPane id="map" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.33" prefHeight="174.0" prefWidth="176.0">
+            <GridPane fx:id="map" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.33" prefHeight="174.0" prefWidth="176.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
