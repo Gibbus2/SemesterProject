@@ -7,8 +7,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.7015050167224081" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" fx:controller="worldOfZuul.GUI.FXMLDocumentController"  xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19">
+<SplitPane dividerPositions="0.7015050167224081" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldOfZuul.GUI.FXMLDocumentController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="250.0" />
       <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="208.0" prefWidth="160.0">
@@ -29,7 +30,10 @@
             </GridPane>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" text="Quit Game" />
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Quit Game">
+                     <font>
+                        <Font size="96.0" />
+                     </font></Button>
                </children>
             </VBox>
         </items>
