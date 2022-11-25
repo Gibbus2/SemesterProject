@@ -24,6 +24,10 @@ public class FXMLDocumentController implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // ObservableList<Node> labels = map.getChildren();
+        // map.add(new Label("test"), 0, 0);
+        System.out.println(map.getRowCount());
+        
     }
+
+
 }
