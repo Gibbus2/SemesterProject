@@ -4,7 +4,7 @@ import worldOfZuul.domain.inventory.Inventory;
 
 import java.lang.Math;
 
-public class AbstractForest {
+public abstract class AbstractForest {
 
     // final attributes
 

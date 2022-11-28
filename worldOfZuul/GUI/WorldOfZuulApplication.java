@@ -20,6 +20,7 @@ public class WorldOfZuulApplication extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
+            primaryStage.setResizable(false);
         } catch (Exception e) {
             System.out.println(e);
         }

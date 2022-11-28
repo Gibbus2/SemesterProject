@@ -128,4 +128,9 @@ public class FXMLDocumentController implements Initializable{
         goWest.setDisable(game.getCurrentRoom().getExit("west") == null);
     }
 
+    private void start(Game game) {
+        this.game = game;
+    }
+
+
 }
