@@ -2,9 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -106,22 +105,29 @@
                   </VBox>
                </children>
             </HBox>
-            <SplitPane dividerPositions="0.5" mouseTransparent="true">
-               <items>
-                  <SplitPane dividerPositions="0.8" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
-                    <items>
-                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
-                        <RadioButton mnemonicParsing="false" text="Chop" />
-                    </items>
-                  </SplitPane>
-                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
-                    <items>
-                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
-                        <RadioButton mnemonicParsing="false" text="Plant" />
-                    </items>
-                  </SplitPane>
-               </items>
-            </SplitPane>
+            <VBox alignment="CENTER">
+               <children>
+                  <TextField fx:id="input">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Button fx:id="plant" mnemonicParsing="false" onAction="#handlePlant" text="Plant">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="chop" mnemonicParsing="false" onAction="#handleChop" text="Chop">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <VBox alignment="CENTER_RIGHT" prefWidth="500.0">

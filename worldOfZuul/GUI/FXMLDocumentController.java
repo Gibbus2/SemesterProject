@@ -10,10 +10,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -22,10 +24,18 @@ import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import worldOfZuul.domain.commands.Command;
 import worldOfZuul.domain.commands.CommandImplementation;
 import worldOfZuul.domain.commands.Commands;
 import worldOfZuul.domain.game.Game;
+
+import java.text.DecimalFormat;
+import javafx.scene.control.TextFormatter;
+
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+
 
 
 public class FXMLDocumentController implements Initializable{
@@ -39,7 +49,10 @@ public class FXMLDocumentController implements Initializable{
     private Text[] tileData;
 
     @FXML
-    private Button quit, goNorth, goEast, goSouth, goWest;
+    private Button quit, goNorth, goEast, goSouth, goWest, plant, chop;
+
+    @FXML
+    private TextField input;
 
 
     @Override
@@ -64,6 +77,17 @@ public class FXMLDocumentController implements Initializable{
 
     public void handleButtonQuit(ActionEvent event){
         WorldOfZuulApplication.quit();
+    }
+
+    public void handlePlant(ActionEvent event){
+
+        game.getCurrentRoom().getForest().plant(input.getText(), game.getInventory());
+        updateAll();
+    }
+
+    public void handleChop(ActionEvent event){
+        game.getCurrentRoom().getForest().chop(input.getText(), game.getInventory());
+        updateAll();
     }
 
     public void handleGoNorth(ActionEvent event){
