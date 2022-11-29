@@ -53,6 +53,8 @@ public class GameOverController {
         mainController.start(new Game());
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(mainScene);
+
+        setCancelButtonVisable(true);
     }
 
     @FXML
