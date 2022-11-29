@@ -19,6 +19,7 @@ public class WorldOfZuulApplication extends Application {
         primaryStage.setTitle("ChopMaster");
 
         try {
+            // hello
             // map scene
             FXMLLoader mainLoader = new FXMLLoader(WorldOfZuulApplication.class.getResource("mainView.fxml"));
             Parent mainPane = mainLoader.load();
