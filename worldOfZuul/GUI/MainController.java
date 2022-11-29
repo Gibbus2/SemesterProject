@@ -56,10 +56,7 @@ public class MainController implements Initializable {
     private Text[] tileData;
     private Scene helpScene, gameOverScene;
     private GameOverController gameOverController;
-
-    private Image oak, pine, jungle;
-
-
+    
     private Image oak, pine, jungle, oakSapling, pineSapling, jungleSapling, stump;
 
 
