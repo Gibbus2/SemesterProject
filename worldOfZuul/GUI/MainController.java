@@ -197,7 +197,7 @@ public class MainController implements Initializable {
     }
 
     private void updateInfobox() {
-        infoBox.setText("Martin");
+
 
     }
 
