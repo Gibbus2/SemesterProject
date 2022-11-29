@@ -35,7 +35,7 @@ public class MainController implements Initializable {
     private SplitPane pane;
 
     @FXML
-    private Text ecoScore, money, trees, saplings, turnsLeft, chopped;
+    private Text ecoScore, money, trees, saplings, turnsLeft, chopped, SaplingGrowthTimer;
 
     @FXML
     private Button endGame, goNorth, goEast, goSouth, goWest, plant, chop;
@@ -46,19 +46,37 @@ public class MainController implements Initializable {
     @FXML
     private ImageView oakBackground, pineBackground, jungleBackground;
 
+    // handles tree view on background.
     @FXML
-    private AnchorPane forestAnchorPane;
+    private ImageView treeView0, treeView1, treeView2, treeView3, treeView4, treeView5, treeView6, treeView7, treeView8, treeView9;
+
+    private ImageView[] treeViews;
 
     private Game game;
     private Text[] tileData;
     private Scene helpScene, gameOverScene;
     private GameOverController gameOverController;
+    
+    private Image oak, pine, jungle, oakSapling, pineSapling, jungleSapling, stump;
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         tileData = new Text[map.getColumnCount() * map.getRowCount()];
+
         int labelIndex = 0;
+
+        treeViews = new ImageView[]{treeView0, treeView1, treeView2, treeView3, treeView4, treeView5, treeView6, treeView7, treeView8, treeView9};
+        oak = new Image("worldOfZuul/GUI/resources/oaktree.png");
+        pine = new Image("worldOfZuul/GUI/resources/pinetree.png");
+        jungle = new Image("worldOfZuul/GUI/resources/jungletree.png");
+
+        oakSapling = new Image("worldOfZuul/GUI/resources/oaksapling.png");
+        pineSapling = new Image("worldOfZuul/GUI/resources/pinesapling.png");
+        jungleSapling = new Image("worldOfZuul/GUI/resources/junglesapling.png");
+
+        stump = new Image("worldOfZuul/GUI/resources/stump.png");
+   
 
         for (int i = 0; i < map.getColumnCount(); i++) {
             for (int j = 0; j < map.getRowCount(); j++) {
@@ -171,6 +189,7 @@ public class MainController implements Initializable {
         updateInfo();
         updateGoButtons();
         updateBackground();
+        updateForest();
     }
 
     private void updateBackground() {
@@ -192,35 +211,37 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private void showForest() {
+    private void updateForest() {
         int treePop = this.game.getCurrentRoom().getForest().getTreePop();
         int saplingPop = this.game.getCurrentRoom().getForest().getSaplingPop();
-        String type;
-        if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
-            type = "oak";
-        } else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
-            type = "pine";
-        } else {
-            type = "jungle";
-        }
 
-        for (Node node : forestAnchorPane.getChildren()) {
+        for (ImageView treeView : this.treeViews) {
             Image image;
             if (treePop >= 10) {
-                image = new Image("file:/GUI/resources/" + type + "tree.png");
-                treePop = -10;
+                if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
+                    image = this.oak;
+                } else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
+                    image = this.pine;
+                } else {
+                    image = this.jungle;
+                }
+                treePop = treePop - 10;
             } else if (saplingPop >= 10) {
-                image = new Image("file:/GUI/resources/" + type + "sapling.png");
-                saplingPop = -10;
+                if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
+                    image = this.oakSapling;
+                } else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
+                    image = this.pineSapling;
+                } else {
+                    image = this.jungleSapling;
+                }
+                saplingPop = saplingPop - 10;
             } else {
-                image = new Image("file:/GUI/resources/stump.png");
+                image = this.stump;
             }
-            ImageView imageView = (ImageView) node;
-            imageView.setImage(image);
 
+            treeView.setImage(image);
         }
     }
-
 
     private void updateMap() {
         int labelIndex = 0;
@@ -245,6 +266,8 @@ public class MainController implements Initializable {
 
         this.turnsLeft.setText("" + (Game.maxTicks - game.getTick()));
         this.chopped.setText("" + game.getInventory().getWoodChopped());
+
+        this.SaplingGrowthTimer.setText("" + game.getCurrentRoom().getForest().getSaplingTurnsLeft());
     }
 
     private void updateGoButtons() {
@@ -256,7 +279,45 @@ public class MainController implements Initializable {
 
     public void start(Game game) {
         this.game = game;
-        updateAll();
+        map.getChildren().clear();
+        setImage();
+        createTextFields();
+        updateAll();    
+    }
+
+    private void setImage(){
+        for (int i = 0; i < map.getColumnCount(); i++) {
+            for (int j = 0; j < map.getRowCount(); j++) {
+                ImageView view = new ImageView();
+                view.setFitWidth(40);
+                view.setFitHeight(40);
+                view.setOpacity(0.5);
+
+                if(game.getRooms()[j][i].getForest().getClass() == OakForest.class){
+                    view.setImage(this.oak);
+                }else if (game.getRooms()[j][i].getForest().getClass() == PineForest.class) {
+                    view.setImage(this.pine);
+                } else {
+                    view.setImage(this.jungle);
+                }
+
+                map.add(view, j, i);
+            }
+        }
+    }
+
+    private void createTextFields(){
+        int labelIndex = 0;
+
+        for (int i = 0; i < map.getColumnCount(); i++) {
+            for (int j = 0; j < map.getRowCount(); j++) {
+                tileData[labelIndex] = new Text("" + j + ":" + i);
+                map.add(tileData[labelIndex], j, i);
+                GridPane.setHalignment(tileData[labelIndex], HPos.CENTER);
+                GridPane.setValignment(tileData[labelIndex], VPos.CENTER);
+                labelIndex++;
+            }
+        }
     }
 
 }

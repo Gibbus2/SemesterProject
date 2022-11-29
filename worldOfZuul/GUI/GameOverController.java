@@ -25,7 +25,7 @@ public class GameOverController {
 
     public void showInfo(Game game){
         textArea.setText(
-            "Thank you for playing ChopMaster!\nYour Final score was " + game.getInventory().calcEco(game.getRooms()) + "\nYou have chopped " + game.getInventory().getWoodChopped() +" trees\nand planted x trees"
+            "Thank you for playing ChopMaster!\nYour Final score was " + game.getInventory().calcEco(game.getRooms()) + "\nYou have chopped " + game.getInventory().getWoodChopped() +" trees\nand planted "+ game.getInventory().getTreesPlanted()+ " trees"
         );
     }
 

@@ -8,6 +8,8 @@ public class Inventory {
 
     private int woodChopped = 0;
 
+    private  int treesPlanted = 0;
+
     public Inventory() {
         this.moneyScore = 100; //Starting with 100 Euro-dollars
     }
@@ -40,5 +42,13 @@ public class Inventory {
 
     public void setWoodChopped(int woodChopped) {
         this.woodChopped += woodChopped;
+    }
+
+    public int getTreesPlanted() {
+        return treesPlanted;
+    }
+
+    public void setTreesPlanted(int treesPlanted) {
+        this.treesPlanted += treesPlanted;
     }
 }
