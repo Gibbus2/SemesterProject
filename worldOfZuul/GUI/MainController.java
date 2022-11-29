@@ -21,7 +21,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import worldOfZuul.domain.tiles.forests.OakForest;
 import worldOfZuul.domain.tiles.forests.PineForest;
-import worldOfZuul.domain.tiles.forests.RainForest;
+import worldOfZuul.domain.tiles.forests.JungleForest;
 
 
 
@@ -155,7 +155,7 @@ public class MainController implements Initializable {
         if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
             pineBackground.setVisible(true);
         }
-        if (game.getCurrentRoom().getForest().getClass() == RainForest.class) {
+        if (game.getCurrentRoom().getForest().getClass() == JungleForest.class) {
             jungleBackground.setVisible(true);
         }
 
