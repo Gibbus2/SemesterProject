@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.5401069518716577" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldOfZuul.GUI.HelpController">
+  <items>
+    <AnchorPane maxWidth="400.0" minHeight="400.0" minWidth="550.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <VBox minHeight="540.0" minWidth="550.0" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Welcome to ChopMaster!">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label text="Your goal is to sustainably manage the forests.">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Chopping trees will give you money.">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Planting saplings will cost you money.">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Every time you move, you use a turn.">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Saplings will grow into new trees after a certain number of turns.">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="You have 30 turns in total.">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="You need to chop 150, 400, and 1000 trees by turn 10, 20, and 30.">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="The healthier the forests are, the more bio-diversity can flourish!">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Your final score is calculated by how healthy the forests are at the end.">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children></AnchorPane>
+    <AnchorPane minHeight="400.0" minWidth="200.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="540.0" prefWidth="270.0">
+               <children>
+                  <Label text="Tree types">
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/pinetree.png" />
+                           </image>
+                        </ImageView>
+                        <VBox prefHeight="200.0" prefWidth="125.0">
+                           <children>
+                              <Label text="Spruce">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Low planting price" />
+                              <Label text="High sell value" />
+                              <Label prefHeight="18.0" prefWidth="134.0" text="Low biodiversity" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/oaktree.png" />
+                           </image>
+                        </ImageView>
+                        <VBox prefHeight="200.0" prefWidth="125.0">
+                           <children>
+                              <Label text="Oak">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="More expensive" />
+                              <Label text="Moderate sell value" />
+                              <Label prefHeight="18.0" prefWidth="134.0" text="Moderate biodiversity" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" scaleX="0.95" scaleY="0.95">
+                           <image>
+                              <Image url="@resources/jungletree.png" />
+                           </image>
+                        </ImageView>
+                        <VBox prefHeight="200.0" prefWidth="125.0">
+                           <children>
+                              <Label text="Rainforest tree">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Very expensive" />
+                              <Label text="Low sell value" />
+                              <Label prefHeight="18.0" prefWidth="134.0" text="High biodiversity" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#onMapButtonPressed" text="Go to map">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin></Button>
+               </children>
+            </VBox>
+         </children></AnchorPane>
+  </items>
+</SplitPane>

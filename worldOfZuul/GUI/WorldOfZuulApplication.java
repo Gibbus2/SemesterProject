@@ -17,10 +17,30 @@ public class WorldOfZuulApplication extends Application {
     public void start(Stage primaryStage) throws Exception {
         WorldOfZuulApplication.primaryStage = primaryStage;
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-            primaryStage.setScene(new Scene(root));
+            // map scene
+            FXMLLoader mapLoader = new FXMLLoader(WorldOfZuulApplication.class.getResource("mapView.fxml"));
+            Parent mapPane = mapLoader.load();
+            Scene mapScene = new Scene(mapPane);
+
+            // help scene
+            FXMLLoader helpLoader = new FXMLLoader(WorldOfZuulApplication.class.getResource("helpView.fxml"));
+            Parent helpPane = helpLoader.load();
+            Scene helpScene = new Scene(helpPane);
+
+            // get controllers
+            MapController mapController = (MapController) mapLoader.getController();
+            HelpController helpController = (HelpController) helpLoader.getController();
+
+            helpController.setMapScene(mapScene);
+            helpController.setHelpScene(helpScene);
+
+            mapController.setMapScene(mapScene);
+            mapController.setHelpScene(helpScene);
+
+            primaryStage.setScene(helpScene);
             primaryStage.show();
             primaryStage.setResizable(false);
+
         } catch (Exception e) {
             System.out.println(e);
         }

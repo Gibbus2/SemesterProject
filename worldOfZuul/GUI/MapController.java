@@ -1,33 +1,17 @@
 package worldOfZuul.GUI;
 
-import javafx.application.Platform;
-import javafx.collections.ObservableList;
-import javafx.application.Application;
-import javafx.stage.Stage;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
-
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import java.net.URL;
-import java.text.DecimalFormat;
-import java.util.List;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import worldOfZuul.domain.commands.Command;
-import worldOfZuul.domain.commands.CommandImplementation;
-import worldOfZuul.domain.commands.Commands;
 import worldOfZuul.domain.game.Game;
 
 import java.text.DecimalFormat;
@@ -38,7 +22,7 @@ import javafx.scene.layout.*;
 
 
 
-public class FXMLDocumentController implements Initializable{
+public class MapController extends AbstractController implements Initializable{
     @FXML
     private GridPane map;
 
@@ -103,6 +87,10 @@ public class FXMLDocumentController implements Initializable{
         goRoom("west");
     }
 
+    @FXML
+    private void onHelpButtonPressed(ActionEvent event) {
+        openHelpScene(event);
+    }
     private void goRoom(String direction){
         game.goRoom(game.getCommand("go", direction));
         updateAll();
