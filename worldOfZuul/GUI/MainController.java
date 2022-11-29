@@ -1,5 +1,6 @@
 package worldOfZuul.GUI;
 
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
@@ -18,6 +19,11 @@ import javafx.scene.control.*;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import worldOfZuul.domain.tiles.forests.OakForest;
+import worldOfZuul.domain.tiles.forests.PineForest;
+import worldOfZuul.domain.tiles.forests.RainForest;
+
+
 
 public class MainController implements Initializable {
     @FXML
@@ -35,10 +41,15 @@ public class MainController implements Initializable {
     @FXML
     private TextField input;
 
+    @FXML
+    private ImageView oakBackground, pineBackground, jungleBackground;
+
     private Game game;
     private Text[] tileData;
     private Scene helpScene, gameOverScene;
     private GameOverController gameOverController;
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -130,6 +141,25 @@ public class MainController implements Initializable {
         updateMap();
         updateInfo();
         updateGoButtons();
+        updateBackground();
+    }
+
+    private void updateBackground() {
+        oakBackground.setVisible(false);
+        pineBackground.setVisible(false);
+        jungleBackground.setVisible(false);
+
+        if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
+            oakBackground.setVisible(true);
+        }
+        if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
+            pineBackground.setVisible(true);
+        }
+        if (game.getCurrentRoom().getForest().getClass() == RainForest.class) {
+            jungleBackground.setVisible(true);
+        }
+
+
     }
 
     private void updateMap() {

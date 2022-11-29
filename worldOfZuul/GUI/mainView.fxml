@@ -19,17 +19,17 @@
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="539.0" prefWidth="533.0">
          <children>
-            <ImageView id="pineBackground" fitHeight="540.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="pineBackground" fitHeight="540.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@resources/PineBackground.png" />
+                  <Image url="@resources/pineBackground.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="540.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="oakBackground" fitHeight="540.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@resources/oakBackground.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="540.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="jungleBackground" fitHeight="540.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@resources/jungleBackground.png" />
                </image>
