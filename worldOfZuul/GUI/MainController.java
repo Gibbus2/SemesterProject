@@ -6,6 +6,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyEvent;
 import javafx.event.ActionEvent;
 
 import java.net.URL;
@@ -23,8 +24,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import worldOfZuul.domain.tiles.forests.OakForest;
 import worldOfZuul.domain.tiles.forests.PineForest;
-import worldOfZuul.domain.tiles.forests.RainForest;
-
+import worldOfZuul.domain.tiles.forests.JungleForest;
 
 
 public class MainController implements Initializable {
@@ -53,7 +53,6 @@ public class MainController implements Initializable {
     private Text[] tileData;
     private Scene helpScene, gameOverScene;
     private GameOverController gameOverController;
-
 
 
     @Override
@@ -118,6 +117,31 @@ public class MainController implements Initializable {
         gameOverController.showInfo(game);
     }
 
+    @FXML
+    private void handleOnKeyPressed(KeyEvent event) {
+        switch (event.getText()) {
+            case "w":
+                goRoom("north");
+                break;
+            case "d":
+                goRoom("east");
+                break;
+            case "s":
+                goRoom("south");
+                break;
+            case "a":
+                goRoom("west");
+            case "c":
+                game.getCurrentRoom().getForest().chop(input.getText(), game.getInventory());
+                updateAll();
+                break;
+            case "p":
+                game.getCurrentRoom().getForest().plant(input.getText(), game.getInventory());
+                updateAll();
+                break;
+
+        }
+    }
 
     // setters
     public void setHelpScene(Scene helpScene) {
@@ -160,7 +184,7 @@ public class MainController implements Initializable {
         if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
             pineBackground.setVisible(true);
         }
-        if (game.getCurrentRoom().getForest().getClass() == RainForest.class) {
+        if (game.getCurrentRoom().getForest().getClass() == JungleForest.class) {
             jungleBackground.setVisible(true);
         }
 

@@ -34,7 +34,7 @@ public class Game {
             for (int j = 0; j < tiles.length; j++) {
                 double spawnDouble = Math.random(); // Determine random Forest type.
                 if (spawnDouble < ForestSpawnChances.getRainForestSpawnChances()) {
-                    tiles[i][j] = new Tile ("Rainforest at ["+i+","+j+"]", new RainForest());
+                    tiles[i][j] = new Tile ("Rainforest at ["+i+","+j+"]", new JungleForest());
                 } else {
                     spawnDouble -= ForestSpawnChances.getRainForestSpawnChances();
                     if (spawnDouble < ForestSpawnChances.getOakForestSpawnChance()) {

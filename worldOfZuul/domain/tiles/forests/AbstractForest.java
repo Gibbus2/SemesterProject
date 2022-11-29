@@ -102,6 +102,7 @@ public abstract class AbstractForest {
                 this.saplingTurnsLeft = this.saplingTurnsToGrow;
                 inventory.calcMoney(-amount * saplingPrice);
 
+
                 msg =  "Planted " + this.saplingPop + " saplings.";
 
             }else{
