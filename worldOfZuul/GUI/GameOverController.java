@@ -54,6 +54,7 @@ public class GameOverController {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(mainScene);
 
+        this.mainController.onInfoBoxClicked(null);
         setCancelButtonVisable(true);
     }
 
