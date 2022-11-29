@@ -3,6 +3,7 @@ package worldOfZuul.GUI;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import worldOfZuul.domain.game.Game;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
@@ -14,6 +15,7 @@ public class WorldOfZuulApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Game game = new Game();
         
         try {
             // map scene
@@ -36,6 +38,8 @@ public class WorldOfZuulApplication extends Application {
             primaryStage.setScene(helpScene);
             primaryStage.show();
             primaryStage.setResizable(false);
+
+            mainController.start(game);
 
         } catch (Exception e) {
             System.out.println(e);

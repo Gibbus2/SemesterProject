@@ -40,8 +40,6 @@ public class MainController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.game = new Game();
-    
         tileData = new Text[map.getColumnCount()*map.getRowCount()];
         int labelIndex = 0;
 
@@ -54,8 +52,6 @@ public class MainController implements Initializable{
                 labelIndex++;
             }
         }
-        
-        updateAll();
     }
 
     public void handleButtonQuit(ActionEvent event){
@@ -146,8 +142,9 @@ public class MainController implements Initializable{
         goWest.setDisable(game.getCurrentRoom().getExit("west") == null);
     }
 
-    private void start(Game game) {
+    public void start(Game game) {
         this.game = game;
+        updateAll();
     }
 
 
