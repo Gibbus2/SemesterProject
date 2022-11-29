@@ -121,7 +121,7 @@
             </GridPane>
             <HBox alignment="CENTER">
                <children>
-                  <VBox alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="500.0">
+                  <VBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="500.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trees:">
                            <VBox.margin>
@@ -133,9 +133,14 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Grown in:">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Text>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER_LEFT" layoutX="83.0" layoutY="10.0" prefHeight="58.0" prefWidth="500.0">
+                  <VBox alignment="CENTER_LEFT" layoutX="83.0" layoutY="10.0" prefHeight="60.0" prefWidth="470.0">
                      <children>
                         <Text fx:id="trees" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                            <VBox.margin>
@@ -143,6 +148,11 @@
                            </VBox.margin>
                         </Text>
                         <Text fx:id="saplings" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text fx:id="SaplingGrowthTimer" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -160,12 +170,12 @@
                   </TextField>
                   <HBox alignment="CENTER">
                      <children>
-                        <Button fx:id="plant" mnemonicParsing="false" onAction="#onPlantButtonPressed" text="Plant">
+                        <Button fx:id="chop" mnemonicParsing="false" onAction="#onChopButtonPressed" text="Chop">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="chop" mnemonicParsing="false" onAction="#onChopButtonPressed" text="Chop">
+                        <Button fx:id="plant" mnemonicParsing="false" onAction="#onPlantButtonPressed" text="Plant">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
