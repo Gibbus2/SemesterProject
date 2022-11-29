@@ -4,6 +4,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyEvent;
 import javafx.event.ActionEvent;
 
 import java.net.URL;
@@ -113,6 +114,33 @@ public class MainController implements Initializable {
         gameOverController.showInfo(game);
     }
 
+    @FXML
+    private void handleOnKeyPressed(KeyEvent event){
+        System.out.println("key pressed:" + event.getCode().toString());
+        
+        switch (event.getText()) {
+            case "w":
+                goRoom("north");
+                break;
+            case "d":
+                goRoom("east");
+                break;
+            case "s":
+                goRoom("south");
+                break;
+            case "a":
+                goRoom("west");
+            case "c":
+                game.getCurrentRoom().getForest().chop(input.getText(), game.getInventory());
+                updateAll();
+                break;
+            case "p":
+                game.getCurrentRoom().getForest().plant(input.getText(), game.getInventory());
+                updateAll();
+                break;
+            
+        }
+    }
 
     // setters
     public void setHelpScene(Scene helpScene) {
