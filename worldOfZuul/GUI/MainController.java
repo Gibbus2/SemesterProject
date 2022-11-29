@@ -1,5 +1,6 @@
 package worldOfZuul.GUI;
 
+import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -90,6 +91,8 @@ public class MainController implements Initializable {
                 labelIndex++;
             }
         }
+
+        infoBox.setVisible(false);
     }
 
     // button events
@@ -180,6 +183,7 @@ public class MainController implements Initializable {
     private void goRoom(String direction) {
         game.goRoom(game.getCommand("go", direction));
         updateAll();
+        updateInfobox();
         if (game.isGameFinished()) {
             // end game by creating new action event and pass it to end game button
             onEndGameButtonPressed(new ActionEvent(pane, endGame));
@@ -193,13 +197,33 @@ public class MainController implements Initializable {
         updateGoButtons();
         updateBackground();
         updateForest();
-        updateInfobox();
+
     }
 
     private void updateInfobox() {
-
-
+        if (infoBox.isVisible()) {
+            return;
+        }
+        if ((game.getTick() == 7) && game.getInventory().getWoodChopped() < 150){
+            infoBox.setVisible(true);
+            infoBox.setText("IKEA demand 150 trees by round 10. GET TO WORK!");
+        }
+        else if (game.getTick() == 15 && game.getInventory().getWoodChopped() < 450){
+            infoBox.setVisible(true);
+            infoBox.setText("IKEA demand 450 trees by round 20");
+        }
+        else if (game.getTick() == 25 && game.getInventory().getWoodChopped() < 1000) {
+            infoBox.setVisible(true);
+            infoBox.setText("IKEA demand 1000 trees by round 30. HURRY UP!");
+        }
+        else
+            infoBox.setText(null);
     }
+
+    public void onInfoBoxClicked(ActionEvent actionEvent) {
+        infoBox.setVisible(false);
+    }
+
 
     private void updateBackground() {
         oakBackground.setVisible(false);
