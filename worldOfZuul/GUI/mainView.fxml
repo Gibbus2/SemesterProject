@@ -67,6 +67,7 @@
             <Button fx:id="goSouth" layoutX="62.0" layoutY="70.0" mnemonicParsing="false" onAction="#onGoSouthButtonPressed" text="South" />
             <Button fx:id="goEast" layoutX="116.0" layoutY="42.0" mnemonicParsing="false" onAction="#onGoEastButtonPressed" text="East" />
             <Button fx:id="helpButton" layoutX="584.0" layoutY="14.0" mnemonicParsing="false" onAction="#onHelpButtonPressed" text="Help" />
+            <Button fx:id="infoBox" layoutX="14.0" layoutY="435.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="160.0" text="Text" />
          </children></AnchorPane>
       <VBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="170.0">
          <children>
