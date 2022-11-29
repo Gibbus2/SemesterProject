@@ -114,8 +114,6 @@ public class MainController implements Initializable {
 
     @FXML
     private void handleOnKeyPressed(KeyEvent event) {
-        System.out.println("key pressed:" + event.getCode().toString());
-
         switch (event.getText()) {
             case "w":
                 goRoom("north");
@@ -193,7 +191,7 @@ public class MainController implements Initializable {
         for (int i = 0; i < game.getRooms().length; i++) {
             for (int j = 0; j < game.getRooms().length; j++) {
                 if (game.getRooms()[j][i] == game.getCurrentRoom()) {
-                    tileData[labelIndex].setText("P");
+                    tileData[labelIndex].setText("X");
                 } else {
                     tileData[labelIndex].setText(String.format("%03d", game.getRooms()[j][i].getForest().getTreePop()));
                 }
