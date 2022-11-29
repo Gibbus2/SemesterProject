@@ -41,6 +41,9 @@ public class MainController implements Initializable {
     private Button endGame, goNorth, goEast, goSouth, goWest, plant, chop;
 
     @FXML
+    private Button infoBox;
+
+    @FXML
     private TextField input;
 
     @FXML
@@ -190,6 +193,12 @@ public class MainController implements Initializable {
         updateGoButtons();
         updateBackground();
         updateForest();
+        updateInfobox();
+    }
+
+    private void updateInfobox() {
+
+
     }
 
     private void updateBackground() {

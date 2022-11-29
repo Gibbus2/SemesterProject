@@ -2,6 +2,7 @@ package worldOfZuul.GUI;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import worldOfZuul.domain.game.Game;
 import javafx.scene.Parent;
@@ -56,6 +57,7 @@ public class WorldOfZuulApplication extends Application {
             primaryStage.setScene(helpScene);
             primaryStage.show();
             primaryStage.setResizable(false);
+            primaryStage.getIcons().add(new Image("worldOfZuul/GUI/resources/oaktree.png"));
 
             //start the game
             Game game = new Game();
