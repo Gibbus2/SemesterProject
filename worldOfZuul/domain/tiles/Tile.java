@@ -1,23 +1,25 @@
-package worldOfZuul;
+package worldOfZuul.domain.tiles;
+
+import worldOfZuul.domain.tiles.forests.AbstractForest;
 
 import java.util.Set;
 import java.util.HashMap;
 
 
-public class Room 
+public class Tile
 {
-    private Forest forest;
+    private AbstractForest abstractForest;
     private String description;
-    private HashMap<String, Room> exits;
+    private HashMap<String, Tile> exits;
 
-    public Room(String description) 
+    public Tile(String description, AbstractForest abstractForest)
     {
         this.description = description;
-        exits = new HashMap<String, Room>();
-        this.forest = new Forest();
+        this.abstractForest = abstractForest;
+        exits = new HashMap<String, Tile>();
     }
 
-    public void setExit(String direction, Room neighbor) 
+    public void setExit(String direction, Tile neighbor)
     {
         exits.put(direction, neighbor);
     }
@@ -42,12 +44,12 @@ public class Room
         return returnString;
     }
 
-    public Forest getForest() {
-        return this.forest;
+    public AbstractForest getForest() {
+        return this.abstractForest;
     }
 
 
-    public Room getExit(String direction) 
+    public Tile getExit(String direction)
     {
         return exits.get(direction);
     }

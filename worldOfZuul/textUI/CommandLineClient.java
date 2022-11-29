@@ -5,9 +5,9 @@
  */
 package worldOfZuul.textUI;
 
-import worldOfZuul.Command;
-import worldOfZuul.Commands;
-import worldOfZuul.Game;
+import worldOfZuul.domain.commands.Command;
+import worldOfZuul.domain.commands.Commands;
+import worldOfZuul.domain.game.Game;
 
 /**
  *
@@ -28,12 +28,11 @@ public class CommandLineClient {
         boolean finished = false;
         while (!finished) {
             Command command = parser.getCommand();
-            finished = processCommand(command);
-            finished = game.isGameFinished();
+            finished = (processCommand(command) || game.isGameFinished());
         }
         System.out.println();
         System.out.println("Thank you for playing ChopMaster3000!");
-        System.out.printf("\n"+"Your final highscore & sustainability rating is: "+"%.2f", game.getInventory().calcSustain());
+        //System.out.printf("\n"+"Your final highscore & sustainability rating is: "+"%.2f");
     }
 
     private void printWelcome() {
@@ -57,10 +56,12 @@ public class CommandLineClient {
     private void roomInfo(){
         if(!game.isGameFinished()){
             System.out.println(game.getRoomDescription());
-            System.out.println("There are " + game.getCurrentRoom().getForest().getTreePop() + " trees and " + game.getCurrentRoom().getForest().getSaplingPop() + " saplings.");                
+            System.out.println("There are " + game.getCurrentRoom().getForest().getTreePop() + " trees and " + game.getCurrentRoom().getForest().getSaplingPop() + " saplings.");
+            System.out.println("Wood chopped: " + game.getInventory().getWoodChopped());
             if(game.getTick() == Game.maxTicks - 1){
                 System.out.println("This is your last move");
             }
+
             location();
         }
     }
@@ -132,6 +133,7 @@ public class CommandLineClient {
                 }else{
                     System.out.println(game.getCurrentRoom().getForest().chop(command.getCommandValue(), game.getInventory()));
                 }
+
                 break;
             case SHOWSCORE:
                 System.out.println();

@@ -1,8 +1,8 @@
 package worldOfZuul.textUI;
 
 import java.util.Scanner;
-import worldOfZuul.Command;
-import worldOfZuul.Game;
+import worldOfZuul.domain.commands.Command;
+import worldOfZuul.domain.game.Game;
 
 public class Parser 
 {

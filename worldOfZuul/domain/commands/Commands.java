@@ -1,4 +1,4 @@
-package worldOfZuul;
+package worldOfZuul.domain.commands;
 
 public enum Commands
 {
