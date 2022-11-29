@@ -57,17 +57,17 @@ public class MainController implements Initializable {
     private Scene helpScene, gameOverScene;
     private GameOverController gameOverController;
 
-<<<<<<< Updated upstream
-=======
+
+
     private Image oak, pine, jungle, oakSapling, pineSapling, jungleSapling, stump;
->>>>>>> Stashed changes
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         tileData = new Text[map.getColumnCount() * map.getRowCount()];
-<<<<<<< Updated upstream
+
         int labelIndex = 0;
-=======
+
         treeViews = new ImageView[]{treeView0, treeView1, treeView2, treeView3, treeView4, treeView5, treeView6, treeView7, treeView8, treeView9};
         oak = new Image("worldOfZuul/GUI/resources/oaktree.png");
         pine = new Image("worldOfZuul/GUI/resources/pinetree.png");
@@ -79,7 +79,6 @@ public class MainController implements Initializable {
 
         stump = new Image("worldOfZuul/GUI/resources/stump.png");
    
->>>>>>> Stashed changes
 
         for (int i = 0; i < map.getColumnCount(); i++) {
             for (int j = 0; j < map.getRowCount(); j++) {
@@ -223,30 +222,23 @@ public class MainController implements Initializable {
             if (treePop >= 10) {
                 if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
                     image = this.oak;
-                    System.out.println("oak tree");
                 } else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
                     image = this.pine;
-                    System.out.println("pine tree");
                 } else {
                     image = this.jungle;
-                    System.out.println("jungle tree");
                 }
                 treePop = treePop - 10;
             } else if (saplingPop >= 10) {
                 if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
                     image = this.oakSapling;
-                    System.out.println("oak sapling");
                 } else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
                     image = this.pineSapling;
-                    System.out.println("pine sapling");
                 } else {
                     image = this.jungleSapling;
-                    System.out.println("jungle sapling");
                 }
                 saplingPop = saplingPop - 10;
             } else {
                 image = this.stump;
-                System.out.println("stump");
             }
 
             treeView.setImage(image);
