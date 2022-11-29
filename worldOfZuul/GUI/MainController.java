@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.event.ActionEvent;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -54,21 +56,16 @@ public class MainController implements Initializable {
     private Scene helpScene, gameOverScene;
     private GameOverController gameOverController;
 
+    private Image oak, pine, jungle;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         tileData = new Text[map.getColumnCount() * map.getRowCount()];
-        int labelIndex = 0;
+        oak = new Image("worldOfZuul/GUI/resources/oaktree.png");
+        pine = new Image("worldOfZuul/GUI/resources/pinetree.png");
+        jungle = new Image("worldOfZuul/GUI/resources/jungletree.png");
+   
 
-        for (int i = 0; i < map.getColumnCount(); i++) {
-            for (int j = 0; j < map.getRowCount(); j++) {
-                tileData[labelIndex] = new Text("" + j + ":" + i);
-                map.add(tileData[labelIndex], j, i);
-                GridPane.setHalignment(tileData[labelIndex], HPos.CENTER);
-                GridPane.setValignment(tileData[labelIndex], VPos.CENTER);
-                labelIndex++;
-            }
-        }
     }
 
     // button events
@@ -256,7 +253,44 @@ public class MainController implements Initializable {
 
     public void start(Game game) {
         this.game = game;
-        updateAll();
+        setImage();
+        createTextFields();
+        updateAll();    
+    }
+
+    private void setImage(){
+        for (int i = 0; i < map.getColumnCount(); i++) {
+            for (int j = 0; j < map.getRowCount(); j++) {
+                ImageView view = new ImageView();
+                view.setFitWidth(40);
+                view.setFitHeight(40);
+                view.setOpacity(0.5);
+
+                if(game.getRooms()[j][i].getForest().getClass() == OakForest.class){
+                    view.setImage(this.oak);
+                }else if (game.getRooms()[j][i].getForest().getClass() == PineForest.class) {
+                    view.setImage(this.pine);
+                } else {
+                    view.setImage(this.jungle);
+                }
+
+                map.add(view, j, i);
+            }
+        }
+    }
+
+    private void createTextFields(){
+        int labelIndex = 0;
+
+        for (int i = 0; i < map.getColumnCount(); i++) {
+            for (int j = 0; j < map.getRowCount(); j++) {
+                tileData[labelIndex] = new Text("" + j + ":" + i);
+                map.add(tileData[labelIndex], j, i);
+                GridPane.setHalignment(tileData[labelIndex], HPos.CENTER);
+                GridPane.setValignment(tileData[labelIndex], VPos.CENTER);
+                labelIndex++;
+            }
+        }
     }
 
 }
