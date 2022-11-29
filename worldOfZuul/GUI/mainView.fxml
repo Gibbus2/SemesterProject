@@ -13,14 +13,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane dividerPositions="0.8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldOfZuul.GUI.FXMLDocumentController">
+<SplitPane fx:id="pane" dividerPositions="0.8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldOfZuul.GUI.MainController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="539.0" prefWidth="533.0">
          <children>
-            <Button fx:id="goNorth" layoutX="62.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleGoNorth" text="North" />
-            <Button fx:id="goWest" layoutX="14.0" layoutY="42.0" mnemonicParsing="false" onAction="#handleGoWest" text="West" />
-            <Button fx:id="goSouth" layoutX="62.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleGoSouth" text="South" />
-            <Button fx:id="goEast" layoutX="116.0" layoutY="42.0" mnemonicParsing="false" onAction="#handleGoEast" text="East" />
+            <Button fx:id="goNorth" layoutX="62.0" layoutY="14.0" mnemonicParsing="false" onAction="#onGoNorthButtonPressed" text="North" />
+            <Button fx:id="goWest" layoutX="14.0" layoutY="42.0" mnemonicParsing="false" onAction="#onGoWestButtonPressed" text="West" />
+            <Button fx:id="goSouth" layoutX="62.0" layoutY="70.0" mnemonicParsing="false" onAction="#onGoSouthButtonPressed" text="South" />
+            <Button fx:id="goEast" layoutX="116.0" layoutY="42.0" mnemonicParsing="false" onAction="#onGoEastButtonPressed" text="East" />
+            <Button fx:id="helpButton" layoutX="592.0" layoutY="1.0" mnemonicParsing="false" onAction="#onHelpButtonPressed" text="Help" />
          </children></AnchorPane>
       <VBox prefHeight="350.0" prefWidth="350.0">
          <children>
@@ -114,12 +115,12 @@
                   </TextField>
                   <HBox alignment="CENTER">
                      <children>
-                        <Button fx:id="plant" mnemonicParsing="false" onAction="#handlePlant" text="Plant">
+                        <Button fx:id="plant" mnemonicParsing="false" onAction="#onPlantButtonPressed" text="Plant">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="chop" mnemonicParsing="false" onAction="#handleChop" text="Chop">
+                        <Button fx:id="chop" mnemonicParsing="false" onAction="#onChopButtonPressed" text="Chop">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
@@ -160,7 +161,7 @@
                   </VBox>
                </children>
             </HBox>
-            <Button fx:id="quit" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonQuit" text="Quit Game" VBox.vgrow="ALWAYS">
+            <Button fx:id="endGame" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onEndGameButtonPressed" text="End Game" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="16.0" />
                </font>

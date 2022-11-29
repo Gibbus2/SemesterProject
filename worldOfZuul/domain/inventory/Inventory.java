@@ -1,6 +1,5 @@
 package worldOfZuul.domain.inventory;
 
-import worldOfZuul.domain.game.Game;
 import worldOfZuul.domain.tiles.Tile;
 
 public class Inventory {
