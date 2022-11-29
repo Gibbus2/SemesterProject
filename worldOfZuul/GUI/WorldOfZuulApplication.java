@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 public class WorldOfZuulApplication extends Application {
-    private static Stage primaryStage;
    
     public static void main(String[] args) {
         launch(args);
@@ -15,12 +14,12 @@ public class WorldOfZuulApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        WorldOfZuulApplication.primaryStage = primaryStage;
+        
         try {
             // map scene
-            FXMLLoader mapLoader = new FXMLLoader(WorldOfZuulApplication.class.getResource("mapView.fxml"));
-            Parent mapPane = mapLoader.load();
-            Scene mapScene = new Scene(mapPane);
+            FXMLLoader mainLoader = new FXMLLoader(WorldOfZuulApplication.class.getResource("mainView.fxml"));
+            Parent mainPane = mainLoader.load();
+            Scene mainScene = new Scene(mainPane);
 
             // help scene
             FXMLLoader helpLoader = new FXMLLoader(WorldOfZuulApplication.class.getResource("helpView.fxml"));
@@ -28,14 +27,11 @@ public class WorldOfZuulApplication extends Application {
             Scene helpScene = new Scene(helpPane);
 
             // get controllers
-            MapController mapController = (MapController) mapLoader.getController();
+            MainController mainController = (MainController) mainLoader.getController();
             HelpController helpController = (HelpController) helpLoader.getController();
 
-            helpController.setMapScene(mapScene);
-            helpController.setHelpScene(helpScene);
-
-            mapController.setMapScene(mapScene);
-            mapController.setHelpScene(helpScene);
+            helpController.setMainScene(mainScene);
+            mainController.setHelpScene(helpScene);
 
             primaryStage.setScene(helpScene);
             primaryStage.show();
@@ -45,9 +41,5 @@ public class WorldOfZuulApplication extends Application {
             System.out.println(e);
         }
         
-    }
-
-    static public void quit(){
-        WorldOfZuulApplication.primaryStage.close();
     }
 }

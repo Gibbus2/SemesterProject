@@ -2,15 +2,22 @@ package worldOfZuul.GUI;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 
-import javax.swing.*;
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.scene.Node;
+import javafx.stage.Stage;
 
-public class HelpController extends AbstractController {
+public class HelpController {
+
+    private Scene mainScene;
+
+    public void setMainScene(Scene mainScene){
+        this.mainScene = mainScene;
+    }
 
     @FXML
     private void onMapButtonPressed (ActionEvent event) {
-        openMapScene(event);
+        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        primaryStage.setScene(this.mainScene);
     }
 }

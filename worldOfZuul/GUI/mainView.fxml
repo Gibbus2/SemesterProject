@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane dividerPositions="0.8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldOfZuul.GUI.MapController">
+<SplitPane dividerPositions="0.8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldOfZuul.GUI.MainController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="539.0" prefWidth="533.0">
          <children>
@@ -21,6 +21,7 @@
             <Button fx:id="goWest" layoutX="14.0" layoutY="42.0" mnemonicParsing="false" onAction="#handleGoWest" text="West" />
             <Button fx:id="goSouth" layoutX="62.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleGoSouth" text="South" />
             <Button fx:id="goEast" layoutX="116.0" layoutY="42.0" mnemonicParsing="false" onAction="#handleGoEast" text="East" />
+            <Button fx:id="helpButton" layoutX="592.0" layoutY="1.0" mnemonicParsing="false" onAction="#onHelpButtonPressed" text="Help" />
          </children></AnchorPane>
       <VBox prefHeight="350.0" prefWidth="350.0">
          <children>

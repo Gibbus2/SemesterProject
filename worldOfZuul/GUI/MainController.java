@@ -13,16 +13,14 @@ import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import worldOfZuul.domain.game.Game;
-
-import java.text.DecimalFormat;
-import javafx.scene.control.TextFormatter;
-
 import javafx.scene.control.*;
-import javafx.scene.layout.*;
+
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 
-
-public class MapController extends AbstractController implements Initializable{
+public class MainController implements Initializable{
     @FXML
     private GridPane map;
 
@@ -31,6 +29,7 @@ public class MapController extends AbstractController implements Initializable{
 
     private Game game;
     private Text[] tileData;
+    private Scene helpScene;
 
     @FXML
     private Button quit, goNorth, goEast, goSouth, goWest, plant, chop;
@@ -60,11 +59,11 @@ public class MapController extends AbstractController implements Initializable{
     }
 
     public void handleButtonQuit(ActionEvent event){
-        WorldOfZuulApplication.quit();
+        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        primaryStage.close();
     }
 
     public void handlePlant(ActionEvent event){
-
         game.getCurrentRoom().getForest().plant(input.getText(), game.getInventory());
         updateAll();
     }
@@ -89,15 +88,22 @@ public class MapController extends AbstractController implements Initializable{
 
     @FXML
     private void onHelpButtonPressed(ActionEvent event) {
-        openHelpScene(event);
+        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        primaryStage.setScene(helpScene);
     }
+
+
+    public void setHelpScene(Scene helpScene){
+        this.helpScene = helpScene;
+    }
+
     private void goRoom(String direction){
         game.goRoom(game.getCommand("go", direction));
         updateAll();
         if(game.isGameFinished()){
             //END
             System.out.println("game end");
-            WorldOfZuulApplication.quit();
+            handleButtonQuit(null);
         }
     }
 
