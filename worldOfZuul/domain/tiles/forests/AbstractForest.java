@@ -52,8 +52,8 @@ public abstract class AbstractForest {
     // getRandomTreePop() method. Returns a random tree population between
     // minStartingTreePop and maxStartingTreePop.
     public int getRandomTreePop() {
-        int range = (maxStartingTreePop - minStartingTreePop);
-        return (int)(Math.random() * range + minStartingTreePop) + 1;
+        int range = (this.maxStartingTreePop - this.minStartingTreePop);
+        return (int)(Math.random() * range + this.minStartingTreePop) + 1;
     }
 
     // dynamic methods
@@ -74,7 +74,7 @@ public abstract class AbstractForest {
                 this.treePop = 0;
                 inventory.setWoodChopped(amount);
             }
-            inventory.calcMoney(amount * treePrice);        
+            inventory.calcMoney(amount * this.treePrice);
             msg = amount + " trees chopped.\nTrees remaining: " + this.treePop;
         }else{
             msg = "Invalid number";
@@ -89,18 +89,31 @@ public abstract class AbstractForest {
     public String plant(String userInput, Inventory inventory) {
         int amount = this.parseNumber(userInput);
         String msg;
+<<<<<<< HEAD
         if(this.isValidNumber(amount)){
             if(this.saplingTurnsLeft == 0 || this.saplingTurnsLeft == this.saplingTurnsToGrow){
                 if(amount + this.treePop + this.saplingPop >= maxPop){
                     amount = maxPop - (this.treePop+ this.saplingPop);
+=======
+        if(this.isValidNumber(amount)){ 
+            if(this.saplingTurnsLeft == 0){
+                if(amount + this.treePop >= this.maxPop){
+                    amount = this.maxPop - this.treePop;
+>>>>>>> Aura
                 }        
-                if(amount * saplingPrice > inventory.getMoneyScore()){
-                    amount = (int)(inventory.getMoneyScore() / saplingPrice);
+                if(amount * this.saplingPrice > inventory.getMoneyScore()){
+                    amount = (int)(inventory.getMoneyScore() / this.saplingPrice);
                 }
     
+<<<<<<< HEAD
                 this.saplingPop += amount;
                 this.saplingTurnsLeft = this.saplingTurnsToGrow;
                 inventory.calcMoney(-amount * saplingPrice);
+=======
+                this.saplingPop = amount;
+                this.saplingTurnsLeft = this.saplingTurnsToGrow;
+                inventory.calcMoney(-this.saplingPop * this.saplingPrice);
+>>>>>>> Aura
 
                 msg =  "Planted " + this.saplingPop + " saplings.";
 
