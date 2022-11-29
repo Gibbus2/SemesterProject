@@ -25,7 +25,6 @@ import worldOfZuul.domain.tiles.forests.PineForest;
 import worldOfZuul.domain.tiles.forests.JungleForest;
 
 
-
 public class MainController implements Initializable {
     @FXML
     private GridPane map;
@@ -49,7 +48,6 @@ public class MainController implements Initializable {
     private Text[] tileData;
     private Scene helpScene, gameOverScene;
     private GameOverController gameOverController;
-
 
 
     @Override
@@ -115,9 +113,9 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private void handleOnKeyPressed(KeyEvent event){
+    private void handleOnKeyPressed(KeyEvent event) {
         System.out.println("key pressed:" + event.getCode().toString());
-        
+
         switch (event.getText()) {
             case "w":
                 goRoom("north");
@@ -138,7 +136,7 @@ public class MainController implements Initializable {
                 game.getCurrentRoom().getForest().plant(input.getText(), game.getInventory());
                 updateAll();
                 break;
-            
+
         }
     }
 
@@ -195,7 +193,7 @@ public class MainController implements Initializable {
         for (int i = 0; i < game.getRooms().length; i++) {
             for (int j = 0; j < game.getRooms().length; j++) {
                 if (game.getRooms()[j][i] == game.getCurrentRoom()) {
-                    tileData[labelIndex].setText("X");
+                    tileData[labelIndex].setText("P");
                 } else {
                     tileData[labelIndex].setText(String.format("%03d", game.getRooms()[j][i].getForest().getTreePop()));
                 }
