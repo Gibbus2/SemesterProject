@@ -15,10 +15,24 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane fx:id="pane" dividerPositions="0.8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldOfZuul.GUI.MainController">
+<SplitPane fx:id="pane" dividerPositions="0.8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldOfZuul.GUI.MainController">
   <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="539.0" prefWidth="533.0">
+    <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="540.0">
          <children>
+            <AnchorPane fx:id="forestAnchorPane" minHeight="420.0" minWidth="650.0" prefHeight="200.0" prefWidth="650.0" AnchorPane.topAnchor="120.0">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="60.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="280.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="50.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="30.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="60.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="40.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="480.0" AnchorPane.topAnchor="180.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="190.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="300.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="170.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="510.0" AnchorPane.topAnchor="20.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="170.0" />
+               </children>
+            </AnchorPane>
             <ImageView fx:id="pineBackground" fitHeight="540.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@resources/pineBackground.png" />
@@ -40,7 +54,7 @@
             <Button fx:id="goEast" layoutX="116.0" layoutY="42.0" mnemonicParsing="false" onAction="#onGoEastButtonPressed" text="East" />
             <Button fx:id="helpButton" layoutX="592.0" layoutY="1.0" mnemonicParsing="false" onAction="#onHelpButtonPressed" text="Help" />
          </children></AnchorPane>
-      <VBox prefHeight="350.0" prefWidth="350.0">
+      <VBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="170.0">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
