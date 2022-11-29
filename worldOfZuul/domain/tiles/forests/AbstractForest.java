@@ -89,30 +89,18 @@ public abstract class AbstractForest {
     public String plant(String userInput, Inventory inventory) {
         int amount = this.parseNumber(userInput);
         String msg;
-
         if(this.isValidNumber(amount)){
             if(this.saplingTurnsLeft == 0 || this.saplingTurnsLeft == this.saplingTurnsToGrow){
                 if(amount + this.treePop + this.saplingPop >= maxPop){
                     amount = maxPop - (this.treePop+ this.saplingPop);
-
-        if(this.isValidNumber(amount)){ 
-            if(this.saplingTurnsLeft == 0){
-                if(amount + this.treePop >= this.maxPop){
-                    amount = this.maxPop - this.treePop;
-
                 }        
                 if(amount * this.saplingPrice > inventory.getMoneyScore()){
                     amount = (int)(inventory.getMoneyScore() / this.saplingPrice);
                 }
     
-
                 this.saplingPop += amount;
                 this.saplingTurnsLeft = this.saplingTurnsToGrow;
                 inventory.calcMoney(-amount * saplingPrice);
-
-                this.saplingPop = amount;
-                this.saplingTurnsLeft = this.saplingTurnsToGrow;
-                inventory.calcMoney(-this.saplingPop * this.saplingPrice);
 
 
                 msg =  "Planted " + this.saplingPop + " saplings.";
