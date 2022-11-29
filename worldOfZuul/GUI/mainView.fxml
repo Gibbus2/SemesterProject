@@ -19,6 +19,20 @@
   <items>
     <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="540.0">
          <children>
+            <AnchorPane fx:id="forestAnchorPane" minHeight="420.0" minWidth="650.0" prefHeight="200.0" prefWidth="650.0" AnchorPane.topAnchor="120.0">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="60.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="280.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="50.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="30.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="60.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="40.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="480.0" AnchorPane.topAnchor="180.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="190.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="300.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="170.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="510.0" AnchorPane.topAnchor="20.0" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="170.0" />
+               </children>
+            </AnchorPane>
             <ImageView fx:id="pineBackground" fitHeight="540.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@resources/pineBackground.png" />
@@ -34,6 +48,20 @@
                   <Image url="@resources/jungleBackground.png" />
                </image>
             </ImageView>
+            <AnchorPane prefHeight="440.0" prefWidth="650.0" AnchorPane.topAnchor="100.0">
+               <children>
+                  <ImageView fx:id="treeView3" fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="30.0" />
+                  <ImageView fx:id="treeView4" fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="10.0" />
+                  <ImageView fx:id="treeView6" fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="20.0" />
+                  <ImageView fx:id="treeView0" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="150.0" />
+                  <ImageView fx:id="treeView1" fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="150.0" />
+                  <ImageView fx:id="treeView8" fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="150.0" />
+                  <ImageView fx:id="treeView2" fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="480.0" AnchorPane.topAnchor="230.0" />
+                  <ImageView fx:id="treeView5" fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="270.0" />
+                  <ImageView fx:id="treeView7" fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="270.0" />
+                  <ImageView fx:id="treeView9" fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="280.0" />
+               </children>
+            </AnchorPane>
             <Button fx:id="goNorth" layoutX="62.0" layoutY="14.0" mnemonicParsing="false" onAction="#onGoNorthButtonPressed" text="North" />
             <Button fx:id="goWest" layoutX="14.0" layoutY="42.0" mnemonicParsing="false" onAction="#onGoWestButtonPressed" text="West" />
             <Button fx:id="goSouth" layoutX="62.0" layoutY="70.0" mnemonicParsing="false" onAction="#onGoSouthButtonPressed" text="South" />
