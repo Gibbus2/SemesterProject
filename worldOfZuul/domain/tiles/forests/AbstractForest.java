@@ -52,8 +52,8 @@ public abstract class AbstractForest {
     // getRandomTreePop() method. Returns a random tree population between
     // minStartingTreePop and maxStartingTreePop.
     public int getRandomTreePop() {
-        int range = (maxStartingTreePop - minStartingTreePop);
-        return (int)(Math.random() * range + minStartingTreePop) + 1;
+        int range = (this.maxStartingTreePop - this.minStartingTreePop);
+        return (int)(Math.random() * range + this.minStartingTreePop) + 1;
     }
 
     // dynamic methods
@@ -74,7 +74,7 @@ public abstract class AbstractForest {
                 this.treePop = 0;
                 inventory.setWoodChopped(amount);
             }
-            inventory.calcMoney(amount * treePrice);        
+            inventory.calcMoney(amount * this.treePrice);
             msg = amount + " trees chopped.\nTrees remaining: " + this.treePop;
         }else{
             msg = "Invalid number";
@@ -94,8 +94,8 @@ public abstract class AbstractForest {
                 if(amount + this.treePop + this.saplingPop >= maxPop){
                     amount = maxPop - (this.treePop+ this.saplingPop);
                 }        
-                if(amount * saplingPrice > inventory.getMoneyScore()){
-                    amount = (int)(inventory.getMoneyScore() / saplingPrice);
+                if(amount * this.saplingPrice > inventory.getMoneyScore()){
+                    amount = (int)(inventory.getMoneyScore() / this.saplingPrice);
                 }
     
                 this.saplingPop += amount;
