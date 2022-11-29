@@ -1,0 +1,8 @@
+@font-face{
+    font-family:'m5x7';
+    src: url('fonts/m5x7.ttf');
+}
+
+.label{
+-fx-font-family: 'm5x7';
+}

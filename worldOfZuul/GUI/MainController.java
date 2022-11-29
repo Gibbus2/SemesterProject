@@ -2,6 +2,7 @@ package worldOfZuul.GUI;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
@@ -28,7 +29,6 @@ import worldOfZuul.domain.tiles.forests.PineForest;
 import worldOfZuul.domain.tiles.forests.JungleForest;
 
 
-
 public class MainController implements Initializable {
     @FXML
     private GridPane map;
@@ -48,13 +48,15 @@ public class MainController implements Initializable {
     @FXML
     private ImageView oakBackground, pineBackground, jungleBackground;
 
+    @FXML
+    private AnchorPane forestAnchorPane;
+
     private Game game;
     private Text[] tileData;
     private Scene helpScene, gameOverScene;
     private GameOverController gameOverController;
 
     private Image oak, pine, jungle;
-
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -113,9 +115,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private void handleOnKeyPressed(KeyEvent event){
-        System.out.println("key pressed:" + event.getCode().toString());
-        
+    private void handleOnKeyPressed(KeyEvent event) {
         switch (event.getText()) {
             case "w":
                 goRoom("north");
@@ -136,7 +136,7 @@ public class MainController implements Initializable {
                 game.getCurrentRoom().getForest().plant(input.getText(), game.getInventory());
                 updateAll();
                 break;
-            
+
         }
     }
 
@@ -187,6 +187,37 @@ public class MainController implements Initializable {
 
 
     }
+
+    @FXML
+    private void showForest() {
+        int treePop = this.game.getCurrentRoom().getForest().getTreePop();
+        int saplingPop = this.game.getCurrentRoom().getForest().getSaplingPop();
+        String type;
+        if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
+            type = "oak";
+        } else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
+            type = "pine";
+        } else {
+            type = "jungle";
+        }
+
+        for (Node node : forestAnchorPane.getChildren()) {
+            Image image;
+            if (treePop >= 10) {
+                image = new Image("file:/GUI/resources/" + type + "tree.png");
+                treePop = -10;
+            } else if (saplingPop >= 10) {
+                image = new Image("file:/GUI/resources/" + type + "sapling.png");
+                saplingPop = -10;
+            } else {
+                image = new Image("file:/GUI/resources/stump.png");
+            }
+            ImageView imageView = (ImageView) node;
+            imageView.setImage(image);
+
+        }
+    }
+
 
     private void updateMap() {
         int labelIndex = 0;
