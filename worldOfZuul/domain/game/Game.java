@@ -149,12 +149,7 @@ public class Game {
                 tiles[i][j].getForest().saplingGrow();
             }
         }
-        /*
-        if (tick > 0) {
-            System.out.printf("Sustain rating: "+"%.2f"+"\n");
-        }
 
-         */
 
     }
 
