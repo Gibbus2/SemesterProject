@@ -29,12 +29,27 @@ public class WorldOfZuulApplication extends Application {
             Parent helpPane = helpLoader.load();
             Scene helpScene = new Scene(helpPane);
 
+            //gameover scene
+            FXMLLoader gameOverLoader = new FXMLLoader(WorldOfZuulApplication.class.getResource("gameOverView.fxml"));
+            Parent gameOverPane = gameOverLoader.load();
+            Scene gameOverScene = new Scene(gameOverPane);
+
             // get controllers
             MainController mainController = (MainController) mainLoader.getController();
             HelpController helpController = (HelpController) helpLoader.getController();
-            
+            GameOverController gameOverController = (GameOverController) gameOverLoader.getController();
+
+            //settes for helpController
             helpController.setMainScene(mainScene);
+            
+            //setters for mainController
             mainController.setHelpScene(helpScene);
+            mainController.setGameOverScene(gameOverScene);
+            mainController.setGameOverController(gameOverController);
+            
+            //setters for gameOverController
+            gameOverController.setMainScene(mainScene);
+            gameOverController.setMainController(mainController);
 
             //set scene in stage
             primaryStage.setScene(helpScene);
