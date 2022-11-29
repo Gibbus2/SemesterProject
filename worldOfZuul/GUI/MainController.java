@@ -9,8 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.event.ActionEvent;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -37,7 +35,7 @@ public class MainController implements Initializable {
     private SplitPane pane;
 
     @FXML
-    private Text ecoScore, money, trees, saplings, turnsLeft, chopped;
+    private Text ecoScore, money, trees, saplings, turnsLeft, chopped, SaplingGrowthTimer;
 
     @FXML
     private Button endGame, goNorth, goEast, goSouth, goWest, plant, chop;
@@ -242,6 +240,8 @@ public class MainController implements Initializable {
 
         this.turnsLeft.setText("" + (Game.maxTicks - game.getTick()));
         this.chopped.setText("" + game.getInventory().getWoodChopped());
+
+        this.SaplingGrowthTimer.setText("" + game.getCurrentRoom().getForest().getSaplingTurnsLeft());
     }
 
     private void updateGoButtons() {
