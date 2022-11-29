@@ -253,6 +253,7 @@ public class MainController implements Initializable {
 
     public void start(Game game) {
         this.game = game;
+        map.getChildren().clear();
         setImage();
         createTextFields();
         updateAll();    
