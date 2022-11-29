@@ -15,8 +15,9 @@ public class WorldOfZuulApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Game game = new Game();
-        
+
+        primaryStage.setTitle("ChopMaster");
+
         try {
             // map scene
             FXMLLoader mainLoader = new FXMLLoader(WorldOfZuulApplication.class.getResource("mainView.fxml"));
@@ -31,14 +32,17 @@ public class WorldOfZuulApplication extends Application {
             // get controllers
             MainController mainController = (MainController) mainLoader.getController();
             HelpController helpController = (HelpController) helpLoader.getController();
-
+            
             helpController.setMainScene(mainScene);
             mainController.setHelpScene(helpScene);
 
+            //set scene in stage
             primaryStage.setScene(helpScene);
             primaryStage.show();
             primaryStage.setResizable(false);
 
+            //start the game
+            Game game = new Game();
             mainController.start(game);
 
         } catch (Exception e) {

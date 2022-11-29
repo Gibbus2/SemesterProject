@@ -27,15 +27,15 @@ public class MainController implements Initializable{
     @FXML
     private Text ecoScore, money, trees, saplings, turnsLeft, chopped;
 
-    private Game game;
-    private Text[] tileData;
-    private Scene helpScene;
-
     @FXML
     private Button quit, goNorth, goEast, goSouth, goWest, plant, chop;
 
     @FXML
     private TextField input;
+
+    private Game game;
+    private Text[] tileData;
+    private Scene helpScene;
 
 
     @Override
@@ -54,31 +54,42 @@ public class MainController implements Initializable{
         }
     }
 
-    public void handleButtonQuit(ActionEvent event){
+    //button events
+    @FXML
+    private void onQuitButtonPressed(ActionEvent event){
         Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
         primaryStage.close();
     }
 
-    public void handlePlant(ActionEvent event){
+    @FXML
+    private void onPlantButtonPressed(ActionEvent event){
         game.getCurrentRoom().getForest().plant(input.getText(), game.getInventory());
         updateAll();
     }
 
-    public void handleChop(ActionEvent event){
+    @FXML
+    private void onChopButtonPressed(ActionEvent event){
         game.getCurrentRoom().getForest().chop(input.getText(), game.getInventory());
         updateAll();
     }
 
-    public void handleGoNorth(ActionEvent event){
+    @FXML
+    private void onGoNorthButtonPressed(ActionEvent event){
         goRoom("north");
     }
-    public void handleGoEast(ActionEvent event){
+    
+    @FXML
+    private void onGoEastButtonPressed(ActionEvent event){
         goRoom("east");
     }
-    public void handleGoSouth(ActionEvent event){
+
+    @FXML
+    private void onGoSouthButtonPressed(ActionEvent event){
         goRoom("south");
     }
-    public void handleGoWest(ActionEvent event){
+
+    @FXML
+    private void onGoWestButtonPressed(ActionEvent event){
         goRoom("west");
     }
 
@@ -89,6 +100,7 @@ public class MainController implements Initializable{
     }
 
 
+    //settes
     public void setHelpScene(Scene helpScene){
         this.helpScene = helpScene;
     }
@@ -99,7 +111,7 @@ public class MainController implements Initializable{
         if(game.isGameFinished()){
             //END
             System.out.println("game end");
-            handleButtonQuit(null);
+            //TODO: quit game from here
         }
     }
 
