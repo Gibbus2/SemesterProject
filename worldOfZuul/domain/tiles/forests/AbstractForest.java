@@ -93,11 +93,11 @@ public abstract class AbstractForest {
             if(this.saplingTurnsLeft == 0 || this.saplingTurnsLeft == this.saplingTurnsToGrow){
                 if(amount + this.treePop + this.saplingPop >= maxPop){
                     amount = maxPop - (this.treePop+ this.saplingPop);
-                }        
+                }
                 if(amount * this.saplingPrice > inventory.getMoneyScore()){
                     amount = (int)(inventory.getMoneyScore() / this.saplingPrice);
                 }
-    
+                inventory.setTreesPlanted(amount);
                 this.saplingPop += amount;
                 this.saplingTurnsLeft = this.saplingTurnsToGrow;
                 inventory.calcMoney(-amount * saplingPrice);
@@ -108,7 +108,7 @@ public abstract class AbstractForest {
             }else{
                 msg = "Wait " + this.saplingTurnsLeft + " turns before planting new saplings";
             }
-          
+
         }else{
             msg = "Invalid number";
         }
