@@ -1,5 +1,7 @@
 package worldOfZuul.GUI;
 
+import javafx.animation.Interpolator;
+import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -17,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
+import javafx.util.Duration;
 import worldOfZuul.domain.game.Game;
 import javafx.scene.control.*;
 
@@ -48,7 +51,7 @@ public class MainController implements Initializable {
     private TextField input;
 
     @FXML
-    private ImageView oakBackground, pineBackground, jungleBackground;
+    private ImageView oakSky, jungleSky, pineSky, oakLongCloud, pineLongCloud, jungleLongCloud;
 
     // handles tree view on background.
     @FXML
@@ -91,9 +94,41 @@ public class MainController implements Initializable {
                 labelIndex++;
             }
         }
+        //animation of the clouds
+        TranslateTransition oakClouds = new TranslateTransition();
+        oakClouds.setNode(oakLongCloud);
+        oakClouds.setDuration(Duration.millis(25069));
+        oakClouds.setCycleCount(TranslateTransition.INDEFINITE);
+        oakClouds.setByX(640);
+        oakClouds.setInterpolator(Interpolator.LINEAR);
+        oakClouds.play();
+
+        TranslateTransition jungleClouds = new TranslateTransition();
+        jungleClouds.setNode(jungleLongCloud);
+        jungleClouds.setDuration(Duration.millis(25069));
+        jungleClouds.setCycleCount(TranslateTransition.INDEFINITE);
+        jungleClouds.setByX(640);
+        jungleClouds.setInterpolator(Interpolator.LINEAR);
+        jungleClouds.play();
+
+        TranslateTransition pineClouds = new TranslateTransition();
+        pineClouds.setNode(pineLongCloud);
+        pineClouds.setDuration(Duration.millis(25069));
+        pineClouds.setCycleCount(TranslateTransition.INDEFINITE);
+        pineClouds.setByX(640);
+        pineClouds.setInterpolator(Interpolator.LINEAR);
+        pineClouds.play();
+
+//dumb way to set this up but i just want it working for now lmao. make better later
+
 
         infoBox.setVisible(false);
+
+
+
     }
+
+
 
     // button events
     @FXML
@@ -226,22 +261,32 @@ public class MainController implements Initializable {
 
 
     private void updateBackground() {
-        oakBackground.setVisible(false);
-        pineBackground.setVisible(false);
-        jungleBackground.setVisible(false);
+        //can you cluster this into like a group or something to make it look less wonky?
+        pineSky.setVisible(false);
+        oakSky.setVisible(false);
+        jungleSky.setVisible(false);
+        oakLongCloud.setVisible(false);
+        pineLongCloud.setVisible(false);
+        jungleLongCloud.setVisible(false);
 
         if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
-            oakBackground.setVisible(true);
+            oakSky.setVisible(true);
+            oakLongCloud.setVisible(true);
         }
         if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
-            pineBackground.setVisible(true);
+            pineSky.setVisible(true);
+            pineLongCloud.setVisible(true);
+
         }
         if (game.getCurrentRoom().getForest().getClass() == JungleForest.class) {
-            jungleBackground.setVisible(true);
+            jungleSky.setVisible(true);
+            jungleLongCloud.setVisible(true);
+
         }
 
 
     }
+
 
     @FXML
     private void updateForest() {

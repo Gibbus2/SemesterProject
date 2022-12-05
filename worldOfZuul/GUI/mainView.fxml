@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane fx:id="pane" dividerPositions="0.8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldOfZuul.GUI.MainController">
+<SplitPane fx:id="pane" dividerPositions="0.8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldOfZuul.GUI.MainController">
   <items>
     <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="540.0">
          <children>
@@ -33,19 +33,34 @@
                   <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="170.0" />
                </children>
             </AnchorPane>
-            <ImageView fx:id="pineBackground" fitHeight="540.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="oakSky" fitHeight="540.0" fitWidth="650.0">
                <image>
-                  <Image url="@resources/pineBackground.png" />
+                  <Image url="@resources/oakSky.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="oakBackground" fitHeight="540.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="oakLongCloud" fitHeight="540.0" fitWidth="1300.0" layoutX="-650.0">
                <image>
-                  <Image url="@resources/oakBackground.png" />
+                  <Image url="@resources/oakLongCloud.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="jungleBackground" fitHeight="540.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="jungleSky" fitHeight="540.0" fitWidth="650.0">
                <image>
-                  <Image url="@resources/jungleBackground.png" />
+                  <Image url="@resources/jungleSky.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="pineSky" fitHeight="540.0" fitWidth="650.0">
+               <image>
+                  <Image url="@resources/pineSky.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="jungleLongCloud" fitHeight="540.0" fitWidth="1300.0" layoutX="-650.0">
+               <image>
+                  <Image url="@resources/jungleLongCloud.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="pineLongCloud" fitHeight="540.0" fitWidth="1300.0" layoutX="-650.0">
+               <image>
+                  <Image url="@resources/pineLongCloud.png" />
                </image>
             </ImageView>
             <AnchorPane prefHeight="440.0" prefWidth="650.0" AnchorPane.topAnchor="100.0">
@@ -67,7 +82,7 @@
             <Button fx:id="goSouth" layoutX="62.0" layoutY="70.0" mnemonicParsing="false" onAction="#onGoSouthButtonPressed" text="South" />
             <Button fx:id="goEast" layoutX="116.0" layoutY="42.0" mnemonicParsing="false" onAction="#onGoEastButtonPressed" text="East" />
             <Button fx:id="helpButton" layoutX="584.0" layoutY="14.0" mnemonicParsing="false" onAction="#onHelpButtonPressed" text="Help" />
-            <Button fx:id="infoBox" layoutX="14.0" layoutY="435.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="320" onAction="#onInfoBoxClicked" />
+            <Button fx:id="infoBox" layoutX="14.0" layoutY="435.0" mnemonicParsing="false" onAction="#onInfoBoxClicked" prefHeight="90.0" prefWidth="320" />
          </children></AnchorPane>
       <VBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="170.0">
          <children>
