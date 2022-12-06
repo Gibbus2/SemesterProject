@@ -13,7 +13,7 @@
 
 <SplitPane dividerPositions="0.5401069518716577" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChopMaster.GUI.HelpController">
   <items>
-    <AnchorPane maxWidth="400.0" minHeight="400.0" minWidth="550.0" prefHeight="160.0" prefWidth="100.0">
+    <AnchorPane maxWidth="400.0" minHeight="400.0" minWidth="540.0" prefHeight="160.0" prefWidth="100.0">
          <children>
             <VBox minHeight="540.0" minWidth="550.0" prefHeight="200.0" prefWidth="100.0">
                <children>
@@ -150,7 +150,7 @@
          </children></AnchorPane>
     <AnchorPane minHeight="400.0" minWidth="200.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="540.0" prefWidth="270.0">
+            <VBox alignment="TOP_CENTER" prefHeight="540.0" prefWidth="280.0">
                <children>
                   <Label styleClass="text-h2" text="Tree types">
                      <VBox.margin>
@@ -160,7 +160,7 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="100.0">
                      <children>
                         <ImageView fitHeight="88.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -170,7 +170,7 @@
                               <Insets left="27.0" right="27.0" />
                            </HBox.margin>
                         </ImageView>
-                        <VBox prefHeight="200.0" prefWidth="125.0">
+                        <VBox prefHeight="0.0">
                            <children>
                               <Label styleClass="text-h3" text="Pine tree">
                                  <font>
@@ -179,7 +179,7 @@
                               </Label>
                               <Label styleClass="text-normal" text="Low planting price" />
                               <Label styleClass="text-normal" text="High sell value" />
-                              <Label prefHeight="18.0" prefWidth="134.0" styleClass="text-normal" text="Low biodiversity" />
+                              <Label prefHeight="0.0" styleClass="text-normal" text="Low biodiversity" />
                            </children>
                         </VBox>
                      </children>
@@ -187,14 +187,14 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="100.0">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@resources/oaktree.png" />
                            </image>
                         </ImageView>
-                        <VBox prefHeight="200.0" prefWidth="125.0">
+                        <VBox prefHeight="0.0">
                            <children>
                               <Label styleClass="text-h3" text="Oak tree">
                                  <font>
@@ -203,7 +203,7 @@
                               </Label>
                               <Label styleClass="text-normal" text="More expensive" />
                               <Label styleClass="text-normal" text="Moderate sell value" />
-                              <Label prefHeight="18.0" prefWidth="134.0" styleClass="text-normal" text="Moderate biodiversity" />
+                              <Label prefHeight="18.0" styleClass="text-normal" text="Moderate biodiversity" />
                            </children>
                         </VBox>
                      </children>
@@ -218,7 +218,7 @@
                               <Image url="@resources/jungletree.png" />
                            </image>
                         </ImageView>
-                        <VBox prefHeight="200.0" prefWidth="125.0">
+                        <VBox prefHeight="0.0">
                            <children>
                               <Label styleClass="text-h3" text="Jungle tree">
                                  <font>
