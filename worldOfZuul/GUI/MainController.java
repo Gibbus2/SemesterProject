@@ -94,37 +94,14 @@ public class MainController implements Initializable {
                 labelIndex++;
             }
         }
-        //animation of the clouds
-        TranslateTransition oakClouds = new TranslateTransition();
-        oakClouds.setNode(oakLongCloud);
-        oakClouds.setDuration(Duration.millis(25069));
-        oakClouds.setCycleCount(TranslateTransition.INDEFINITE);
-        oakClouds.setByX(640);
-        oakClouds.setInterpolator(Interpolator.LINEAR);
-        oakClouds.play();
-
-        TranslateTransition jungleClouds = new TranslateTransition();
-        jungleClouds.setNode(jungleLongCloud);
-        jungleClouds.setDuration(Duration.millis(25069));
-        jungleClouds.setCycleCount(TranslateTransition.INDEFINITE);
-        jungleClouds.setByX(640);
-        jungleClouds.setInterpolator(Interpolator.LINEAR);
-        jungleClouds.play();
-
-        TranslateTransition pineClouds = new TranslateTransition();
-        pineClouds.setNode(pineLongCloud);
-        pineClouds.setDuration(Duration.millis(25069));
-        pineClouds.setCycleCount(TranslateTransition.INDEFINITE);
-        pineClouds.setByX(640);
-        pineClouds.setInterpolator(Interpolator.LINEAR);
-        pineClouds.play();
-
-//dumb way to set this up but i just want it working for now lmao. make better later
 
 
         infoBox.setVisible(false);
 
 
+        this.setCloudAnimation(jungleLongCloud);
+        this.setCloudAnimation(oakLongCloud);
+        this.setCloudAnimation(pineLongCloud);
 
     }
 
@@ -218,7 +195,6 @@ public class MainController implements Initializable {
     private void goRoom(String direction) {
         game.goRoom(game.getCommand("go", direction));
         updateAll();
-        updateInfobox();
         if (game.isGameFinished()) {
             // end game by creating new action event and pass it to end game button
             onEndGameButtonPressed(new ActionEvent(pane, endGame));
@@ -232,7 +208,7 @@ public class MainController implements Initializable {
         updateGoButtons();
         updateBackground();
         updateForest();
-
+        updateInfobox();
     }
 
     private void updateInfobox() {
@@ -396,6 +372,16 @@ public class MainController implements Initializable {
                 labelIndex++;
             }
         }
+    }
+
+    private void setCloudAnimation(ImageView cloud){
+        TranslateTransition cloudAnimation = new TranslateTransition();
+        cloudAnimation.setNode(cloud);
+        cloudAnimation.setDuration(Duration.millis(25069));
+        cloudAnimation.setCycleCount(TranslateTransition.INDEFINITE);
+        cloudAnimation.setByX(640);
+        cloudAnimation.setInterpolator(Interpolator.LINEAR);
+        cloudAnimation.play();
     }
 
 }
