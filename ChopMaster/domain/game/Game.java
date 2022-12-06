@@ -19,20 +19,20 @@ public class Game {
     private int tick = 0;
     private CommandWords commands;
     private Inventory inventory;
-    private Tile[][] tiles = new Tile[4][4];
+    private Tile[][] tiles = new Tile[4][4]; //double array to loop through giving name and direction. (16 tiles total)
 
     public Game() {
         createTiles();
         commands = new CommandWordsImplementation();
-        currentTile = tiles[0][0];
+        currentTile = tiles[0][0]; // starting tile.
         this.inventory = new Inventory();
     }
 
-    private void createTiles() {
+    private void createTiles() { //using the tile[][]
 
         for (int i = 0; i < tiles.length; i++) {
             for (int j = 0; j < tiles.length; j++) {
-                double spawnDouble = Math.random(); // Determine random Forest type.
+                double spawnDouble = Math.random(); // Determine random Forest type (at the current tile).
                 if (spawnDouble < ForestSpawnChances.getRainForestSpawnChances()) {
                     tiles[i][j] = new Tile("Rainforest at [" + i + "," + j + "]", new JungleForest());
                 } else {
@@ -47,9 +47,9 @@ public class Game {
         }
 
         for (int i = 0; i < tiles.length; i++) {
-            for (int j = 0; j < tiles.length; j++) {
+            for (int j = 0; j < tiles.length; j++) { //giving direction to neighbor rooms. 4 independent if-statements.
 
-                if (i > 0) {
+                if (i > 0) { //if i > 0. (NOT all the way to the left) The current room for sure has the direction west.
                     tiles[i][j].setExit("west", tiles[i - 1][j]);
                 }
 
@@ -57,7 +57,7 @@ public class Game {
                     tiles[i][j].setExit("east", tiles[i + 1][j]);
                 }
 
-                if (j > 0) {
+                if (j > 0) { //if j is bigger than 0 it the room for sure has the direction north.
                     tiles[i][j].setExit("north", tiles[i][j - 1]);
                 }
 
@@ -125,7 +125,7 @@ public class Game {
         return this.tiles;
     }
 
-    public Boolean isGameFinished() {
+    public Boolean isGameFinished() { //game will finish if sub-goals are not full-filled.
         if ((getInventory().getWoodChopped() < 150) && (tick == 10)) {
             return true;
         }
@@ -139,18 +139,16 @@ public class Game {
     }
 
 
-    public void tickCounter() {
+    public void tickCounter() { //count every move/tick to another room.
 
-        inventory.calcEco(tiles);
+        inventory.calcEco(tiles); //it will calculate the Eco for every room after every tick.
         tick++;
 
         for (int i = 0; i < tiles.length; i++) {
             for (int j = 0; j < tiles.length; j++) {
-                tiles[i][j].getForest().saplingGrow();
+                tiles[i][j].getForest().saplingGrow(); //call the saplingGrow method to grow sapling after every tick.
             }
         }
-
-
     }
 
     public int getTick() {
