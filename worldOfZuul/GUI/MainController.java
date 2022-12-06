@@ -37,7 +37,7 @@ public class MainController implements Initializable {
     private SplitPane pane;
 
     @FXML
-    private Text ecoScore, money, trees, saplings, turnsLeft, chopped, SaplingGrowthTimer;
+    private Text ecoScore, money, trees, saplings, turnsLeft, chopped, saplingGrowthTimer;
 
     @FXML
     private Text ecoScoreText, moneyText, treesText, saplingsText, turnsLeftText, choppedText, SaplingGrowthTimerText;
@@ -67,6 +67,8 @@ public class MainController implements Initializable {
 
     private Image oak, pine, jungle, oakSapling, pineSapling, jungleSapling, stump;
 
+    private Update update;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -91,6 +93,7 @@ public class MainController implements Initializable {
         this.setCloudAnimation(oakLongCloud);
         this.setCloudAnimation(pineLongCloud);
 
+        this.update = new Update();
     }
 
 
@@ -192,10 +195,14 @@ public class MainController implements Initializable {
     }
 
     private void updateAll() {
-        updateMap();
-        updateInfo();
-        updateGoButtons();
-        updateBackground();
+        // updateMap();
+        this.update.updateMap(game, tileData);
+        // updateInfo();
+        this.update.updateInfo(game, ecoScore, money, trees, saplings, turnsLeft, chopped, saplingGrowthTimer);
+        // updateGoButtons();
+        this.update.updateGoButtons(game, goNorth, goEast, goSouth, goWest);
+        // updateBackground();
+        this.update.updateBackground(game, pineSky, oakSky, jungleSky, oakLongCloud, pineLongCloud, jungleLongCloud);
         updateForest();
         updateInfobox();
     }
@@ -232,29 +239,6 @@ public class MainController implements Initializable {
         infoBox.setVisible(false); // When clicked on infobox, at any time it will disappear.
     }
 
-    private void updateBackground() {
-        pineSky.setVisible(false);
-        oakSky.setVisible(false);
-        jungleSky.setVisible(false);
-        oakLongCloud.setVisible(false);
-        pineLongCloud.setVisible(false);
-        jungleLongCloud.setVisible(false);
-
-        if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
-            oakSky.setVisible(true);
-            oakLongCloud.setVisible(true);
-        }else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
-            pineSky.setVisible(true);
-            pineLongCloud.setVisible(true);
-
-        }else if (game.getCurrentRoom().getForest().getClass() == JungleForest.class) {
-            jungleSky.setVisible(true);
-            jungleLongCloud.setVisible(true);
-
-        }
-
-
-    }
 
 
     @FXML
@@ -288,40 +272,6 @@ public class MainController implements Initializable {
 
             treeView.setImage(image);
         }
-    }
-
-    private void updateMap() {
-        int labelIndex = 0;
-        for (int i = 0; i < game.getRooms().length; i++) {
-            for (int j = 0; j < game.getRooms().length; j++) {
-                if (game.getRooms()[j][i] == game.getCurrentRoom()) {
-                    tileData[labelIndex].setText("X");
-                } else {
-                    tileData[labelIndex].setText(String.format("%03d", game.getRooms()[j][i].getForest().getTreePop()));
-                }
-                labelIndex++;
-            }
-        }
-    }
-
-    private void updateInfo() {
-        this.ecoScore.setText("" + this.game.getInventory().calcEco(game.getRooms()));
-        this.money.setText("" + this.game.getInventory().getMoneyScore());
-
-        this.trees.setText("" + game.getCurrentRoom().getForest().getTreePop());
-        this.saplings.setText("" + game.getCurrentRoom().getForest().getSaplingPop());
-
-        this.turnsLeft.setText("" + (Game.maxTicks - game.getTick()));
-        this.chopped.setText("" + game.getInventory().getWoodChopped());
-
-        this.SaplingGrowthTimer.setText("" + game.getCurrentRoom().getForest().getSaplingTurnsLeft());
-    }
-
-    private void updateGoButtons() {
-        goNorth.setDisable(game.getCurrentRoom().getExit("north") == null);
-        goEast.setDisable(game.getCurrentRoom().getExit("east") == null);
-        goSouth.setDisable(game.getCurrentRoom().getExit("south") == null);
-        goWest.setDisable(game.getCurrentRoom().getExit("west") == null);
     }
 
     public void start(Game game) {
