@@ -39,10 +39,7 @@ public class MainController implements Initializable {
     private Text ecoScore, money, trees, saplings, turnsLeft, chopped, saplingGrowthTimer;
 
     @FXML
-    private Text ecoScoreText, moneyText, treesText, saplingsText, turnsLeftText, choppedText, SaplingGrowthTimerText;
-
-    @FXML
-    private Button endGame, goNorth, goEast, goSouth, goWest, plant, chop;
+    private Button endGame, goNorth, goEast, goSouth, goWest;
 
     @FXML
     private Button infoBox;
