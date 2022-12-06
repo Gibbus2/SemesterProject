@@ -1,13 +1,14 @@
-package worldOfZuul.GUI;
+package ChopMaster.GUI;
 
+import ChopMaster.domain.game.Game;
+import ChopMaster.domain.tiles.forests.JungleForest;
+import ChopMaster.domain.tiles.forests.OakForest;
+import ChopMaster.domain.tiles.forests.PineForest;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-import worldOfZuul.domain.game.Game;
-import worldOfZuul.domain.tiles.forests.OakForest;
-import worldOfZuul.domain.tiles.forests.PineForest;
-import worldOfZuul.domain.tiles.forests.JungleForest;
+
 
 
 public class Update {
