@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.67669689276659" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldOfZuul.GUI.HelpController">
+<SplitPane dividerPositions="0.5401069518716577" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldOfZuul.GUI.HelpController">
   <items>
-    <AnchorPane maxWidth="400.0" minHeight="400.0" minWidth="530.0" prefHeight="160.0" prefWidth="100.0">
+    <AnchorPane maxWidth="400.0" minHeight="400.0" minWidth="550.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <VBox>
+            <VBox minHeight="540.0" minWidth="550.0" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label styleClass="text-h1" text="Welcome to ChopMaster!">
                      <VBox.margin>
@@ -100,9 +100,9 @@
                </children>
             </VBox>
          </children></AnchorPane>
-    <AnchorPane minHeight="400.0" minWidth="250.0" prefHeight="160.0" prefWidth="100.0">
+    <AnchorPane minHeight="400.0" minWidth="200.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="540.0" prefWidth="300.0">
+            <VBox alignment="TOP_CENTER" prefHeight="540.0" prefWidth="270.0">
                <children>
                   <Label styleClass="text-h2" text="Tree types">
                      <VBox.margin>
@@ -122,16 +122,16 @@
                               <Insets left="27.0" right="27.0" />
                            </HBox.margin>
                         </ImageView>
-                        <VBox prefHeight="200.0" prefWidth="190.0">
+                        <VBox prefHeight="200.0" prefWidth="125.0">
                            <children>
                               <Label styleClass="text-h3" text="Spruce">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label prefWidth="180.0" styleClass="text-normal" text="Low planting price" />
-                              <Label prefWidth="180.0" styleClass="text-normal" text="High sell value" />
-                              <Label prefHeight="18.0" prefWidth="180.0" styleClass="text-normal" text="Low biodiversity" />
+                              <Label styleClass="text-normal" text="Low planting price" />
+                              <Label styleClass="text-normal" text="High sell value" />
+                              <Label prefHeight="18.0" prefWidth="134.0" styleClass="text-normal" text="Low biodiversity" />
                            </children>
                         </VBox>
                      </children>
@@ -146,16 +146,16 @@
                               <Image url="@resources/oaktree.png" />
                            </image>
                         </ImageView>
-                        <VBox prefHeight="200.0" prefWidth="190.0">
+                        <VBox prefHeight="200.0" prefWidth="125.0">
                            <children>
                               <Label styleClass="text-h3" text="Oak">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label prefWidth="180.0" styleClass="text-normal" text="More expensive" />
-                              <Label prefWidth="180.0" styleClass="text-normal" text="Moderate sell value" />
-                              <Label prefHeight="18.0" prefWidth="180.0" styleClass="text-normal" text="Moderate biodiversity" />
+                              <Label styleClass="text-normal" text="More expensive" />
+                              <Label styleClass="text-normal" text="Moderate sell value" />
+                              <Label prefHeight="18.0" prefWidth="134.0" styleClass="text-normal" text="Moderate biodiversity" />
                            </children>
                         </VBox>
                      </children>
@@ -170,16 +170,16 @@
                               <Image url="@resources/jungletree.png" />
                            </image>
                         </ImageView>
-                        <VBox prefHeight="200.0" prefWidth="190.0">
+                        <VBox prefHeight="200.0" prefWidth="125.0">
                            <children>
                               <Label styleClass="text-h3" text="Rainforest tree">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label prefWidth="180.0" styleClass="text-normal" text="Very expensive" />
-                              <Label prefWidth="180.0" styleClass="text-normal" text="Low sell value" />
-                              <Label prefHeight="18.0" prefWidth="180.0" styleClass="text-normal" text="High biodiversity" />
+                              <Label styleClass="text-normal" text="Very expensive" />
+                              <Label styleClass="text-normal" text="Low sell value" />
+                              <Label prefHeight="18.0" prefWidth="134.0" styleClass="text-normal" text="High biodiversity" />
                            </children>
                         </VBox>
                      </children>

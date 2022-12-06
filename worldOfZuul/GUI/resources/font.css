@@ -6,6 +6,18 @@
 .button{
     -fx-font-family: "m5x7";
     -fx-font-size: 20;
+
+    -fx-background-color: #6ee772;
+    -fx-background-radius: 20;
+}
+
+.button:hover{
+    -fx-background-color: #4eaa51;
+}
+
+.button:pressed{
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #2f6431;
 }
 
 .text-normal{
