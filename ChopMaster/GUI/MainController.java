@@ -81,8 +81,13 @@ public class MainController implements Initializable {
         pineSapling = new Image("ChopMaster/GUI/resources/pinesapling.png");
         jungleSapling = new Image("ChopMaster/GUI/resources/junglesapling.png");
 
+<<<<<<< HEAD:ChopMaster/GUI/MainController.java
         stump = new Image("ChopMaster/GUI/resources/stump.png");
    
+=======
+        stump = new Image("worldOfZuul/GUI/resources/stump.png");
+
+>>>>>>> working-branch:worldOfZuul/GUI/MainController.java
 
         infoBox.setVisible(false);
 
@@ -98,34 +103,34 @@ public class MainController implements Initializable {
     // button events
     @FXML
     private void onPlantButtonPressed(ActionEvent event) {
-        game.getCurrentRoom().getForest().plant(input.getText(), game.getInventory());
+        game.getCurrentTile().getForest().plant(input.getText(), game.getInventory());
         updateAll();
     }
 
     @FXML
     private void onChopButtonPressed(ActionEvent event) {
-        game.getCurrentRoom().getForest().chop(input.getText(), game.getInventory());
+        game.getCurrentTile().getForest().chop(input.getText(), game.getInventory());
         updateAll();
     }
 
     @FXML
     private void onGoNorthButtonPressed(ActionEvent event) {
-        goRoom("north");
+        goTile("north");
     }
 
     @FXML
     private void onGoEastButtonPressed(ActionEvent event) {
-        goRoom("east");
+        goTile("east");
     }
 
     @FXML
     private void onGoSouthButtonPressed(ActionEvent event) {
-        goRoom("south");
+        goTile("south");
     }
 
     @FXML
     private void onGoWestButtonPressed(ActionEvent event) {
-        goRoom("west");
+        goTile("west");
     }
 
     @FXML
@@ -145,23 +150,23 @@ public class MainController implements Initializable {
     private void handleOnKeyPressed(KeyEvent event) {
         switch (event.getText()) {
             case "w":
-                goRoom("north");
+                goTile("north");
                 break;
             case "d":
-                goRoom("east");
+                goTile("east");
                 break;
             case "s":
-                goRoom("south");
+                goTile("south");
                 break;
             case "a":
-                goRoom("west");
+                goTile("west");
                 break;
             case "c":
-                game.getCurrentRoom().getForest().chop(input.getText(), game.getInventory());
+                game.getCurrentTile().getForest().chop(input.getText(), game.getInventory());
                 updateAll();
                 break;
             case "p":
-                game.getCurrentRoom().getForest().plant(input.getText(), game.getInventory());
+                game.getCurrentTile().getForest().plant(input.getText(), game.getInventory());
                 updateAll();
                 break;
 
@@ -181,8 +186,8 @@ public class MainController implements Initializable {
         this.gameOverController = gameOverController;
     }
 
-    private void goRoom(String direction) {
-        game.goRoom(game.getCommand("go", direction));
+    private void goTile(String direction) {
+        game.goTile(game.getCommand("go", direction));
         updateAll();
         if (game.isGameFinished()) {
             // end game by creating new action event and pass it to end game button
@@ -240,14 +245,14 @@ public class MainController implements Initializable {
         pineLongCloud.setVisible(false);
         jungleLongCloud.setVisible(false);
 
-        if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
+        if (game.getCurrentTile().getForest().getClass() == OakForest.class) {
             oakSky.setVisible(true);
             oakLongCloud.setVisible(true);
-        }else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
+        }else if (game.getCurrentTile().getForest().getClass() == PineForest.class) {
             pineSky.setVisible(true);
             pineLongCloud.setVisible(true);
 
-        }else if (game.getCurrentRoom().getForest().getClass() == JungleForest.class) {
+        }else if (game.getCurrentTile().getForest().getClass() == JungleForest.class) {
             jungleSky.setVisible(true);
             jungleLongCloud.setVisible(true);
 
@@ -259,24 +264,24 @@ public class MainController implements Initializable {
 
     @FXML
     private void updateForest() {
-        int treePop = this.game.getCurrentRoom().getForest().getTreePop();
-        int saplingPop = this.game.getCurrentRoom().getForest().getSaplingPop();
+        int treePop = this.game.getCurrentTile().getForest().getTreePop();
+        int saplingPop = this.game.getCurrentTile().getForest().getSaplingPop();
 
         for (ImageView treeView : this.treeViews) {
             Image image;
             if (treePop >= 10) {
-                if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
+                if (game.getCurrentTile().getForest().getClass() == OakForest.class) {
                     image = this.oak;
-                } else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
+                } else if (game.getCurrentTile().getForest().getClass() == PineForest.class) {
                     image = this.pine;
                 } else {
                     image = this.jungle;
                 }
                 treePop = treePop - 10;
             } else if (saplingPop >= 10) {
-                if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
+                if (game.getCurrentTile().getForest().getClass() == OakForest.class) {
                     image = this.oakSapling;
-                } else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
+                } else if (game.getCurrentTile().getForest().getClass() == PineForest.class) {
                     image = this.pineSapling;
                 } else {
                     image = this.jungleSapling;
@@ -292,12 +297,12 @@ public class MainController implements Initializable {
 
     private void updateMap() {
         int labelIndex = 0;
-        for (int i = 0; i < game.getRooms().length; i++) {
-            for (int j = 0; j < game.getRooms().length; j++) {
-                if (game.getRooms()[j][i] == game.getCurrentRoom()) {
+        for (int i = 0; i < game.getTiles().length; i++) {
+            for (int j = 0; j < game.getTiles().length; j++) {
+                if (game.getTiles()[j][i] == game.getCurrentTile()) {
                     tileData[labelIndex].setText("X");
                 } else {
-                    tileData[labelIndex].setText(String.format("%03d", game.getRooms()[j][i].getForest().getTreePop()));
+                    tileData[labelIndex].setText(String.format("%03d", game.getTiles()[j][i].getForest().getTreePop()));
                 }
                 labelIndex++;
             }
@@ -305,23 +310,23 @@ public class MainController implements Initializable {
     }
 
     private void updateInfo() {
-        this.ecoScore.setText("" + this.game.getInventory().calcEco(game.getRooms()));
+        this.ecoScore.setText("" + this.game.getInventory().calcEco(game.getTiles()));
         this.money.setText("" + this.game.getInventory().getMoneyScore());
 
-        this.trees.setText("" + game.getCurrentRoom().getForest().getTreePop());
-        this.saplings.setText("" + game.getCurrentRoom().getForest().getSaplingPop());
+        this.trees.setText("" + game.getCurrentTile().getForest().getTreePop());
+        this.saplings.setText("" + game.getCurrentTile().getForest().getSaplingPop());
 
         this.turnsLeft.setText("" + (Game.maxTicks - game.getTick()));
         this.chopped.setText("" + game.getInventory().getWoodChopped());
 
-        this.SaplingGrowthTimer.setText("" + game.getCurrentRoom().getForest().getSaplingTurnsLeft());
+        this.SaplingGrowthTimer.setText("" + game.getCurrentTile().getForest().getSaplingTurnsLeft());
     }
 
     private void updateGoButtons() {
-        goNorth.setDisable(game.getCurrentRoom().getExit("north") == null);
-        goEast.setDisable(game.getCurrentRoom().getExit("east") == null);
-        goSouth.setDisable(game.getCurrentRoom().getExit("south") == null);
-        goWest.setDisable(game.getCurrentRoom().getExit("west") == null);
+        goNorth.setDisable(game.getCurrentTile().getExit("north") == null);
+        goEast.setDisable(game.getCurrentTile().getExit("east") == null);
+        goSouth.setDisable(game.getCurrentTile().getExit("south") == null);
+        goWest.setDisable(game.getCurrentTile().getExit("west") == null);
     }
 
     public void start(Game game) {
@@ -340,9 +345,9 @@ public class MainController implements Initializable {
                 view.setFitHeight(40);
                 view.setOpacity(0.5);
 
-                if (game.getRooms()[j][i].getForest().getClass() == OakForest.class) {
+                if (game.getTiles()[j][i].getForest().getClass() == OakForest.class) {
                     view.setImage(this.oak);
-                } else if (game.getRooms()[j][i].getForest().getClass() == PineForest.class) {
+                } else if (game.getTiles()[j][i].getForest().getClass() == PineForest.class) {
                     view.setImage(this.pine);
                 } else {
                     view.setImage(this.jungle);
