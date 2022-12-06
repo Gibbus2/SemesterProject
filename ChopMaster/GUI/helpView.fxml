@@ -81,7 +81,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label styleClass="text-normal" text="The healthier the forests are, the more bio-diversity can flourish!">
+                  <Label styleClass="text-normal" text="The healthier  the forests are, the more bio-diversity can flourish!">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
