@@ -8,7 +8,24 @@
     -fx-font-size: 20;
 }
 
-.text{
+.text-normal{
     -fx-font-family: "m5x7";
     -fx-font-size: 20;
+}
+
+.text-h1{
+    -fx-font-family: "m5x7";
+    -fx-font-size: 50;
+    -fx-font-weight: bold;
+    
+}
+
+.text-h2{
+    -fx-font-family: "m5x7";
+    -fx-font-size: 30;
+}
+
+.text-h3{
+    -fx-font-family: "m5x7";
+    -fx-font-size: 24;
 }

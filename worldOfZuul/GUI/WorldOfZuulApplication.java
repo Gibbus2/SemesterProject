@@ -2,7 +2,6 @@ package worldOfZuul.GUI;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import worldOfZuul.domain.game.Game;
 import javafx.scene.Parent;

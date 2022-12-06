@@ -65,34 +65,6 @@ public class MainController implements Initializable {
         oak = new Image("worldOfZuul/GUI/resources/oaktree.png");
         pine = new Image("worldOfZuul/GUI/resources/pinetree.png");
         jungle = new Image("worldOfZuul/GUI/resources/jungletree.png");
-   
-
-        int labelIndex = 0;
-        for (int i = 0; i < map.getColumnCount(); i++) {
-            for (int j = 0; j < map.getRowCount(); j++) {
-                tileData[labelIndex] = new Text("" + j + ":" + i);
-                map.add(tileData[labelIndex], j, i);
-                GridPane.setHalignment(tileData[labelIndex], HPos.CENTER);
-                GridPane.setValignment(tileData[labelIndex], VPos.CENTER);
-                labelIndex++;
-            }
-        }
-
-        ecoScore.getStyleClass().add("text");
-        money.getStyleClass().add("text");
-        trees.getStyleClass().add("text");
-        saplings.getStyleClass().add("text");
-        turnsLeft.getStyleClass().add("text");
-        chopped.getStyleClass().add("text"); 
-        SaplingGrowthTimer.getStyleClass().add("text");
-
-        ecoScoreText.getStyleClass().add("text");
-        moneyText.getStyleClass().add("text");
-        treesText.getStyleClass().add("text");
-        saplingsText.getStyleClass().add("text");
-        turnsLeftText.getStyleClass().add("text");
-        choppedText.getStyleClass().add("text"); 
-        SaplingGrowthTimerText.getStyleClass().add("text");
     }
 
     // button events
@@ -315,6 +287,7 @@ public class MainController implements Initializable {
         for (int i = 0; i < map.getColumnCount(); i++) {
             for (int j = 0; j < map.getRowCount(); j++) {
                 tileData[labelIndex] = new Text("" + j + ":" + i);
+                tileData[labelIndex].getStyleClass().add("text-normal");
                 map.add(tileData[labelIndex], j, i);
                 GridPane.setHalignment(tileData[labelIndex], HPos.CENTER);
                 GridPane.setValignment(tileData[labelIndex], VPos.CENTER);

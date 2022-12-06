@@ -46,12 +46,12 @@
                <children>
                   <VBox alignment="CENTER_RIGHT" prefWidth="500.0">
                      <children>
-                        <Text fx:id="ecoScoreText" strokeType="OUTSIDE" strokeWidth="0.0" text="Eco Score: ">
+                        <Text fx:id="ecoScoreText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="Eco Score: ">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Text>
-                        <Text fx:id="moneyText" layoutX="41.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Money:">
+                        <Text fx:id="moneyText" layoutX="41.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="Money:">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -60,12 +60,12 @@
                   </VBox>
                   <VBox alignment="CENTER_LEFT" prefWidth="500.0">
                      <children>
-                        <Text fx:id="ecoScore" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                        <Text fx:id="ecoScore" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="0">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Text>
-                        <Text fx:id="money" layoutX="15.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                        <Text fx:id="money" layoutX="15.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="0">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -95,17 +95,17 @@
                <children>
                   <VBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="500.0">
                      <children>
-                        <Text fx:id="treesText" strokeType="OUTSIDE" strokeWidth="0.0" text="Trees:">
+                        <Text fx:id="treesText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="Trees:">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Text>
-                        <Text fx:id="saplingsText" strokeType="OUTSIDE" strokeWidth="0.0" text="Saplings:">
+                        <Text fx:id="saplingsText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="Saplings:">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Text>
-                        <Text fx:id="SaplingGrowthTimerText" strokeType="OUTSIDE" strokeWidth="0.0" text="Grown in:">
+                        <Text fx:id="SaplingGrowthTimerText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="Grown in:">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -114,17 +114,17 @@
                   </VBox>
                   <VBox alignment="CENTER_LEFT" layoutX="83.0" layoutY="10.0" prefHeight="60.0" prefWidth="470.0">
                      <children>
-                        <Text fx:id="trees" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                        <Text fx:id="trees" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="0">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Text>
-                        <Text fx:id="saplings" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                        <Text fx:id="saplings" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="0">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Text>
-                        <Text fx:id="SaplingGrowthTimer" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                        <Text fx:id="SaplingGrowthTimer" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="0">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -160,12 +160,12 @@
                <children>
                   <VBox alignment="CENTER_RIGHT" prefWidth="500.0">
                      <children>
-                        <Text fx:id="turnsLeftText" strokeType="OUTSIDE" strokeWidth="0.0" text="Turns Left: ">
+                        <Text fx:id="turnsLeftText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="Turns Left: ">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Text>
-                        <Text fx:id="choppedText" strokeType="OUTSIDE" strokeWidth="0.0" text="Chopped:">
+                        <Text fx:id="choppedText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="Chopped:">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -174,12 +174,12 @@
                   </VBox>
                   <VBox alignment="CENTER_LEFT" prefWidth="500.0">
                      <children>
-                        <Text fx:id="turnsLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                        <Text fx:id="turnsLeft" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="0">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Text>
-                        <Text fx:id="chopped" strokeType="OUTSIDE" strokeWidth="0.0" text="1000">
+                        <Text fx:id="chopped" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="1000">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -188,7 +188,7 @@
                   </VBox>
                </children>
             </HBox>
-            <Button fx:id="endGame" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onEndGameButtonPressed" text="End Game" VBox.vgrow="ALWAYS">
+            <Button fx:id="endGame" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onEndGameButtonPressed" styleClass="text-h3" text="End Game" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="16.0" />
                </font>

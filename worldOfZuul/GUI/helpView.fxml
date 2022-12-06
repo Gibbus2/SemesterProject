@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5401069518716577" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldOfZuul.GUI.HelpController">
+<SplitPane dividerPositions="0.67669689276659" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="worldOfZuul.GUI.HelpController">
   <items>
-    <AnchorPane maxWidth="400.0" minHeight="400.0" minWidth="550.0" prefHeight="160.0" prefWidth="100.0">
+    <AnchorPane maxWidth="400.0" minHeight="400.0" minWidth="530.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <VBox minHeight="540.0" minWidth="550.0" prefHeight="200.0" prefWidth="100.0">
+            <VBox>
                <children>
-                  <Label text="Welcome to ChopMaster!">
+                  <Label styleClass="text-h1" text="Welcome to ChopMaster!">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -25,7 +25,7 @@
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Label text="Your goal is to sustainably manage the forests.">
+                  <Label styleClass="text-normal" text="Your goal is to sustainably manage the forests.">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
@@ -33,7 +33,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label text="Chopping trees will give you money.">
+                  <Label styleClass="text-normal" text="Chopping trees will give you money.">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
@@ -41,7 +41,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label text="Planting saplings will cost you money.">
+                  <Label styleClass="text-normal" text="Planting saplings will cost you money.">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
@@ -49,7 +49,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label text="Every time you move, you use a turn.">
+                  <Label styleClass="text-normal" text="Every time you move, you use a turn.">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
@@ -57,7 +57,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label text="Saplings will grow into new trees after a certain number of turns.">
+                  <Label styleClass="text-normal" text="Saplings will grow into new trees after a certain number of turns.">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
@@ -65,7 +65,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label text="You have 30 turns in total.">
+                  <Label styleClass="text-normal" text="You have 30 turns in total.">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
@@ -73,7 +73,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label text="You need to chop 150, 400, and 1000 trees by turn 10, 20, and 30.">
+                  <Label styleClass="text-normal" text="You need to chop 150, 400, and 1000 trees by turn 10, 20, and 30.">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
@@ -81,7 +81,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label text="The healthier the forests are, the more bio-diversity can flourish!">
+                  <Label styleClass="text-normal" text="The healthier the forests are, the more bio-diversity can flourish!">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
@@ -89,7 +89,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label text="Your final score is calculated by how healthy the forests are at the end.">
+                  <Label styleClass="text-normal" text="Your final score is calculated by how healthy the forests are at the end.">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
@@ -100,11 +100,11 @@
                </children>
             </VBox>
          </children></AnchorPane>
-    <AnchorPane minHeight="400.0" minWidth="200.0" prefHeight="160.0" prefWidth="100.0">
+    <AnchorPane minHeight="400.0" minWidth="250.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="540.0" prefWidth="270.0">
+            <VBox alignment="TOP_CENTER" prefHeight="540.0" prefWidth="300.0">
                <children>
-                  <Label text="Tree types">
+                  <Label styleClass="text-h2" text="Tree types">
                      <VBox.margin>
                         <Insets bottom="20.0" top="20.0" />
                      </VBox.margin>
@@ -122,16 +122,16 @@
                               <Insets left="27.0" right="27.0" />
                            </HBox.margin>
                         </ImageView>
-                        <VBox prefHeight="200.0" prefWidth="125.0">
+                        <VBox prefHeight="200.0" prefWidth="190.0">
                            <children>
-                              <Label text="Spruce">
+                              <Label styleClass="text-h3" text="Spruce">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label text="Low planting price" />
-                              <Label text="High sell value" />
-                              <Label prefHeight="18.0" prefWidth="134.0" text="Low biodiversity" />
+                              <Label prefWidth="180.0" styleClass="text-normal" text="Low planting price" />
+                              <Label prefWidth="180.0" styleClass="text-normal" text="High sell value" />
+                              <Label prefHeight="18.0" prefWidth="180.0" styleClass="text-normal" text="Low biodiversity" />
                            </children>
                         </VBox>
                      </children>
@@ -146,16 +146,16 @@
                               <Image url="@resources/oaktree.png" />
                            </image>
                         </ImageView>
-                        <VBox prefHeight="200.0" prefWidth="125.0">
+                        <VBox prefHeight="200.0" prefWidth="190.0">
                            <children>
-                              <Label text="Oak">
+                              <Label styleClass="text-h3" text="Oak">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label text="More expensive" />
-                              <Label text="Moderate sell value" />
-                              <Label prefHeight="18.0" prefWidth="134.0" text="Moderate biodiversity" />
+                              <Label prefWidth="180.0" styleClass="text-normal" text="More expensive" />
+                              <Label prefWidth="180.0" styleClass="text-normal" text="Moderate sell value" />
+                              <Label prefHeight="18.0" prefWidth="180.0" styleClass="text-normal" text="Moderate biodiversity" />
                            </children>
                         </VBox>
                      </children>
@@ -170,16 +170,16 @@
                               <Image url="@resources/jungletree.png" />
                            </image>
                         </ImageView>
-                        <VBox prefHeight="200.0" prefWidth="125.0">
+                        <VBox prefHeight="200.0" prefWidth="190.0">
                            <children>
-                              <Label text="Rainforest tree">
+                              <Label styleClass="text-h3" text="Rainforest tree">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label text="Very expensive" />
-                              <Label text="Low sell value" />
-                              <Label prefHeight="18.0" prefWidth="134.0" text="High biodiversity" />
+                              <Label prefWidth="180.0" styleClass="text-normal" text="Very expensive" />
+                              <Label prefWidth="180.0" styleClass="text-normal" text="Low sell value" />
+                              <Label prefHeight="18.0" prefWidth="180.0" styleClass="text-normal" text="High biodiversity" />
                            </children>
                         </VBox>
                      </children>
