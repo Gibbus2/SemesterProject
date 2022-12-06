@@ -168,7 +168,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Text>
-                        <Text fx:id="SaplingGrowthTimer" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="0">
+                        <Text fx:id="saplingGrowthTimer" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="0">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
