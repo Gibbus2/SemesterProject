@@ -84,7 +84,7 @@ public class MainController implements Initializable {
         jungleSapling = new Image("worldOfZuul/GUI/resources/junglesapling.png");
 
         stump = new Image("worldOfZuul/GUI/resources/stump.png");
-   
+
 
         infoBox.setVisible(false);
 
@@ -101,34 +101,34 @@ public class MainController implements Initializable {
     // button events
     @FXML
     private void onPlantButtonPressed(ActionEvent event) {
-        game.getCurrentRoom().getForest().plant(input.getText(), game.getInventory());
+        game.getCurrentTile().getForest().plant(input.getText(), game.getInventory());
         updateAll();
     }
 
     @FXML
     private void onChopButtonPressed(ActionEvent event) {
-        game.getCurrentRoom().getForest().chop(input.getText(), game.getInventory());
+        game.getCurrentTile().getForest().chop(input.getText(), game.getInventory());
         updateAll();
     }
 
     @FXML
     private void onGoNorthButtonPressed(ActionEvent event) {
-        goRoom("north");
+        goTile("north");
     }
 
     @FXML
     private void onGoEastButtonPressed(ActionEvent event) {
-        goRoom("east");
+        goTile("east");
     }
 
     @FXML
     private void onGoSouthButtonPressed(ActionEvent event) {
-        goRoom("south");
+        goTile("south");
     }
 
     @FXML
     private void onGoWestButtonPressed(ActionEvent event) {
-        goRoom("west");
+        goTile("west");
     }
 
     @FXML
@@ -148,23 +148,23 @@ public class MainController implements Initializable {
     private void handleOnKeyPressed(KeyEvent event) {
         switch (event.getText()) {
             case "w":
-                goRoom("north");
+                goTile("north");
                 break;
             case "d":
-                goRoom("east");
+                goTile("east");
                 break;
             case "s":
-                goRoom("south");
+                goTile("south");
                 break;
             case "a":
-                goRoom("west");
+                goTile("west");
                 break;
             case "c":
-                game.getCurrentRoom().getForest().chop(input.getText(), game.getInventory());
+                game.getCurrentTile().getForest().chop(input.getText(), game.getInventory());
                 updateAll();
                 break;
             case "p":
-                game.getCurrentRoom().getForest().plant(input.getText(), game.getInventory());
+                game.getCurrentTile().getForest().plant(input.getText(), game.getInventory());
                 updateAll();
                 break;
 
@@ -184,8 +184,8 @@ public class MainController implements Initializable {
         this.gameOverController = gameOverController;
     }
 
-    private void goRoom(String direction) {
-        game.goRoom(game.getCommand("go", direction));
+    private void goTile(String direction) {
+        game.goTile(game.getCommand("go", direction));
         updateAll();
         if (game.isGameFinished()) {
             // end game by creating new action event and pass it to end game button
@@ -223,13 +223,13 @@ public class MainController implements Initializable {
 
         if ((game.getTick() == 7) && game.getInventory().getWoodChopped() < 150) { //1st sub-goal.
             infoBox.setVisible(true);
-            infoBox.setText("IKEA demands 150 trees by round 10. GET TO WORK!");
+            infoBox.setText("IKEA demands 150 trees by round 10. GET TO WORK!"+"\n"+"        (Click to minimize)");
         } else if (game.getTick() == 15 && game.getInventory().getWoodChopped() < 400) { //2nd sub-goal.
             infoBox.setVisible(true);
-            infoBox.setText("IKEA demands 450 trees by round 20. YOU CAN DO IT!");
+            infoBox.setText("IKEA demands 450 trees by round 20. YOU CAN DO IT!"+"\n"+"        (Click to minimize)");
         } else if (game.getTick() == 25 && game.getInventory().getWoodChopped() < 1000) { //3rd sub-goal.
             infoBox.setVisible(true);
-            infoBox.setText("IKEA demands 1000 trees by round 30. HURRY UP!");
+            infoBox.setText("IKEA demands 1000 trees by round 30. HURRY UP!"+"\n"+"        (Click to minimize)");
         } else
             infoBox.setText(null);
     }
@@ -239,28 +239,51 @@ public class MainController implements Initializable {
         infoBox.setVisible(false); // When clicked on infobox, at any time it will disappear.
     }
 
+    private void updateBackground() {
+        pineSky.setVisible(false);
+        oakSky.setVisible(false);
+        jungleSky.setVisible(false);
+        oakLongCloud.setVisible(false);
+        pineLongCloud.setVisible(false);
+        jungleLongCloud.setVisible(false);
+
+        if (game.getCurrentTile().getForest().getClass() == OakForest.class) {
+            oakSky.setVisible(true);
+            oakLongCloud.setVisible(true);
+        }else if (game.getCurrentTile().getForest().getClass() == PineForest.class) {
+            pineSky.setVisible(true);
+            pineLongCloud.setVisible(true);
+
+        }else if (game.getCurrentTile().getForest().getClass() == JungleForest.class) {
+            jungleSky.setVisible(true);
+            jungleLongCloud.setVisible(true);
+
+        }
+
+
+    }
 
 
     @FXML
     private void updateForest() {
-        int treePop = this.game.getCurrentRoom().getForest().getTreePop();
-        int saplingPop = this.game.getCurrentRoom().getForest().getSaplingPop();
+        int treePop = this.game.getCurrentTile().getForest().getTreePop();
+        int saplingPop = this.game.getCurrentTile().getForest().getSaplingPop();
 
         for (ImageView treeView : this.treeViews) {
             Image image;
             if (treePop >= 10) {
-                if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
+                if (game.getCurrentTile().getForest().getClass() == OakForest.class) {
                     image = this.oak;
-                } else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
+                } else if (game.getCurrentTile().getForest().getClass() == PineForest.class) {
                     image = this.pine;
                 } else {
                     image = this.jungle;
                 }
                 treePop = treePop - 10;
             } else if (saplingPop >= 10) {
-                if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
+                if (game.getCurrentTile().getForest().getClass() == OakForest.class) {
                     image = this.oakSapling;
-                } else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
+                } else if (game.getCurrentTile().getForest().getClass() == PineForest.class) {
                     image = this.pineSapling;
                 } else {
                     image = this.jungleSapling;
@@ -272,6 +295,40 @@ public class MainController implements Initializable {
 
             treeView.setImage(image);
         }
+    }
+
+    private void updateMap() {
+        int labelIndex = 0;
+        for (int i = 0; i < game.getTiles().length; i++) {
+            for (int j = 0; j < game.getTiles().length; j++) {
+                if (game.getTiles()[j][i] == game.getCurrentTile()) {
+                    tileData[labelIndex].setText("X");
+                } else {
+                    tileData[labelIndex].setText(String.format("%03d", game.getTiles()[j][i].getForest().getTreePop()));
+                }
+                labelIndex++;
+            }
+        }
+    }
+
+    private void updateInfo() {
+        this.ecoScore.setText("" + this.game.getInventory().calcEco(game.getTiles()));
+        this.money.setText("" + this.game.getInventory().getMoneyScore());
+
+        this.trees.setText("" + game.getCurrentTile().getForest().getTreePop());
+        this.saplings.setText("" + game.getCurrentTile().getForest().getSaplingPop());
+
+        this.turnsLeft.setText("" + (Game.maxTicks - game.getTick()));
+        this.chopped.setText("" + game.getInventory().getWoodChopped());
+
+        this.SaplingGrowthTimer.setText("" + game.getCurrentTile().getForest().getSaplingTurnsLeft());
+    }
+
+    private void updateGoButtons() {
+        goNorth.setDisable(game.getCurrentTile().getExit("north") == null);
+        goEast.setDisable(game.getCurrentTile().getExit("east") == null);
+        goSouth.setDisable(game.getCurrentTile().getExit("south") == null);
+        goWest.setDisable(game.getCurrentTile().getExit("west") == null);
     }
 
     public void start(Game game) {
@@ -290,9 +347,9 @@ public class MainController implements Initializable {
                 view.setFitHeight(40);
                 view.setOpacity(0.5);
 
-                if (game.getRooms()[j][i].getForest().getClass() == OakForest.class) {
+                if (game.getTiles()[j][i].getForest().getClass() == OakForest.class) {
                     view.setImage(this.oak);
-                } else if (game.getRooms()[j][i].getForest().getClass() == PineForest.class) {
+                } else if (game.getTiles()[j][i].getForest().getClass() == PineForest.class) {
                     view.setImage(this.pine);
                 } else {
                     view.setImage(this.jungle);

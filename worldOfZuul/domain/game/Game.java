@@ -22,25 +22,25 @@ public class Game {
     private Tile[][] tiles = new Tile[4][4];
 
     public Game() {
-        createRooms();
+        createTiles();
         commands = new CommandWordsImplementation();
         currentTile = tiles[0][0];
         this.inventory = new Inventory();
     }
 
-    private void createRooms() {
+    private void createTiles() {
 
         for (int i = 0; i < tiles.length; i++) {
             for (int j = 0; j < tiles.length; j++) {
                 double spawnDouble = Math.random(); // Determine random Forest type.
                 if (spawnDouble < ForestSpawnChances.getRainForestSpawnChances()) {
-                    tiles[i][j] = new Tile ("Rainforest at ["+i+","+j+"]", new JungleForest());
+                    tiles[i][j] = new Tile("Rainforest at [" + i + "," + j + "]", new JungleForest());
                 } else {
                     spawnDouble -= ForestSpawnChances.getRainForestSpawnChances();
                     if (spawnDouble < ForestSpawnChances.getOakForestSpawnChance()) {
-                        tiles[i][j] = new Tile ("Oak forest at ["+i+","+j+"]", new OakForest());
+                        tiles[i][j] = new Tile("Oak forest at [" + i + "," + j + "]", new OakForest());
                     } else {
-                        tiles[i][j] = new Tile ("Pine forest at ["+i+","+j+"]", new PineForest());
+                        tiles[i][j] = new Tile("Pine forest at [" + i + "," + j + "]", new PineForest());
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class Game {
         }
     }
 
-    public boolean goRoom(Command command) {
+    public boolean goTile(Command command) {
 
         if (!command.hasCommandValue()) {
             //No direction on command.
@@ -97,8 +97,8 @@ public class Game {
         }
     }
 
-    public String getRoomDescription() {
-        return currentTile.getLongDescription(" and you have " + (maxTicks - this.getTick())+" moves left");
+    public String getTileDescription() {
+        return currentTile.getLongDescription(" and you have " + (maxTicks - this.getTick()) + " moves left");
     }
 
     public CommandWords getCommands() {
@@ -113,7 +113,7 @@ public class Game {
         return new CommandImplementation(commands.getCommand(word1), word2);
     }
 
-    public Tile getCurrentRoom() {
+    public Tile getCurrentTile() {
         return this.currentTile;
     }
 
@@ -121,12 +121,12 @@ public class Game {
         return this.inventory;
     }
 
-    public Tile[][] getRooms() {
+    public Tile[][] getTiles() {
         return this.tiles;
     }
 
     public Boolean isGameFinished() {
-        if ((getInventory().getWoodChopped() < 150) && (tick == 10)){
+        if ((getInventory().getWoodChopped() < 150) && (tick == 10)) {
             return true;
         }
         if ((getInventory().getWoodChopped() < 400) && (tick == 20)) {

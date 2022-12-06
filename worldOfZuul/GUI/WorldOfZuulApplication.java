@@ -30,7 +30,7 @@ public class WorldOfZuulApplication extends Application {
             Parent mainPane = mainLoader.load();
             Scene mainScene = new Scene(mainPane);
             mainScene.getStylesheets().add("/worldOfZuul/GUI/resources/style.css");
-            // mainScene.getStylesheets().add(getClass().getResource("/worldOfZuul/GUI/resources/font.css").toExternalForm());
+
 
             // help scene
             FXMLLoader helpLoader = new FXMLLoader(WorldOfZuulApplication.class.getResource("helpView.fxml"));
