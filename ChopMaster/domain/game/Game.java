@@ -13,7 +13,7 @@ import java.lang.Math;
 
 public class Game {
 
-    public static final int maxTicks = 30;
+    public static final int maxTicks = 40;
 
     private Tile currentTile;
     private int tick = 0;
