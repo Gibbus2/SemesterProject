@@ -127,6 +127,7 @@ public class MainController implements Initializable {
                 break;
             case "a":
                 goRoom("west");
+                break;
             case "c":
                 game.getCurrentRoom().getForest().chop(input.getText(), game.getInventory());
                 updateAll();
