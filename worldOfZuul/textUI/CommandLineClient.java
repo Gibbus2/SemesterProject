@@ -55,8 +55,8 @@ public class CommandLineClient {
 
     private void roomInfo(){
         if(!game.isGameFinished()){
-            System.out.println(game.getRoomDescription());
-            System.out.println("There are " + game.getCurrentRoom().getForest().getTreePop() + " trees and " + game.getCurrentRoom().getForest().getSaplingPop() + " saplings.");
+            System.out.println(game.getTileDescription());
+            System.out.println("There are " + game.getCurrentTile().getForest().getTreePop() + " trees and " + game.getCurrentTile().getForest().getSaplingPop() + " saplings.");
             System.out.println("Wood chopped: " + game.getInventory().getWoodChopped());
             if(game.getTick() == Game.maxTicks - 1){
                 System.out.println("This is your last move");
@@ -67,13 +67,13 @@ public class CommandLineClient {
     }
 
     private void location(){
-        for (int i = 0; i < game.getRooms().length; i++) {
+        for (int i = 0; i < game.getTiles().length; i++) {
             System.out.println("+-----+-----+-----+-----+");
-            for (int j = 0; j < game.getRooms().length; j++) {
-                if(game.getRooms()[j][i].equals(game.getCurrentRoom())){
+            for (int j = 0; j < game.getTiles().length; j++) {
+                if(game.getTiles()[j][i].equals(game.getCurrentTile())){
                     System.out.printf("|  x  ");
                 }else{
-                    System.out.printf("| %03d ", game.getRooms()[j][i].getForest().getTreePop());
+                    System.out.printf("| %03d ", game.getTiles()[j][i].getForest().getTreePop());
                 }
             }
             System.out.printf("|\n");
@@ -102,7 +102,7 @@ public class CommandLineClient {
                 break;
         
             case GO:
-                if (game.goRoom(command)) {
+                if (game.goTile(command)) {
                     this.roomInfo();
                 } else {
                     System.out.println("Can't walk in that direction.");
@@ -123,7 +123,7 @@ public class CommandLineClient {
                 if(command.getCommandValue() == null){
                     System.out.println("Please insert a number after 'plant'");
                 }else{
-                    System.out.println(game.getCurrentRoom().getForest().plant(command.getCommandValue(), game.getInventory()));
+                    System.out.println(game.getCurrentTile().getForest().plant(command.getCommandValue(), game.getInventory()));
                 }
                 break;
             
@@ -131,14 +131,14 @@ public class CommandLineClient {
                 if(command.getCommandValue() == null){
                     System.out.println("Please insert a number after 'chop'");
                 }else{
-                    System.out.println(game.getCurrentRoom().getForest().chop(command.getCommandValue(), game.getInventory()));
+                    System.out.println(game.getCurrentTile().getForest().chop(command.getCommandValue(), game.getInventory()));
                 }
 
                 break;
             case SHOWSCORE:
                 System.out.println();
                 System.out.println("You currently have: " + game.getInventory().getMoneyScore() + " Euro-Dollars");
-                System.out.println("Current eco-Score is: " + game.getInventory().calcEco(game.getRooms()));
+                System.out.println("Current eco-Score is: " + game.getInventory().calcEco(game.getTiles()));
                 System.out.println();
                 break;
             default:
