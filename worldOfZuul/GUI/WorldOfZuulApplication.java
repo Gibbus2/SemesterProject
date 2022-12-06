@@ -10,7 +10,10 @@ import javafx.scene.Scene;
 
 public class WorldOfZuulApplication extends Application {
    
+    // public static Font font;
+
     public static void main(String[] args) {
+        // WorldOfZuulApplication.font = Font.loadFont("worldOfZuul/GUI/resources/fonts/m5x7.ttf", 45);
         launch(args);
     }
 
@@ -20,21 +23,27 @@ public class WorldOfZuulApplication extends Application {
         primaryStage.setTitle("ChopMaster");
 
         try {
-            // hello
+            
+
             // map scene
             FXMLLoader mainLoader = new FXMLLoader(WorldOfZuulApplication.class.getResource("mainView.fxml"));
             Parent mainPane = mainLoader.load();
             Scene mainScene = new Scene(mainPane);
+            mainScene.getStylesheets().add("/worldOfZuul/GUI/resources/font.css");
+            // mainScene.getStylesheets().add(getClass().getResource("/worldOfZuul/GUI/resources/font.css").toExternalForm());
 
             // help scene
             FXMLLoader helpLoader = new FXMLLoader(WorldOfZuulApplication.class.getResource("helpView.fxml"));
             Parent helpPane = helpLoader.load();
             Scene helpScene = new Scene(helpPane);
+            helpScene.getStylesheets().add("/worldOfZuul/GUI/resources/font.css");
+
 
             //gameover scene
             FXMLLoader gameOverLoader = new FXMLLoader(WorldOfZuulApplication.class.getResource("gameOverView.fxml"));
             Parent gameOverPane = gameOverLoader.load();
             Scene gameOverScene = new Scene(gameOverPane);
+            gameOverScene.getStylesheets().add("/worldOfZuul/GUI/resources/font.css");
 
             // get controllers
             MainController mainController = (MainController) mainLoader.getController();

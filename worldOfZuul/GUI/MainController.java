@@ -39,6 +39,9 @@ public class MainController implements Initializable {
     private Text ecoScore, money, trees, saplings, turnsLeft, chopped, SaplingGrowthTimer;
 
     @FXML
+    private Text ecoScoreText, moneyText, treesText, saplingsText, turnsLeftText, choppedText, SaplingGrowthTimerText;
+
+    @FXML
     private Button endGame, goNorth, goEast, goSouth, goWest, plant, chop;
 
     @FXML
@@ -80,17 +83,7 @@ public class MainController implements Initializable {
         jungleSapling = new Image("worldOfZuul/GUI/resources/junglesapling.png");
 
         stump = new Image("worldOfZuul/GUI/resources/stump.png");
-   
 
-        for (int i = 0; i < map.getColumnCount(); i++) {
-            for (int j = 0; j < map.getRowCount(); j++) {
-                tileData[labelIndex] = new Text("" + j + ":" + i);
-                map.add(tileData[labelIndex], j, i);
-                GridPane.setHalignment(tileData[labelIndex], HPos.CENTER);
-                GridPane.setValignment(tileData[labelIndex], VPos.CENTER);
-                labelIndex++;
-            }
-        }
 
         infoBox.setVisible(false);
     }
@@ -155,6 +148,7 @@ public class MainController implements Initializable {
                 break;
             case "a":
                 goRoom("west");
+                break;
             case "c":
                 game.getCurrentRoom().getForest().chop(input.getText(), game.getInventory());
                 updateAll();
@@ -345,6 +339,7 @@ public class MainController implements Initializable {
         for (int i = 0; i < map.getColumnCount(); i++) {
             for (int j = 0; j < map.getRowCount(); j++) {
                 tileData[labelIndex] = new Text("" + j + ":" + i);
+                tileData[labelIndex].getStyleClass().add("text-normal");
                 map.add(tileData[labelIndex], j, i);
                 GridPane.setHalignment(tileData[labelIndex], HPos.CENTER);
                 GridPane.setValignment(tileData[labelIndex], VPos.CENTER);

@@ -11,7 +11,12 @@ import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.stage.Stage;
 
-public class GameOverController {
+
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
+
+public class GameOverController implements Initializable {
     
     @FXML
     private TextArea textArea;
@@ -22,6 +27,11 @@ public class GameOverController {
     private Scene mainScene;
     private MainController mainController;
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        textArea.getStyleClass().add("text");
+    }
 
     public void showInfo(Game game){
         textArea.setText(
