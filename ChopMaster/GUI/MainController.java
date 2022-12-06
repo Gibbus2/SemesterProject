@@ -80,14 +80,10 @@ public class MainController implements Initializable {
         oakSapling = new Image("ChopMaster/GUI/resources/oaksapling.png");
         pineSapling = new Image("ChopMaster/GUI/resources/pinesapling.png");
         jungleSapling = new Image("ChopMaster/GUI/resources/junglesapling.png");
-
-<<<<<<< HEAD:ChopMaster/GUI/MainController.java
+        
         stump = new Image("ChopMaster/GUI/resources/stump.png");
    
-=======
-        stump = new Image("worldOfZuul/GUI/resources/stump.png");
 
->>>>>>> working-branch:worldOfZuul/GUI/MainController.java
 
         infoBox.setVisible(false);
 
