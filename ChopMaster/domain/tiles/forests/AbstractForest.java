@@ -47,7 +47,6 @@ public abstract class AbstractForest {
         this.saplingTurnsLeft = 0;
     }
 
-    // static methods
 
     // getRandomTreePop() method. Returns a random tree population between
     // minStartingTreePop and maxStartingTreePop.
@@ -55,8 +54,6 @@ public abstract class AbstractForest {
         int range = (this.maxStartingTreePop - this.minStartingTreePop);
         return (int)(Math.random() * range + this.minStartingTreePop) + 1;
     }
-
-    // dynamic methods
 
     // chop() method.
     // Chops down given amount of trees, or all if amount is too high.

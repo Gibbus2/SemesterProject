@@ -20,7 +20,7 @@ public class Update {
     }
 
     //Updates the minimap with player location and tree population
-    //takes a array of text objs starting in the top left corner for the grid(0,0), going left to right top to bottom
+    //takes an array of text objs starting in the top left corner for the grid(0,0), going left to right top to bottom
     public void map(Text[] tileData) {
         int labelIndex = 0;
         for (int i = 0; i < this.game.getTiles().length; i++) {
@@ -51,7 +51,7 @@ public class Update {
     }
 
 
-    //Disabels or enables buttons depending on what exits are availabe
+    //Disables or enables buttons depending on what exits are available
     public void goButtons(Button goNorth, Button goEast, Button goSouth, Button goWest) {
         goNorth.setDisable(this.game.getCurrentTile().getExit("north") == null);
         goEast.setDisable(this.game.getCurrentTile().getExit("east") == null);
@@ -60,7 +60,7 @@ public class Update {
     }
 
 
-    //sets background and sky animation visable depending on forest type for the current tile
+    //sets background and sky animation visible depending on forest type for the current tile
     public void background(ImageView pineSky, ImageView oakSky, ImageView jungleSky, ImageView oakLongCloud, ImageView pineLongCloud, ImageView jungleLongCloud) {
         pineSky.setVisible(false);
         oakSky.setVisible(false);
@@ -116,7 +116,7 @@ public class Update {
         }
     }
 
-    //Set infobox visable at tick 7, 15 and 25, with info on upcomming milestones.
+    //Set infobox visible at tick 7, 15 and 25, with info on upcoming milestones.
     public void infobox(Button infoBox) {
         if (this.game.getTick() == 10 || this.game.getTick() == 20 || this.game.getTick() == 30 ||
                 (this.game.getTick() <= 10 && this.game.getInventory().getWoodChopped() >= 150) ||
