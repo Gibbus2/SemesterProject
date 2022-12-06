@@ -38,7 +38,7 @@
                   <Image url="@resources/oakSky.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="oakLongCloud" fitHeight="540.0" fitWidth="1300.0" layoutX="-650.0">
+            <ImageView fx:id="oakLongCloud" fitHeight="540.0" fitWidth="1300.0" layoutX="-650.0" y="1.0">
                <image>
                   <Image url="@resources/oakLongCloud.png" />
                </image>
@@ -53,12 +53,12 @@
                   <Image url="@resources/pineSky.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="jungleLongCloud" fitHeight="540.0" fitWidth="1300.0" layoutX="-650.0">
+            <ImageView fx:id="jungleLongCloud" fitHeight="540.0" fitWidth="1300.0" layoutX="-650.0" y="1.0">
                <image>
                   <Image url="@resources/jungleLongCloud.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="pineLongCloud" fitHeight="540.0" fitWidth="1300.0" layoutX="-650.0">
+            <ImageView fx:id="pineLongCloud" fitHeight="540.0" fitWidth="1300.0" layoutX="-650.0" y="1.0">
                <image>
                   <Image url="@resources/pineLongCloud.png" />
                </image>
