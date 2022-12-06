@@ -10,12 +10,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 
-
 public class Update {
-    
+
     private Game game;
 
-    public Update(Game game){
+    public Update(Game game) {
         this.game = game;
     }
 
@@ -72,11 +71,11 @@ public class Update {
         if (this.game.getCurrentTile().getForest().getClass() == OakForest.class) {
             oakSky.setVisible(true);
             oakLongCloud.setVisible(true);
-        }else if (this.game.getCurrentTile().getForest().getClass() == PineForest.class) {
+        } else if (this.game.getCurrentTile().getForest().getClass() == PineForest.class) {
             pineSky.setVisible(true);
             pineLongCloud.setVisible(true);
 
-        }else if (this.game.getCurrentTile().getForest().getClass() == JungleForest.class) {
+        } else if (this.game.getCurrentTile().getForest().getClass() == JungleForest.class) {
             jungleSky.setVisible(true);
             jungleLongCloud.setVisible(true);
 
@@ -132,13 +131,13 @@ public class Update {
 
         if ((this.game.getTick() == 7) && this.game.getInventory().getWoodChopped() < 150) { //1st sub-goal.
             infoBox.setVisible(true);
-            infoBox.setText("IKEA demands 150 trees by round 10. GET TO WORK!"+"\n"+"        (Click to minimize)");
+            infoBox.setText("IKEA demands 150 trees by round 10. GET TO WORK!" + "\n" + "        (Click to minimize)");
         } else if (this.game.getTick() == 15 && this.game.getInventory().getWoodChopped() < 400) { //2nd sub-goal.
             infoBox.setVisible(true);
-            infoBox.setText("IKEA demands 450 trees by round 20. YOU CAN DO IT!"+"\n"+"        (Click to minimize)");
+            infoBox.setText("IKEA demands 450 trees by round 20. YOU CAN DO IT!" + "\n" + "        (Click to minimize)");
         } else if (this.game.getTick() == 25 && this.game.getInventory().getWoodChopped() < 1000) { //3rd sub-goal.
             infoBox.setVisible(true);
-            infoBox.setText("IKEA demands 1000 trees by round 30. HURRY UP!"+"\n"+"        (Click to minimize)");
+            infoBox.setText("IKEA demands 1000 trees by round 30. HURRY UP!" + "\n" + "        (Click to minimize)");
         } else
             infoBox.setText(null);
     }
