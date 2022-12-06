@@ -8,7 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChopMaster.GUI.GameOverController">
    <children>
-      <TextArea fx:id="textArea" editable="false" layoutX="224.0" layoutY="169.0" prefHeight="200.0" prefWidth="400.0" styleClass="text-normal">
+      <TextArea fx:id="textArea" editable="false" layoutX="199.0" layoutY="134.0" prefHeight="277.0" prefWidth="440.0" styleClass="text-normal">
          <font>
             <Font size="16.0" />
          </font></TextArea>
