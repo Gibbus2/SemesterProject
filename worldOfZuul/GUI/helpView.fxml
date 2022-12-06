@@ -124,7 +124,7 @@
                         </ImageView>
                         <VBox prefHeight="200.0" prefWidth="125.0">
                            <children>
-                              <Label styleClass="text-h3" text="Spruce">
+                              <Label styleClass="text-h3" text="Pine tree">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -148,7 +148,7 @@
                         </ImageView>
                         <VBox prefHeight="200.0" prefWidth="125.0">
                            <children>
-                              <Label styleClass="text-h3" text="Oak">
+                              <Label styleClass="text-h3" text="Oak tree">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -172,7 +172,7 @@
                         </ImageView>
                         <VBox prefHeight="200.0" prefWidth="125.0">
                            <children>
-                              <Label styleClass="text-h3" text="Rainforest tree">
+                              <Label styleClass="text-h3" text="Jungle tree">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
