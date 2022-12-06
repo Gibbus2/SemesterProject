@@ -9,7 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 public class ChopMasterGUIApplication extends Application {
-   
+
     // public static Font font;
 
     public static void main(String[] args) {
@@ -23,7 +23,7 @@ public class ChopMasterGUIApplication extends Application {
         primaryStage.setTitle("ChopMaster");
 
         try {
-            
+
 
             // map scene
             FXMLLoader mainLoader = new FXMLLoader(ChopMasterGUIApplication.class.getResource("mainView.fxml"));
@@ -52,12 +52,12 @@ public class ChopMasterGUIApplication extends Application {
 
             //settes for helpController
             helpController.setMainScene(mainScene);
-            
+
             //setters for mainController
             mainController.setHelpScene(helpScene);
             mainController.setGameOverScene(gameOverScene);
             mainController.setGameOverController(gameOverController);
-            
+
             //setters for gameOverController
             gameOverController.setMainScene(mainScene);
             gameOverController.setMainController(mainController);
@@ -75,6 +75,6 @@ public class ChopMasterGUIApplication extends Application {
         } catch (Exception e) {
             System.out.println(e);
         }
-        
+
     }
 }

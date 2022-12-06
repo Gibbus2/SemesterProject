@@ -3,11 +3,11 @@ package ChopMaster.domain.inventory;
 import ChopMaster.domain.tiles.Tile;
 
 public class Inventory {
-    //used to keep track of how much money you have
+    // used to keep track of how much money you have
     private int moneyScore;
-    //used to keep track of how much wood you have chopped
+    // used to keep track of how much wood you have chopped
     private int woodChopped = 0;
-    //used to keep track of how many trees you have planted
+    // used to keep track of how many trees you have planted
     private int treesPlanted = 0;
 
     // constructor
@@ -15,7 +15,7 @@ public class Inventory {
         this.moneyScore = 100; //Starting with 100 Euro-dollars
     }
 
-    //increase your moneyscore
+    // increase your moneyscore
     public void calcMoney(int woodInput) {
         this.moneyScore += woodInput;
     }
@@ -30,11 +30,10 @@ public class Inventory {
             }
         }
         return finalEcoScore;
-        //Will give a number from 0.0 to 1.0
     }
 
 
-    //getters
+    // getters
     public int getMoneyScore() {
         return this.moneyScore;
     }
@@ -47,7 +46,7 @@ public class Inventory {
         return woodChopped;
     }
 
-    //setters
+    // setters
     public void setWoodChopped(int woodChopped) {
         this.woodChopped += woodChopped;
     }

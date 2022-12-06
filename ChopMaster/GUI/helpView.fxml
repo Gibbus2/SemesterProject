@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5401069518716577" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChopMaster.GUI.HelpController">
+<SplitPane dividerPositions="0.5401069518716577" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChopMaster.GUI.HelpController">
   <items>
     <AnchorPane maxWidth="400.0" minHeight="400.0" minWidth="550.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -81,7 +81,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label styleClass="text-normal" text="The healthier  the forests are, the more bio-diversity can flourish!">
+                  <Label styleClass="text-normal" text="The healthier the forests are, the more bio-diversity can flourish!">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
@@ -96,6 +96,54 @@
                      <font>
                         <Font size="16.0" />
                      </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="314.0" styleClass="text-normal" text="The purpose of this game, is to visualize the impotance of sustainable">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="349.0" styleClass="text-normal" text="logging. Logging has to go hand in hand with nature, so it doesn't devastate">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="379.0" styleClass="text-normal" text="the biodiversity and native community. Therefore you have to fulfill demands ">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="409.0" styleClass="text-normal" text="for sustainable tree in the best way possible. To the right there is a hint!">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="444.0" styleClass="text-normal" text="You have to balance economy, human needs and natural habitats. Good Luck!">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="474.0" styleClass="text-normal" text="For more information - Check out the United Nations sustainable goal 15.">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
                   </Label>
                </children>
             </VBox>
