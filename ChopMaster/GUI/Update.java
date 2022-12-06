@@ -19,6 +19,8 @@ public class Update {
         this.game = game;
     }
 
+    //Updates the minimap with player location and tree population
+    //takes a array of text objs starting in the top left corner for the grid(0,0), going left to right top to bottom
     public void map(Text[] tileData) {
         int labelIndex = 0;
         for (int i = 0; i < this.game.getTiles().length; i++) {
@@ -34,6 +36,7 @@ public class Update {
     }
 
 
+    //Updates the values for score, money and tree related information 
     public void info(Text ecoScore, Text money, Text trees, Text saplings, Text turnsLeft, Text chopped, Text saplingGrowthTimer) {
         ecoScore.setText("" + this.game.getInventory().calcEco(this.game.getTiles()));
         money.setText("" + this.game.getInventory().getMoneyScore());
@@ -48,6 +51,7 @@ public class Update {
     }
 
 
+    //Disabels or enables buttons depending on what exits are availabe
     public void goButtons(Button goNorth, Button goEast, Button goSouth, Button goWest) {
         goNorth.setDisable(this.game.getCurrentTile().getExit("north") == null);
         goEast.setDisable(this.game.getCurrentTile().getExit("east") == null);
@@ -56,6 +60,7 @@ public class Update {
     }
 
 
+    //sets background and sky animation visable depending on forest type for the current tile
     public void background(ImageView pineSky, ImageView oakSky, ImageView jungleSky, ImageView oakLongCloud, ImageView pineLongCloud, ImageView jungleLongCloud) {
         pineSky.setVisible(false);
         oakSky.setVisible(false);
@@ -78,6 +83,7 @@ public class Update {
         }
     }
 
+    //Updates tree/sapling sprites, so one tree/sapling is showed for each 10.
     public void forest(ImageView[] treeViews, Image oak, Image pine, Image jungle, Image oakSapling, Image pineSapling, Image jungleSapling, Image stump) {
         int treePop = this.game.getCurrentTile().getForest().getTreePop();
         int saplingPop = this.game.getCurrentTile().getForest().getSaplingPop();
@@ -110,8 +116,8 @@ public class Update {
         }
     }
 
+    //Set infobox visable at tick 7, 15 and 25, with info on upcomming milestones.
     public void infobox(Button infoBox) {
-
         if (this.game.getTick() == 10 || this.game.getTick() == 20 || this.game.getTick() == 30 ||
                 (this.game.getTick() <= 10 && this.game.getInventory().getWoodChopped() >= 150) ||
                 (this.game.getTick() <= 20 && this.game.getInventory().getWoodChopped() >= 400) ||
