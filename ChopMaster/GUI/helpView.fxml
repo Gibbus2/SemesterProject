@@ -105,7 +105,7 @@
                         <Insets bottom="5.0" left="10.0" right="10.0" top="15.0" />
                      </VBox.margin>
                   </Label>
-                  <Label layoutX="20.0" layoutY="349.0" styleClass="text-normal" text="logging. Logging needs to go hand in hand with nature, so it doesn't devastate">
+                  <Label layoutX="20.0" layoutY="349.0" styleClass="text-normal" text="logging. Logging has to go hand in hand with nature, so it doesn't devastate">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -113,7 +113,7 @@
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Label layoutX="20.0" layoutY="379.0" styleClass="text-normal" text="the biodiversity and native community. Therefore you need to fulfill the demand">
+                  <Label layoutX="20.0" layoutY="379.0" styleClass="text-normal" text="the biodiversity and native community. Therefore you have to fulfill demands ">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -137,7 +137,7 @@
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Label layoutX="20.0" layoutY="474.0" styleClass="text-normal" text="For more information - Check out the United Nations sustanable goal 15.">
+                  <Label layoutX="20.0" layoutY="474.0" styleClass="text-normal" text="For more information - Check out the United Nations sustainable goal 15.">
                      <font>
                         <Font size="16.0" />
                      </font>
