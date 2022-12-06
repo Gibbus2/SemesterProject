@@ -33,12 +33,14 @@ public class GameOverController implements Initializable {
         textArea.getStyleClass().add("text");
     }
 
+    //compiles data from the game object and shows it in the testArea
     public void showInfo(Game game){
         textArea.setText(
             "Thank you for playing ChopMaster!\nYour Final score was " + game.getInventory().calcEco(game.getRooms()) + "\nYou have chopped " + game.getInventory().getWoodChopped() +" trees\nand planted "+ game.getInventory().getTreesPlanted()+ " trees"
         );
     }
 
+    //sets cancel button visability
     public void setCancelButtonVisable(boolean value){
         cancel.setVisible(value);
     }
@@ -52,6 +54,8 @@ public class GameOverController implements Initializable {
         this.mainController = mainController;
     }
 
+
+    //buttons
     @FXML
     private void onQuitButtonPressed(ActionEvent event){
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
