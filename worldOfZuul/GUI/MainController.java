@@ -237,7 +237,6 @@ public class MainController implements Initializable {
 
 
     private void updateBackground() {
-        //can you cluster this into like a group or something to make it look less wonky?
         pineSky.setVisible(false);
         oakSky.setVisible(false);
         jungleSky.setVisible(false);
@@ -248,13 +247,11 @@ public class MainController implements Initializable {
         if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
             oakSky.setVisible(true);
             oakLongCloud.setVisible(true);
-        }
-        if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
+        }else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
             pineSky.setVisible(true);
             pineLongCloud.setVisible(true);
 
-        }
-        if (game.getCurrentRoom().getForest().getClass() == JungleForest.class) {
+        }else if (game.getCurrentRoom().getForest().getClass() == JungleForest.class) {
             jungleSky.setVisible(true);
             jungleLongCloud.setVisible(true);
 
