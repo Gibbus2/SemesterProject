@@ -63,7 +63,7 @@ public class MainController implements Initializable {
     private Text[] tileData;
     private Scene helpScene, gameOverScene;
     private GameOverController gameOverController;
-    
+
     private Image oak, pine, jungle, oakSapling, pineSapling, jungleSapling, stump;
 
 
@@ -83,7 +83,7 @@ public class MainController implements Initializable {
         jungleSapling = new Image("worldOfZuul/GUI/resources/junglesapling.png");
 
         stump = new Image("worldOfZuul/GUI/resources/stump.png");
-
+   
 
         infoBox.setVisible(false);
     }
@@ -191,33 +191,39 @@ public class MainController implements Initializable {
         updateGoButtons();
         updateBackground();
         updateForest();
-
     }
 
     private void updateInfobox() {
+
+        if (game.getTick() == 10 || game.getTick() == 20 || game.getTick() == 30 ||
+                (game.getTick() <= 10 && game.getInventory().getWoodChopped() >= 150) ||
+                (game.getTick() <= 20 && game.getInventory().getWoodChopped() >= 400) ||
+                (game.getTick() <= 30 && game.getInventory().getWoodChopped() >= 1000)) {
+            infoBox.setVisible(false); //when the sub-goal is succeeded it will remove infobox
+        }       // so it is ready for next infobox. If reach goal before sub-goal round it also disappear.
+
+
         if (infoBox.isVisible()) {
-            return;
+            return; //if infobox is visible it will go to the top of method again and check the 1st if-statement.
         }
-        if ((game.getTick() == 7) && game.getInventory().getWoodChopped() < 150){
+
+        if ((game.getTick() == 7) && game.getInventory().getWoodChopped() < 150) { //1st sub-goal.
             infoBox.setVisible(true);
-            infoBox.setText("IKEA demand 150 trees by round 10. GET TO WORK!");
-        }
-        else if (game.getTick() == 15 && game.getInventory().getWoodChopped() < 450){
+            infoBox.setText("IKEA demands 150 trees by round 10. GET TO WORK!");
+        } else if (game.getTick() == 15 && game.getInventory().getWoodChopped() < 400) { //2nd sub-goal.
             infoBox.setVisible(true);
-            infoBox.setText("IKEA demand 450 trees by round 20");
-        }
-        else if (game.getTick() == 25 && game.getInventory().getWoodChopped() < 1000) {
+            infoBox.setText("IKEA demands 450 trees by round 20. YOU CAN DO IT!");
+        } else if (game.getTick() == 25 && game.getInventory().getWoodChopped() < 1000) { //3rd sub-goal.
             infoBox.setVisible(true);
-            infoBox.setText("IKEA demand 1000 trees by round 30. HURRY UP!");
-        }
-        else
+            infoBox.setText("IKEA demands 1000 trees by round 30. HURRY UP!");
+        } else
             infoBox.setText(null);
     }
 
-    public void onInfoBoxClicked(ActionEvent actionEvent) {
-        infoBox.setVisible(false);
-    }
 
+    public void onInfoBoxClicked(ActionEvent actionEvent) {
+        infoBox.setVisible(false); // When clicked on infobox, at any time it will disappear.
+    }
 
     private void updateBackground() {
         oakBackground.setVisible(false);
@@ -233,8 +239,6 @@ public class MainController implements Initializable {
         if (game.getCurrentRoom().getForest().getClass() == JungleForest.class) {
             jungleBackground.setVisible(true);
         }
-
-
     }
 
     @FXML
@@ -309,10 +313,10 @@ public class MainController implements Initializable {
         map.getChildren().clear();
         setImage();
         createTextFields();
-        updateAll();    
+        updateAll();
     }
 
-    private void setImage(){
+    private void setImage() {
         for (int i = 0; i < map.getColumnCount(); i++) {
             for (int j = 0; j < map.getRowCount(); j++) {
                 ImageView view = new ImageView();
@@ -320,9 +324,9 @@ public class MainController implements Initializable {
                 view.setFitHeight(40);
                 view.setOpacity(0.5);
 
-                if(game.getRooms()[j][i].getForest().getClass() == OakForest.class){
+                if (game.getRooms()[j][i].getForest().getClass() == OakForest.class) {
                     view.setImage(this.oak);
-                }else if (game.getRooms()[j][i].getForest().getClass() == PineForest.class) {
+                } else if (game.getRooms()[j][i].getForest().getClass() == PineForest.class) {
                     view.setImage(this.pine);
                 } else {
                     view.setImage(this.jungle);
@@ -333,7 +337,7 @@ public class MainController implements Initializable {
         }
     }
 
-    private void createTextFields(){
+    private void createTextFields() {
         int labelIndex = 0;
 
         for (int i = 0; i < map.getColumnCount(); i++) {
