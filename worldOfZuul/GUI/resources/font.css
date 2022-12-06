@@ -1,8 +1,14 @@
-@font-face{
+@font-face {
     font-family:'m5x7';
-    src: url('fonts/m5x7.ttf');
+    src: url("/worldOfZuul/GUI/resources/fonts/m5x7.ttf");
+}
+  
+.button{
+    -fx-font-family: "m5x7";
+    -fx-font-size: 20;
 }
 
-.label{
--fx-font-family: 'm5x7';
+.text{
+    -fx-font-family: "m5x7";
+    -fx-font-size: 20;
 }

@@ -46,12 +46,12 @@
                <children>
                   <VBox alignment="CENTER_RIGHT" prefWidth="500.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Eco Score: ">
+                        <Text fx:id="ecoScoreText" strokeType="OUTSIDE" strokeWidth="0.0" text="Eco Score: ">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Text>
-                        <Text layoutX="41.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Money:">
+                        <Text fx:id="moneyText" layoutX="41.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Money:">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -95,17 +95,17 @@
                <children>
                   <VBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="500.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trees:">
+                        <Text fx:id="treesText" strokeType="OUTSIDE" strokeWidth="0.0" text="Trees:">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Saplings:">
+                        <Text fx:id="saplingsText" strokeType="OUTSIDE" strokeWidth="0.0" text="Saplings:">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Grown in:">
+                        <Text fx:id="SaplingGrowthTimerText" strokeType="OUTSIDE" strokeWidth="0.0" text="Grown in:">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -160,12 +160,12 @@
                <children>
                   <VBox alignment="CENTER_RIGHT" prefWidth="500.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Turns Left: ">
+                        <Text fx:id="turnsLeftText" strokeType="OUTSIDE" strokeWidth="0.0" text="Turns Left: ">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Chopped:">
+                        <Text fx:id="choppedText" strokeType="OUTSIDE" strokeWidth="0.0" text="Chopped:">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
