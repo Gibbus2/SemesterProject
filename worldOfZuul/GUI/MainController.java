@@ -198,29 +198,29 @@ public class MainController implements Initializable {
         updateGoButtons();
         updateBackground();
         updateForest();
-
     }
 
     private void updateInfobox() {
 
-        if      (game.getTick() == 10 || game.getTick() == 20 || game.getTick() == 30 ||
+        if (game.getTick() == 10 || game.getTick() == 20 || game.getTick() == 30 ||
                 (game.getTick() <= 10 && game.getInventory().getWoodChopped() >= 150) ||
                 (game.getTick() <= 20 && game.getInventory().getWoodChopped() >= 400) ||
-                (game.getTick() <= 30 && game.getInventory().getWoodChopped() >= 1000)){
-                infoBox.setVisible(false);
-        }
+                (game.getTick() <= 30 && game.getInventory().getWoodChopped() >= 1000)) {
+            infoBox.setVisible(false); //when the sub-goal is succeeded it will remove infobox
+        }       // so it is ready for next infobox. If reach goal before sub-goal round it also disappear.
+
 
         if (infoBox.isVisible()) {
-            return;
+            return; //if infobox is visible it will go to the top of method again and check the 1st if-statement.
         }
 
-        if ((game.getTick() == 7) && game.getInventory().getWoodChopped() < 150) {
+        if ((game.getTick() == 7) && game.getInventory().getWoodChopped() < 150) { //1st sub-goal.
             infoBox.setVisible(true);
             infoBox.setText("IKEA demand 150 trees by round 10. GET TO WORK!");
-        } else if (game.getTick() == 15 && game.getInventory().getWoodChopped() < 400) {
+        } else if (game.getTick() == 15 && game.getInventory().getWoodChopped() < 400) { //2nd sub-goal.
             infoBox.setVisible(true);
             infoBox.setText("IKEA demand 450 trees by round 20");
-        } else if (game.getTick() == 25 && game.getInventory().getWoodChopped() < 1000) {
+        } else if (game.getTick() == 25 && game.getInventory().getWoodChopped() < 1000) { //3rd sub-goal.
             infoBox.setVisible(true);
             infoBox.setText("IKEA demand 1000 trees by round 30. HURRY UP!");
         } else
@@ -228,137 +228,134 @@ public class MainController implements Initializable {
     }
 
 
-        public void onInfoBoxClicked (ActionEvent actionEvent){
-            infoBox.setVisible(false);
-        }
-
-
-        private void updateBackground () {
-            oakBackground.setVisible(false);
-            pineBackground.setVisible(false);
-            jungleBackground.setVisible(false);
-
-            if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
-                oakBackground.setVisible(true);
-            }
-            if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
-                pineBackground.setVisible(true);
-            }
-            if (game.getCurrentRoom().getForest().getClass() == JungleForest.class) {
-                jungleBackground.setVisible(true);
-            }
-
-
-        }
-
-        @FXML
-        private void updateForest () {
-            int treePop = this.game.getCurrentRoom().getForest().getTreePop();
-            int saplingPop = this.game.getCurrentRoom().getForest().getSaplingPop();
-
-            for (ImageView treeView : this.treeViews) {
-                Image image;
-                if (treePop >= 10) {
-                    if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
-                        image = this.oak;
-                    } else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
-                        image = this.pine;
-                    } else {
-                        image = this.jungle;
-                    }
-                    treePop = treePop - 10;
-                } else if (saplingPop >= 10) {
-                    if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
-                        image = this.oakSapling;
-                    } else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
-                        image = this.pineSapling;
-                    } else {
-                        image = this.jungleSapling;
-                    }
-                    saplingPop = saplingPop - 10;
-                } else {
-                    image = this.stump;
-                }
-
-                treeView.setImage(image);
-            }
-        }
-
-        private void updateMap () {
-            int labelIndex = 0;
-            for (int i = 0; i < game.getRooms().length; i++) {
-                for (int j = 0; j < game.getRooms().length; j++) {
-                    if (game.getRooms()[j][i] == game.getCurrentRoom()) {
-                        tileData[labelIndex].setText("X");
-                    } else {
-                        tileData[labelIndex].setText(String.format("%03d", game.getRooms()[j][i].getForest().getTreePop()));
-                    }
-                    labelIndex++;
-                }
-            }
-        }
-
-        private void updateInfo () {
-            this.ecoScore.setText("" + this.game.getInventory().calcEco(game.getRooms()));
-            this.money.setText("" + this.game.getInventory().getMoneyScore());
-
-            this.trees.setText("" + game.getCurrentRoom().getForest().getTreePop());
-            this.saplings.setText("" + game.getCurrentRoom().getForest().getSaplingPop());
-
-            this.turnsLeft.setText("" + (Game.maxTicks - game.getTick()));
-            this.chopped.setText("" + game.getInventory().getWoodChopped());
-
-            this.SaplingGrowthTimer.setText("" + game.getCurrentRoom().getForest().getSaplingTurnsLeft());
-        }
-
-        private void updateGoButtons () {
-            goNorth.setDisable(game.getCurrentRoom().getExit("north") == null);
-            goEast.setDisable(game.getCurrentRoom().getExit("east") == null);
-            goSouth.setDisable(game.getCurrentRoom().getExit("south") == null);
-            goWest.setDisable(game.getCurrentRoom().getExit("west") == null);
-        }
-
-        public void start (Game game){
-            this.game = game;
-            map.getChildren().clear();
-            setImage();
-            createTextFields();
-            updateAll();
-        }
-
-        private void setImage () {
-            for (int i = 0; i < map.getColumnCount(); i++) {
-                for (int j = 0; j < map.getRowCount(); j++) {
-                    ImageView view = new ImageView();
-                    view.setFitWidth(40);
-                    view.setFitHeight(40);
-                    view.setOpacity(0.5);
-
-                    if (game.getRooms()[j][i].getForest().getClass() == OakForest.class) {
-                        view.setImage(this.oak);
-                    } else if (game.getRooms()[j][i].getForest().getClass() == PineForest.class) {
-                        view.setImage(this.pine);
-                    } else {
-                        view.setImage(this.jungle);
-                    }
-
-                    map.add(view, j, i);
-                }
-            }
-        }
-
-        private void createTextFields () {
-            int labelIndex = 0;
-
-            for (int i = 0; i < map.getColumnCount(); i++) {
-                for (int j = 0; j < map.getRowCount(); j++) {
-                    tileData[labelIndex] = new Text("" + j + ":" + i);
-                    map.add(tileData[labelIndex], j, i);
-                    GridPane.setHalignment(tileData[labelIndex], HPos.CENTER);
-                    GridPane.setValignment(tileData[labelIndex], VPos.CENTER);
-                    labelIndex++;
-                }
-            }
-        }
-
+    public void onInfoBoxClicked(ActionEvent actionEvent) {
+        infoBox.setVisible(false); // When clicked on infobox, at any time it will disappear.
     }
+
+    private void updateBackground() {
+        oakBackground.setVisible(false);
+        pineBackground.setVisible(false);
+        jungleBackground.setVisible(false);
+
+        if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
+            oakBackground.setVisible(true);
+        }
+        if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
+            pineBackground.setVisible(true);
+        }
+        if (game.getCurrentRoom().getForest().getClass() == JungleForest.class) {
+            jungleBackground.setVisible(true);
+        }
+    }
+
+    @FXML
+    private void updateForest() {
+        int treePop = this.game.getCurrentRoom().getForest().getTreePop();
+        int saplingPop = this.game.getCurrentRoom().getForest().getSaplingPop();
+
+        for (ImageView treeView : this.treeViews) {
+            Image image;
+            if (treePop >= 10) {
+                if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
+                    image = this.oak;
+                } else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
+                    image = this.pine;
+                } else {
+                    image = this.jungle;
+                }
+                treePop = treePop - 10;
+            } else if (saplingPop >= 10) {
+                if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
+                    image = this.oakSapling;
+                } else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
+                    image = this.pineSapling;
+                } else {
+                    image = this.jungleSapling;
+                }
+                saplingPop = saplingPop - 10;
+            } else {
+                image = this.stump;
+            }
+
+            treeView.setImage(image);
+        }
+    }
+
+    private void updateMap() {
+        int labelIndex = 0;
+        for (int i = 0; i < game.getRooms().length; i++) {
+            for (int j = 0; j < game.getRooms().length; j++) {
+                if (game.getRooms()[j][i] == game.getCurrentRoom()) {
+                    tileData[labelIndex].setText("X");
+                } else {
+                    tileData[labelIndex].setText(String.format("%03d", game.getRooms()[j][i].getForest().getTreePop()));
+                }
+                labelIndex++;
+            }
+        }
+    }
+
+    private void updateInfo() {
+        this.ecoScore.setText("" + this.game.getInventory().calcEco(game.getRooms()));
+        this.money.setText("" + this.game.getInventory().getMoneyScore());
+
+        this.trees.setText("" + game.getCurrentRoom().getForest().getTreePop());
+        this.saplings.setText("" + game.getCurrentRoom().getForest().getSaplingPop());
+
+        this.turnsLeft.setText("" + (Game.maxTicks - game.getTick()));
+        this.chopped.setText("" + game.getInventory().getWoodChopped());
+
+        this.SaplingGrowthTimer.setText("" + game.getCurrentRoom().getForest().getSaplingTurnsLeft());
+    }
+
+    private void updateGoButtons() {
+        goNorth.setDisable(game.getCurrentRoom().getExit("north") == null);
+        goEast.setDisable(game.getCurrentRoom().getExit("east") == null);
+        goSouth.setDisable(game.getCurrentRoom().getExit("south") == null);
+        goWest.setDisable(game.getCurrentRoom().getExit("west") == null);
+    }
+
+    public void start(Game game) {
+        this.game = game;
+        map.getChildren().clear();
+        setImage();
+        createTextFields();
+        updateAll();
+    }
+
+    private void setImage() {
+        for (int i = 0; i < map.getColumnCount(); i++) {
+            for (int j = 0; j < map.getRowCount(); j++) {
+                ImageView view = new ImageView();
+                view.setFitWidth(40);
+                view.setFitHeight(40);
+                view.setOpacity(0.5);
+
+                if (game.getRooms()[j][i].getForest().getClass() == OakForest.class) {
+                    view.setImage(this.oak);
+                } else if (game.getRooms()[j][i].getForest().getClass() == PineForest.class) {
+                    view.setImage(this.pine);
+                } else {
+                    view.setImage(this.jungle);
+                }
+
+                map.add(view, j, i);
+            }
+        }
+    }
+
+    private void createTextFields() {
+        int labelIndex = 0;
+
+        for (int i = 0; i < map.getColumnCount(); i++) {
+            for (int j = 0; j < map.getRowCount(); j++) {
+                tileData[labelIndex] = new Text("" + j + ":" + i);
+                map.add(tileData[labelIndex], j, i);
+                GridPane.setHalignment(tileData[labelIndex], HPos.CENTER);
+                GridPane.setValignment(tileData[labelIndex], VPos.CENTER);
+                labelIndex++;
+            }
+        }
+    }
+
+}
