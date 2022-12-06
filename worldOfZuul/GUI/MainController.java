@@ -2,10 +2,8 @@ package worldOfZuul.GUI;
 
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
-import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
@@ -73,8 +71,6 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         tileData = new Text[map.getColumnCount() * map.getRowCount()];
-
-        int labelIndex = 0;
 
         treeViews = new ImageView[]{treeView0, treeView1, treeView2, treeView3, treeView4, treeView5, treeView6, treeView7, treeView8, treeView9};
         oak = new Image("worldOfZuul/GUI/resources/oaktree.png");
