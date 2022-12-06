@@ -26,7 +26,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import ChopMaster.domain.tiles.forests.OakForest;
 import ChopMaster.domain.tiles.forests.PineForest;
-import ChopMaster.domain.tiles.forests.JungleForest;
 
 
 public class MainController implements Initializable {
@@ -194,12 +193,12 @@ public class MainController implements Initializable {
     }
 
     private void updateAll() {
-        this.update.updateMap(tileData);
-        this.update.updateInfo(ecoScore, money, trees, saplings, turnsLeft, chopped, saplingGrowthTimer);
-        this.update.updateGoButtons(goNorth, goEast, goSouth, goWest);
-        this.update.updateBackground(pineSky, oakSky, jungleSky, oakLongCloud, pineLongCloud, jungleLongCloud);
-        this.update.updateForest(treeViews, oak, pine, jungle, oakSapling, pineSapling, jungleSapling, stump);
-        this.update.updateInfobox(infoBox);
+        this.update.map(tileData);
+        this.update.info(ecoScore, money, trees, saplings, turnsLeft, chopped, saplingGrowthTimer);
+        this.update.goButtons(goNorth, goEast, goSouth, goWest);
+        this.update.background(pineSky, oakSky, jungleSky, oakLongCloud, pineLongCloud, jungleLongCloud);
+        this.update.forest(treeViews, oak, pine, jungle, oakSapling, pineSapling, jungleSapling, stump);
+        this.update.infobox(infoBox);
     }
 
 

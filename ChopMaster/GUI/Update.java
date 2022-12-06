@@ -19,7 +19,7 @@ public class Update {
         this.game = game;
     }
 
-    public void updateMap(Text[] tileData) {
+    public void map(Text[] tileData) {
         int labelIndex = 0;
         for (int i = 0; i < this.game.getTiles().length; i++) {
             for (int j = 0; j < this.game.getTiles().length; j++) {
@@ -34,7 +34,7 @@ public class Update {
     }
 
 
-    public void updateInfo(Text ecoScore, Text money, Text trees, Text saplings, Text turnsLeft, Text chopped, Text saplingGrowthTimer) {
+    public void info(Text ecoScore, Text money, Text trees, Text saplings, Text turnsLeft, Text chopped, Text saplingGrowthTimer) {
         ecoScore.setText("" + this.game.getInventory().calcEco(this.game.getTiles()));
         money.setText("" + this.game.getInventory().getMoneyScore());
 
@@ -48,7 +48,7 @@ public class Update {
     }
 
 
-    public void updateGoButtons(Button goNorth, Button goEast, Button goSouth, Button goWest) {
+    public void goButtons(Button goNorth, Button goEast, Button goSouth, Button goWest) {
         goNorth.setDisable(this.game.getCurrentTile().getExit("north") == null);
         goEast.setDisable(this.game.getCurrentTile().getExit("east") == null);
         goSouth.setDisable(this.game.getCurrentTile().getExit("south") == null);
@@ -56,7 +56,7 @@ public class Update {
     }
 
 
-    public void updateBackground(ImageView pineSky, ImageView oakSky, ImageView jungleSky, ImageView oakLongCloud, ImageView pineLongCloud, ImageView jungleLongCloud) {
+    public void background(ImageView pineSky, ImageView oakSky, ImageView jungleSky, ImageView oakLongCloud, ImageView pineLongCloud, ImageView jungleLongCloud) {
         pineSky.setVisible(false);
         oakSky.setVisible(false);
         jungleSky.setVisible(false);
@@ -78,7 +78,7 @@ public class Update {
         }
     }
 
-    public void updateForest(ImageView[] treeViews, Image oak, Image pine, Image jungle, Image oakSapling, Image pineSapling, Image jungleSapling, Image stump) {
+    public void forest(ImageView[] treeViews, Image oak, Image pine, Image jungle, Image oakSapling, Image pineSapling, Image jungleSapling, Image stump) {
         int treePop = this.game.getCurrentTile().getForest().getTreePop();
         int saplingPop = this.game.getCurrentTile().getForest().getSaplingPop();
 
@@ -110,7 +110,7 @@ public class Update {
         }
     }
 
-    public void updateInfobox(Button infoBox) {
+    public void infobox(Button infoBox) {
 
         if (this.game.getTick() == 10 || this.game.getTick() == 20 || this.game.getTick() == 30 ||
                 (this.game.getTick() <= 10 && this.game.getInventory().getWoodChopped() >= 150) ||
