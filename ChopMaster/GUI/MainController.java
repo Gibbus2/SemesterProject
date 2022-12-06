@@ -141,7 +141,7 @@ public class MainController implements Initializable {
 
     @FXML
     private void handleOnKeyPressed(KeyEvent event) {
-        switch (event.getText()) {
+        switch (event.getText().toLowerCase()) {
             case "w":
                 goTile("north");
                 break;
