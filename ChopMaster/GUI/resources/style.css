@@ -1,0 +1,43 @@
+@font-face {
+    font-family:'m5x7';
+    src: url("/ChopMaster/GUI/resources/fonts/m5x7.ttf");
+}
+  
+.button{
+    -fx-font-family: "m5x7";
+    -fx-font-size: 20;
+
+    -fx-background-color: #6ee772;
+    -fx-background-radius: 20;
+}
+
+.button:hover{
+    -fx-background-color: #4eaa51;
+}
+
+.button:pressed{
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #2f6431;
+}
+
+.text-normal{
+    -fx-font-family: "m5x7";
+    -fx-font-size: 20;
+}
+
+.text-h1{
+    -fx-font-family: "m5x7";
+    -fx-font-size: 50;
+    -fx-font-weight: bold;
+    
+}
+
+.text-h2{
+    -fx-font-family: "m5x7";
+    -fx-font-size: 30;
+}
+
+.text-h3{
+    -fx-font-family: "m5x7";
+    -fx-font-size: 24;
+}
