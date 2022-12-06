@@ -78,9 +78,8 @@ public class MainController implements Initializable {
         oakSapling = new Image("ChopMaster/GUI/resources/oaksapling.png");
         pineSapling = new Image("ChopMaster/GUI/resources/pinesapling.png");
         jungleSapling = new Image("ChopMaster/GUI/resources/junglesapling.png");
-        
+
         stump = new Image("ChopMaster/GUI/resources/stump.png");
-   
 
 
         infoBox.setVisible(false);
@@ -90,7 +89,6 @@ public class MainController implements Initializable {
         this.setCloudAnimation(oakLongCloud);
         this.setCloudAnimation(pineLongCloud);
     }
-
 
 
     // button events
@@ -248,7 +246,7 @@ public class MainController implements Initializable {
         }
     }
 
-    private void setCloudAnimation(ImageView cloud){
+    private void setCloudAnimation(ImageView cloud) {
         TranslateTransition cloudAnimation = new TranslateTransition();
         cloudAnimation.setNode(cloud);
         cloudAnimation.setDuration(Duration.millis(25069));
