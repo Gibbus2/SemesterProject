@@ -97,6 +97,7 @@ public class Game {
         }
     }
 
+    //used by CLI to get a descrption about a title thats its called on
     public String getTileDescription() {
         return currentTile.getLongDescription(" and you have " + (maxTicks - this.getTick()) + " moves left");
     }
@@ -111,18 +112,6 @@ public class Game {
 
     public Command getCommand(String word1, String word2) {
         return new CommandImplementation(commands.getCommand(word1), word2);
-    }
-
-    public Tile getCurrentTile() {
-        return this.currentTile;
-    }
-
-    public Inventory getInventory() {
-        return this.inventory;
-    }
-
-    public Tile[][] getTiles() {
-        return this.tiles;
     }
 
     public Boolean isGameFinished() { //game will finish if sub-goals are not full-filled.
@@ -149,6 +138,19 @@ public class Game {
                 tiles[i][j].getForest().saplingGrow(); //call the saplingGrow method to grow sapling after every tick.
             }
         }
+    }
+
+    //getters
+    public Tile getCurrentTile() {
+        return this.currentTile;
+    }
+
+    public Inventory getInventory() {
+        return this.inventory;
+    }
+
+    public Tile[][] getTiles() {
+        return this.tiles;
     }
 
     public int getTick() {
