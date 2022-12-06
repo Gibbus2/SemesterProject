@@ -216,13 +216,13 @@ public class MainController implements Initializable {
 
         if ((game.getTick() == 7) && game.getInventory().getWoodChopped() < 150) { //1st sub-goal.
             infoBox.setVisible(true);
-            infoBox.setText("IKEA demand 150 trees by round 10. GET TO WORK!");
+            infoBox.setText("IKEA demands 150 trees by round 10. GET TO WORK!");
         } else if (game.getTick() == 15 && game.getInventory().getWoodChopped() < 400) { //2nd sub-goal.
             infoBox.setVisible(true);
-            infoBox.setText("IKEA demand 450 trees by round 20");
+            infoBox.setText("IKEA demands 450 trees by round 20. YOU CAN DO IT!");
         } else if (game.getTick() == 25 && game.getInventory().getWoodChopped() < 1000) { //3rd sub-goal.
             infoBox.setVisible(true);
-            infoBox.setText("IKEA demand 1000 trees by round 30. HURRY UP!");
+            infoBox.setText("IKEA demands 1000 trees by round 30. HURRY UP!");
         } else
             infoBox.setText(null);
     }
