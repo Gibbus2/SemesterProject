@@ -33,19 +33,34 @@
                   <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="170.0" />
                </children>
             </AnchorPane>
-            <ImageView fx:id="pineBackground" fitHeight="540.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="oakSky" fitHeight="540.0" fitWidth="650.0">
                <image>
-                  <Image url="@resources/pineBackground.png" />
+                  <Image url="@resources/oakSky.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="oakBackground" fitHeight="540.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="oakLongCloud" fitHeight="540.0" fitWidth="1300.0" layoutX="-650.0">
                <image>
-                  <Image url="@resources/oakBackground.png" />
+                  <Image url="@resources/oakLongCloud.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="jungleBackground" fitHeight="540.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="jungleSky" fitHeight="540.0" fitWidth="650.0">
                <image>
-                  <Image url="@resources/jungleBackground.png" />
+                  <Image url="@resources/jungleSky.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="pineSky" fitHeight="540.0" fitWidth="650.0">
+               <image>
+                  <Image url="@resources/pineSky.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="jungleLongCloud" fitHeight="540.0" fitWidth="1300.0" layoutX="-650.0">
+               <image>
+                  <Image url="@resources/jungleLongCloud.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="pineLongCloud" fitHeight="540.0" fitWidth="1300.0" layoutX="-650.0">
+               <image>
+                  <Image url="@resources/pineLongCloud.png" />
                </image>
             </ImageView>
             <AnchorPane prefHeight="440.0" prefWidth="650.0" AnchorPane.topAnchor="100.0">

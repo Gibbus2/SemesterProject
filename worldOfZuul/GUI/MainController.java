@@ -1,5 +1,7 @@
 package worldOfZuul.GUI;
 
+import javafx.animation.Interpolator;
+import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -17,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
+import javafx.util.Duration;
 import worldOfZuul.domain.game.Game;
 import javafx.scene.control.*;
 
@@ -51,7 +54,7 @@ public class MainController implements Initializable {
     private TextField input;
 
     @FXML
-    private ImageView oakBackground, pineBackground, jungleBackground;
+    private ImageView oakSky, jungleSky, pineSky, oakLongCloud, pineLongCloud, jungleLongCloud;
 
     // handles tree view on background.
     @FXML
@@ -86,7 +89,15 @@ public class MainController implements Initializable {
    
 
         infoBox.setVisible(false);
+
+
+        this.setCloudAnimation(jungleLongCloud);
+        this.setCloudAnimation(oakLongCloud);
+        this.setCloudAnimation(pineLongCloud);
+
     }
+
+
 
     // button events
     @FXML
@@ -177,7 +188,6 @@ public class MainController implements Initializable {
     private void goRoom(String direction) {
         game.goRoom(game.getCommand("go", direction));
         updateAll();
-        updateInfobox();
         if (game.isGameFinished()) {
             // end game by creating new action event and pass it to end game button
             onEndGameButtonPressed(new ActionEvent(pane, endGame));
@@ -191,6 +201,7 @@ public class MainController implements Initializable {
         updateGoButtons();
         updateBackground();
         updateForest();
+        updateInfobox();
     }
 
     private void updateInfobox() {
@@ -226,20 +237,29 @@ public class MainController implements Initializable {
     }
 
     private void updateBackground() {
-        oakBackground.setVisible(false);
-        pineBackground.setVisible(false);
-        jungleBackground.setVisible(false);
+        pineSky.setVisible(false);
+        oakSky.setVisible(false);
+        jungleSky.setVisible(false);
+        oakLongCloud.setVisible(false);
+        pineLongCloud.setVisible(false);
+        jungleLongCloud.setVisible(false);
 
         if (game.getCurrentRoom().getForest().getClass() == OakForest.class) {
-            oakBackground.setVisible(true);
+            oakSky.setVisible(true);
+            oakLongCloud.setVisible(true);
+        }else if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
+            pineSky.setVisible(true);
+            pineLongCloud.setVisible(true);
+
+        }else if (game.getCurrentRoom().getForest().getClass() == JungleForest.class) {
+            jungleSky.setVisible(true);
+            jungleLongCloud.setVisible(true);
+
         }
-        if (game.getCurrentRoom().getForest().getClass() == PineForest.class) {
-            pineBackground.setVisible(true);
-        }
-        if (game.getCurrentRoom().getForest().getClass() == JungleForest.class) {
-            jungleBackground.setVisible(true);
-        }
+
+
     }
+
 
     @FXML
     private void updateForest() {
@@ -350,6 +370,16 @@ public class MainController implements Initializable {
                 labelIndex++;
             }
         }
+    }
+
+    private void setCloudAnimation(ImageView cloud){
+        TranslateTransition cloudAnimation = new TranslateTransition();
+        cloudAnimation.setNode(cloud);
+        cloudAnimation.setDuration(Duration.millis(25069));
+        cloudAnimation.setCycleCount(TranslateTransition.INDEFINITE);
+        cloudAnimation.setByX(640);
+        cloudAnimation.setInterpolator(Interpolator.LINEAR);
+        cloudAnimation.play();
     }
 
 }
