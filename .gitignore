@@ -1,6 +1,8 @@
 /.idea
 *.iml
 /out
+
+.vscode
 # Compiled class file
 *.class
 
